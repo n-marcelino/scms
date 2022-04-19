@@ -6,6 +6,7 @@ import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,6 +29,7 @@ public class OrdersController {
 			value= {"","/"},
 			method=RequestMethod.GET,
 			produces=MediaType.APPLICATION_JSON_VALUE)
+	@CrossOrigin(origins="*")
 	public String index() {
 		ArrayList<HashMap<String,Object>> orders = new ArrayList<HashMap<String,Object>>();
 		Iterable<Order> orderResult = orderRepository.findAll();

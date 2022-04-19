@@ -8,12 +8,15 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ciit.scms.models.Category;
 import com.ciit.scms.models.Product;
 import com.ciit.scms.operations.ProductBuilder;
+import com.ciit.scms.repositories.CategoryRepository;
 import com.ciit.scms.repositories.ProductRepository;
 import com.google.gson.Gson;
 
@@ -21,8 +24,37 @@ import com.google.gson.Gson;
 @ResponseBody
 @RequestMapping(value= {"/api/products"})
 public class ProductsController {
+	
 	@Autowired
 	private ProductRepository productRepository;
+	
+	@Autowired
+	private CategoryRepository categoryRepository;
+	
+	@RequestMapping(
+			value= {"","/"},
+			method=RequestMethod.POST,
+			produces=MediaType.APPLICATION_JSON_VALUE)
+	@CrossOrigin(origins="*")
+	public String save(@RequestBody String payload) {
+		Gson gson = new Gson();
+		HashMap<String,Object> data = new HashMap<String,Object>();
+		data = gson.fromJson(payload, data.getClass());
+		
+		String name			= data.get("name").toString();
+		Double price		= Double.parseDouble(data.get("price").toString());
+		Integer categoryId 	= (int)Double.parseDouble(data.get("categoryId").toString());
+		
+		Product p = new Product();
+		p.setName(name);
+		p.setPrice(price);
+		
+		Category c = categoryRepository.findById(categoryId).get();
+		p.setCategory(c);
+		
+		productRepository.save(p);
+		return " { \"message\": \"ok\" } ";
+	}
 	
 	@RequestMapping(
 			value= {"","/"},
