@@ -12,6 +12,7 @@ import ProductShow from "./ProductShow";
 import ProductAdd from "./ProductAdd";
 import CustomerShow from "./CustomerShow";
 import CustomerAdd from "./CustomerAdd";
+import OrderShow from "./OrderShow";
 
 export default function MainApp() {
     
@@ -59,6 +60,19 @@ export default function MainApp() {
                     </ul>
                 </li>
                 
+                <li>
+                    <a onClick={()=>(navigate('/orders'))}>
+                        Order Records
+                    </a>
+                    <ul>
+                        <li>
+                                <a onClick={()=>(navigate('/orders/add'))}>
+                                    Add Record
+                                </a>
+                        </li>
+                    </ul>
+                </li>
+
             </ul>
 
             <hr></hr>
@@ -70,6 +84,8 @@ export default function MainApp() {
                 <Route exact path ="/products/add" element={<ProductAdd/>}/>
                 <Route exact path ="/customers" element={<CustomerShow/>}/>
                 <Route exact path ="/customers/add" element={<CustomerAdd/>}/>
+                <Route exact path ="/orders" element={<OrderShow/>}/>
+                <Route exact path ="/orders/add" element={<OrderAdd/>}/>
             </Routes>
         </div>
     )

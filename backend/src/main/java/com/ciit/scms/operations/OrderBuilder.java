@@ -16,10 +16,10 @@ public class OrderBuilder {
 	}
 
 	public void execute() {
-		data.put("id", order.getId());
-		data.put("customer", order.getCustomer().getLastName() + ", " + order.getCustomer().getFirstName());
+		data.put("customer", order.getCustomer());
 		data.put("product", order.getProducts());
-		data.put("order date", order.getOrderDate());
+		data.put("orderDate", order.getOrderDate());
+		data.put("isOrderFulfilled", order.getIsOrderFulfilled());
 	}
 	
 	public HashMap<String, Object> getData() {
