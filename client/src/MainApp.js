@@ -10,6 +10,8 @@ import Home from "./Home";
 import CategoryAdd from "./CategoryAdd";
 import ProductShow from "./ProductShow";
 import ProductAdd from "./ProductAdd";
+import CustomerShow from "./CustomerShow";
+import CustomerAdd from "./CustomerAdd";
 
 export default function MainApp() {
     
@@ -43,6 +45,19 @@ export default function MainApp() {
                         </li>
                     </ul>
                 </li>
+
+                <li>
+                    <a onClick={()=>(navigate('/customers'))}>
+                        Customer Record
+                    </a>
+                    <ul>
+                        <li>
+                                <a onClick={()=>(navigate('/customers/add'))}>
+                                    Add Record
+                                </a>
+                        </li>
+                    </ul>
+                </li>
                 
             </ul>
 
@@ -53,6 +68,8 @@ export default function MainApp() {
                 <Route exact path ="/categories/add" element={<CategoryAdd/>}/>
                 <Route exact path ="/products" element={<ProductShow/>}/>
                 <Route exact path ="/products/add" element={<ProductAdd/>}/>
+                <Route exact path ="/customers" element={<CustomerShow/>}/>
+                <Route exact path ="/customers/add" element={<CustomerAdd/>}/>
             </Routes>
         </div>
     )

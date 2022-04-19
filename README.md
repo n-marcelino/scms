@@ -14,3 +14,26 @@ simple commerce management system
 ```
 
 5. go to localhost:8081
+
+making new "show" js
+
+1. import the ff:
+
+```
+import React, { useState, useEffect } from "react";
+```
+
+2. make the necessary function with the following syntax:
+```
+export default function functionName() {}
+```
+
+3. declare the const variables needed:
+
+3.1: empty array containing a variable 'object', and a function 'setObject' to change it
+```
+const [object, setObject] = useState([]);
+
+\\e.g.
+const [products, setProducts] = useState([]);
+```

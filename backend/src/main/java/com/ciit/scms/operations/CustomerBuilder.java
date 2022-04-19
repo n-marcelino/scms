@@ -17,9 +17,12 @@ public class CustomerBuilder {
 
 	public void execute() {
 		data.put("id", customer.getId());
-		data.put("name", customer.getLastName() + ", " + customer.getFirstName());
-		data.put("address", customer.getStreet() + ", " + customer.getCity() + " " + customer.getZip());
-		data.put("phone number", customer.getPhone());
+		data.put("firstname", customer.getFirstName());
+		data.put("lastname", customer.getLastName());
+		data.put("street", customer.getStreet());
+		data.put("city", customer.getCity());
+		data.put("zip", customer.getZip());
+		data.put("phone", customer.getPhone());
 	}
 	
 	public HashMap<String, Object> getData() {
