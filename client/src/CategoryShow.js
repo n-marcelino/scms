@@ -42,10 +42,12 @@ export default function CategoryShow() {
                     {
                         categories.map((c) => {
                             return(
-                                <div class="bg-light p-5 c-card">
+                                <div class="bg-light p-5 c-card d-flex flex-column">
                                     <h2>{c.name}</h2>
-                                    <h5>ID: {c.id}</h5>
-                                    <div class="d-flex gap-1 pt-4">
+                                    <div class="mb-4">
+                                        <h5>ID: {c.id}</h5>
+                                    </div>
+                                    <div class="mt-auto">
                                         <button type="button" class="w-100 btn btn-warning">
                                             Edit
                                         </button>
@@ -102,7 +104,7 @@ export default function CategoryShow() {
     }
 
     return ( //returns a single element only; so you can nest all other elements inside one div
-        <div>
+        <div class="p-3">
             <h1>
                 Category List
             </h1>

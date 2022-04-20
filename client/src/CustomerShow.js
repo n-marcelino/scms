@@ -40,12 +40,14 @@ export default function CustomerShow() {
                     {
                         customers.map((c) => {
                             return(
-                                <div class="bg-light p-5 c-card">
-                                    <h2>{c.lastname + ", " + c.firstname}</h2>
-                                    <h5>ID: {c.id}</h5>
-                                    <h5>ADDRESS: {c.street + ", " + c.city + " " + c.zip}</h5>
-                                    <h5>Phone Number: {c.phone}</h5>
-                                    <div class="d-flex gap-1 pt-4">
+                                <div class="bg-light p-5 c-card d-flex flex-column">
+                                    <div class="mb-4">
+                                        <h2>{c.lastname + ", " + c.firstname}</h2>
+                                        <h5>ID: {c.id}</h5>
+                                        <h5>ADDRESS: {c.street + ", " + c.city + " " + c.zip}</h5>
+                                        <h5>Phone Number: {c.phone}</h5>
+                                    </div>
+                                    <div class="mt-auto">
                                         <button type="button" class="w-100 btn btn-warning">
                                             Edit
                                         </button>
@@ -102,7 +104,7 @@ export default function CustomerShow() {
     }
 
     return ( //returns a single element only; so you can nest all other elements inside one div
-        <div>
+        <div class="p-3">
             <h1>
                 Customer Records
             </h1>

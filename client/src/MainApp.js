@@ -56,7 +56,7 @@ export default function MainApp() {
             
             <div class="w-75">
 
-                <div class="p-3">
+                <div>
                     {/* dont remove the adds from here even if theres adds in the shows,
                     for some reason it breaks if the adds dont exist here */}
                     <Routes>

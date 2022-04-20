@@ -39,12 +39,14 @@ export default function ProductShow() {
                     {
                         products.map((p) => {
                             return(
-                                <div class="bg-light p-5 c-card">
-                                    <h2>{p.name}</h2>
-                                    <h5>ID: {p.id}</h5>
-                                    <h5>PRICE: {p.price}</h5>
-                                    <h5>CATEGORY: {p.category}</h5>
-                                    <div class="d-flex gap-1 pt-4">
+                                <div class="bg-light p-5 c-card d-flex flex-column">
+                                    <div class="mb-4">
+                                        <h2>{p.name}</h2>
+                                        <h5>ID: {p.id}</h5>
+                                        <h5>PRICE: {p.price}</h5>
+                                        <h5>CATEGORY: {p.category}</h5>
+                                    </div>
+                                    <div class="mt-auto">
                                         <button type="button" class="w-100 btn btn-warning">
                                             Edit
                                         </button>
@@ -103,7 +105,7 @@ export default function ProductShow() {
     }
 
     return ( //returns a single element only; so you can nest all other elements inside one div
-        <div>
+        <div class="p-3">
             <h1>
                 My List of Products
             </h1>

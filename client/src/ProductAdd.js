@@ -57,7 +57,7 @@ export default function ProductAdd() {
     }
 
     return (
-        <div>
+        <div class="p-3">
             <div class="form-group w-50">
                 <h1>Add Products</h1>
                 <div class="form-group row py-2">

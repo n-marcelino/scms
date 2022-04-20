@@ -51,7 +51,7 @@ export default function CustomerAdd() {
     }
 
     return (
-        <div class="form-group w-50">
+        <div class="form-group w-50 p-3">
             <h1>Add Customer Record</h1>
             <div class="form-group row py-2">
                 <label class="col-3 col-form-label">
