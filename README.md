@@ -13,18 +13,13 @@
 0. **❗❗make github account, setup github desktop, figure out how to collab on the same repo❗❗**
 
 1. **crud**
-    * **c**reate
-        * client ✅ 
-        * backend ✅ 
+    * **c**reate ✅
+        * we can create entries in category, customer, and product
+        * orders are still broken..... 
     * **r**ead
-        * client ✅ 
-        * backend ✅ 
-    * **u**pdate
-        * client ❓
-        * backend ❓
-    * **d**elete
-        * client ❓
-        * backend ❓
+        * figure out a searchbar ❗
+    * **u**pdate ❓
+    * **d**elete ❓
 2. **orders:**
     * The problem here is i cant figure out how to work with dates :L
     * client
