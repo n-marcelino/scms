@@ -1,6 +1,30 @@
 # scms
 
-## SIMPLE COMMERCE MANAGEMENT SYSTEM
+## TO-DO LIST (!!!)
+1. crud
+    * c
+        * client ✅ 
+        * backend ✅ 
+    * r
+        * client ✅ 
+        * backend ✅ 
+    * u
+        * client ❓
+        * backend ❓
+    * d
+        * client ❓
+        * backend ❓
+2. orders:
+    * The problem here is i cant figure out how to work with dates :L
+    * client
+        * OrderShow ❓
+        * OrderAdd ❓
+    * back-end
+        * Save ❓
+        * Builder ❓
+
+
+## SIMPLE COMMERCE MANAGEMENT SYSTEM (!!!)
 
 1. backend folder contains java project made on eclipse
 
