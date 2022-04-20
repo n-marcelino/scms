@@ -20,8 +20,9 @@
         * OrderShow ❓
         * OrderAdd ❓
     * back-end
-        * Save ❓
-        * Builder ❓
+        * Save function in orderscontroller ❓
+        * Builder for gson/json edit to be compatible converting back and forth ❓
+            * there should be no concatenated anything in builder bc it wont be able to convert back from gson to java
 3. **Form authentication**
     * Find a way to make a restriction on the forms
     * columns cant be empty etc etc
