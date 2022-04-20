@@ -3,6 +3,11 @@
 ## THINGS TO CONSULT SIR ABOUT (!!!)
 1. ung id system ang gulo :l
 2. ung orders, how to work w/ date?
+    * how to have a form input for date? and how to convert that into smth that the backend can use???
+    * how to work with the builder + controller?
+3. additionally, how to work with arrays sa render product?
+    * e.g. in categories, show localhost:8080, the array of products under a category
+    * how to render that?
 
 ## TO-DO LIST (!!!)
 1. **crud**

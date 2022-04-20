@@ -20,7 +20,7 @@ export default function Home() {
                     </p>
             </div>
 
-            <div className="text-container-2">
+            <div className="text-container">
                     <h1>Categories</h1>
                     <p> <b><i>Categories</i></b> section enables the user to distinguish 
                         the different group of products whether it is a 
@@ -28,14 +28,14 @@ export default function Home() {
                     </p>
             </div>
 
-            <div className="text-container-3">
+            <div className="text-container">
             <h1>Customer</h1>
                 <p> One problem dealing with customers information is to manage it in a more organized way.
                     With this system's <b><i>Customers</i></b> function, you can now easily find, update, and delete a customer information easily.
                 </p>
             </div>
 
-            <div className="text-container-4">
+            <div className="text-container">
             <h1>Order</h1>
                 <p> As the user's business grows, bulk orders will make the user's mind overwhelmed. With the <b><i>Orders</i></b> Section, 
                     fetching an order's information and even the 
