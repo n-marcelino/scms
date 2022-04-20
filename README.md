@@ -1,5 +1,9 @@
 # scms
 
+## THINGS TO CONSULT SIR ABOUT (!!!)
+1. ung id system ang gulo :l
+2. ung orders, how to work w/ date?
+
 ## TO-DO LIST (!!!)
 1. **crud**
     * **c**reate
