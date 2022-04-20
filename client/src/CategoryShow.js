@@ -1,39 +1,40 @@
 import React, { useState, useEffect } from "react";
 
-export default function ProductShow() {
+export default function CategoryShow() {
 
     //observable variable and function that updates variable
-    const [products, setProducts] = useState([]); //empty array
-    const urlProducts = "http://localhost:8080/api/products";
+    const [message, setMessage] = useState(""); //string
+    const [categories, setCategories] = useState([]); //empty array
+    const urlCategories = "http://localhost:8080/api/categories";
 
     useEffect(() => {
-        loadProducts()
+        loadCategories()
     }, []); //function called only once
 
-    function loadProducts() {
+    function loadCategories() {
         // Step 1: Call the urlProducts URL
-        fetch(urlProducts)
+        fetch(urlCategories)
             .then(response => response.json())
             .then(data => {
                 // Step 2: Given the json response, load it to products variable
-                setProducts(data.products);
+                setCategories(data.categories);
             })
             .catch((error) => {
             });
     }
 
-    function renderProducts() {
-        if(products.length > 0) {
+    function renderCategories() {
+        
+
+        if(categories.length > 0) {
             return(
                 <div class="d-flex gap-3">
                     {
-                        products.map((p) => {
+                        categories.map((c) => {
                             return(
                                 <div class="bg-light p-5">
-                                    <h2>{p.name}</h2>
-                                    <h5>ID: {p.id}</h5>
-                                    <h5>PRICE: {p.price}</h5>
-                                    <h5>CATEGORY: {p.category}</h5>
+                                    <h2>{c.name}</h2>
+                                    <h5>ID: {c.id}</h5>
                                     <div class="d-flex gap-1 pt-4">
                                         <button type="button" class="w-100 btn btn-warning">
                                             Edit
@@ -48,7 +49,7 @@ export default function ProductShow() {
         } else {
             return (
                 <h2>
-                    No Products Foud
+                    No Categories Foud
                 </h2>
             )
         }
@@ -57,7 +58,7 @@ export default function ProductShow() {
     return ( //returns a single element only; so you can nest all other elements inside one div
         <div>
             <h1>
-                My List of Products
+                Category List
             </h1>
 
             {/* <input
@@ -65,7 +66,12 @@ export default function ProductShow() {
                 onChange={(event)=>{setMessage(event.target.value)}}
             /> */}
 
-            {renderProducts()}
+            <div>
+                {/* a variable called message, which will be rendered*/}
+                {message}
+            </div>
+
+            {renderCategories()}
 
 
         </div>

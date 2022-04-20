@@ -32,7 +32,7 @@ public class CategoryBuilder {
 			categoryData.add(pBuilder.getData());
 		}
 		
-		data.put("category", categoryData);
+		data.put("products", categoryData);
 	}
 	
 	public HashMap<String, Object> getData() {

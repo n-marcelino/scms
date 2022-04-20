@@ -58,52 +58,68 @@ export default function ProductAdd() {
 
     return (
         <div>
-            <h1>Add Products</h1>
-            <div>
-                <label>
-                    Name: 
-                </label>
-                <input
-                    value={name}
-                    onChange= {(event)=>{setName(event.target.value)}}
-                />
-            </div>
-            <div>
-                <label>
-                    Price: 
-                </label>
-                <input
-                    value={price}
-                    onChange= {(event)=>{setPrice(event.target.value)}}
-                />
-            </div>
+            <div class="form-group w-50">
+                <h1>Add Products</h1>
+                <div class="form-group row py-2">
+                    <label class="col-2 col-form-label">
+                        Name: 
+                    </label>
+                    <div class="col-10">
+                        <input 
+                            class="form-control"
+                            value={name}
+                            onChange= {(event)=>{setName(event.target.value)}}
+                        />
+                    </div>
+                    
+                </div>
 
-            <div>
-                <label>
-                    Category: 
-                </label>
-                <select 
-                    value={categoryId}
-                    onChange = {(event)=> {setCategoryId(event.target.value)}}
-                >
-                    {
-                        categories.map((c) => {
-                            return (
-                                <option value = {c.id}>
-                                    {c.name}
-                                </option>
-                            )
-                        })
-                    }
-                </select>
-            </div>
+                <div class="form-group row py-2">
+                    <label class="col-sm-2 col-form-label">
+                        Price: 
+                    </label>
+                    <div class="col-sm-10">
+                        <input
+                            class="form-control"
+                            value={price}
+                            onChange= {(event)=>{setPrice(event.target.value)}}
+                        />
+                    </div>
+                    
+                </div>
 
-            <div>
-                <button
-                    onClick={()=>{handleSave()}}
-                >
-                    Add New Product
-                </button>
+                <div class="form-group row py-2">
+                    <label class="col-sm-2 col-form-label">
+                        Category: 
+                    </label>
+                    <div class="col-sm-10">
+                        <select 
+                            class="form-control"
+                            value={categoryId}
+                            onChange = {(event)=> {setCategoryId(event.target.value)}}
+                        >
+                            {
+                                categories.map((c) => {
+                                    return (
+                                        <option value = {c.id}>
+                                            {c.name}
+                                        </option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    
+                </div>
+
+                <div class="pt-4">
+                    <button
+                        class="form-control btn-warning"
+                        onClick={()=>{handleSave()}}
+                    >
+                        Add New Product
+                    </button>
+                </div>
             </div>
         </div>
     )
