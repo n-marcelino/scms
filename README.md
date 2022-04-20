@@ -63,8 +63,10 @@ E:\Programming\github\scms\client> []     <= this thing is ur cursor
 ``` 
 9. go to localhost:8081
 
-## making new "show" js
+## misc.
 <details>
+<summary>making new "show" js</summary>
+<br>
 1. import the ff:
 
 ```
