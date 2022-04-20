@@ -15,7 +15,7 @@
 
 5. go to localhost:8081
 
-making new "show" js
+## making new "show" js
 
 1. import the ff:
 
