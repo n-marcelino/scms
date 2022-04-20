@@ -37,14 +37,25 @@
 
 2. client folder contains html/js made on vscode
 
-3. to launch, first run the 'program.java' within the backend project on eclipse
+3. import as project the backend to eclipse
 
-4. then run this code on ur client terminal:
+4. within eclipse, in src/main/resources/application.properties, change the necessary info to match ur sql settings
+
+5. run 'program.java' within the backend project on eclipse
+
+6. add the client folder to ur vscode workspace
+
+7. make sure that your terminal is set to the client folder directory
+    * e.g. your terminal should look like this:
+```
+E:\Programming\github\scms\client> []     <= this thing is ur cursor
+```
+
+8. on your terminal, run this:
 ```
 ./node_modules/.bin/webpack serve --mode development
-```
-
-5. go to localhost:8081
+``` 
+7. go to localhost:8081
 
 ## making new "show" js
 
