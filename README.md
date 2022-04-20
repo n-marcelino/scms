@@ -64,7 +64,7 @@ E:\Programming\github\scms\client> []     <= this thing is ur cursor
 9. go to localhost:8081
 
 ## making new "show" js
-
+<details>
 1. import the ff:
 
 ```
@@ -180,3 +180,4 @@ public String save(@RequestBody String payload) {
 ```
 
 8. reset ur backend (stop running, then run again)
+</details>
