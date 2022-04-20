@@ -1,6 +1,7 @@
 # scms
+```
 simple commerce management system
-
+```
 1. backend folder contains java project made on eclipse
 
 2. client folder contains html/js made on vscode
