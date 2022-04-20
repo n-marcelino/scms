@@ -1,7 +1,8 @@
 # scms
 ```
-simple commerce management system
+SIMPLE COMMERCE MANAGEMENT SYSTEM
 ```
+
 1. backend folder contains java project made on eclipse
 
 2. client folder contains html/js made on vscode
@@ -9,7 +10,6 @@ simple commerce management system
 3. to launch, first run the 'program.java' within the backend project on eclipse
 
 4. then run this code on ur client terminal:
-
 ```
 ./node_modules/.bin/webpack serve --mode development
 ```
