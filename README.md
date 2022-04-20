@@ -1,20 +1,20 @@
 # scms
 
 ## TO-DO LIST (!!!)
-1. crud
-    * c
+1. *crud*
+    * *c*
         * client ✅ 
         * backend ✅ 
-    * r
+    * *r*
         * client ✅ 
         * backend ✅ 
-    * u
+    * *u*
         * client ❓
         * backend ❓
-    * d
+    * *d*
         * client ❓
         * backend ❓
-2. orders:
+2. *orders:*
     * The problem here is i cant figure out how to work with dates :L
     * client
         * OrderShow ❓
