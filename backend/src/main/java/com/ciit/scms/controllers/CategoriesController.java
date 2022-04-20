@@ -70,6 +70,27 @@ public class CategoriesController {
 		return result;
 	}
 	
+	// update (NOT WORKING YET BECUZ CANT TEST (throwing some error 400's or CORS at me))
+	@RequestMapping(
+			value= {"","/"},
+			method=RequestMethod.PATCH,
+			produces=MediaType.APPLICATION_JSON_VALUE)
+	@CrossOrigin(origins="*")
+	public String update(@RequestBody String payload) {
+		Gson gson = new Gson();
+		HashMap<String,Object> data = new HashMap<String,Object>();
+		data = gson.fromJson(payload, data.getClass());
+		
+		String name = data.get("name").toString();
+		int id = Integer.parseInt(data.get("id").toString());
+		
+		Category c = categoryRepository.findById(id).get();
+		c.setName(name);
+		
+		categoryRepository.save(c);
+		return " { \"message\": \"ok\" } ";
+	}
+		
 	@RequestMapping(
 			value= {"/{id}"},
 			method=RequestMethod.GET,

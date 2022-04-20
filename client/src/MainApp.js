@@ -9,10 +9,16 @@ import {
 import Home from "./Home";
 import CategoryShow from "./CategoryShow";
 import CategoryAdd from "./CategoryAdd";
+import CategoryUpdate from "./CategoryUpdate";
+import CategoryDelete from "./CategoryDelete";
 import ProductShow from "./ProductShow";
 import ProductAdd from "./ProductAdd";
+import ProductUpdate from "./ProductUpdate";
+import ProductDelete from "./ProductDelete";
 import CustomerShow from "./CustomerShow";
 import CustomerAdd from "./CustomerAdd";
+import CustomerUpdate from "./CustomerUpdate";
+import CustomerDelete from "./CustomerDelete";
 
 export default function MainApp() {
     
@@ -44,6 +50,16 @@ export default function MainApp() {
                                     Add Category
                                 </a>
                             </li>
+                            <li>
+                                <a class="nav-link link-warning" onClick={()=>(navigate('/categories/update'))}>
+                                    Update Category
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link link-warning" onClick={()=>(navigate('/categories/delete'))}>
+                                    Delete Category
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
@@ -55,6 +71,16 @@ export default function MainApp() {
                             <li>
                                 <a class="nav-link link-warning" onClick={()=>(navigate('/products/add'))}>
                                     Add Product
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link link-warning" onClick={()=>(navigate('/products/update'))}>
+                                    Update Product
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link link-warning" onClick={()=>(navigate('/products/delete'))}>
+                                    Delete Product
                                 </a>
                             </li>
                         </ul>
@@ -70,6 +96,16 @@ export default function MainApp() {
                                     Add Record
                                 </a>
                             </li>
+                            <li>
+                                <a class="nav-link link-warning" onClick={()=>(navigate('/customers/update'))}>
+                                    Update Record
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link link-warning" onClick={()=>(navigate('/customers/delete'))}>
+                                    Delete Record
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -82,10 +118,17 @@ export default function MainApp() {
                         <Route exact path ="/" element={<Home/>}/>
                         <Route exact path ="/categories" element={<CategoryShow/>}/>
                         <Route exact path ="/categories/add" element={<CategoryAdd/>}/>
+                        <Route exact path ="/categories/update" element={<CategoryUpdate/>}/>
+                        <Route exact path ="/categories/delete" element={<CategoryDelete/>}/>
                         <Route exact path ="/products" element={<ProductShow/>}/>
                         <Route exact path ="/products/add" element={<ProductAdd/>}/>
+                        <Route exact path ="/products/update" element={<ProductUpdate/>}/>
+                        <Route exact path ="/products/delete" element={<ProductDelete/>}/>
                         <Route exact path ="/customers" element={<CustomerShow/>}/>
                         <Route exact path ="/customers/add" element={<CustomerAdd/>}/>
+                        <Route exact path ="/customers/update" element={<CustomerUpdate/>}/>
+                        <Route exact path ="/customers/delete" element={<CustomerDelete/>}/>
+
                     </Routes>
                 </div>
             </div>
