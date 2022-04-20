@@ -98,6 +98,9 @@ export default function ProductAdd() {
                             value={categoryId}
                             onChange = {(event)=> {setCategoryId(event.target.value)}}
                         >
+                            <option selected="selected" disabled>
+                                --Categories--
+                            </option>
                             {
                                 categories.map((c) => {
                                     return (
