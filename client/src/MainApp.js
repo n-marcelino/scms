@@ -38,39 +38,18 @@ export default function MainApp() {
                         <a class="nav-link link-warning" onClick={()=>(navigate('/categories'))}>
                         Categories
                         </a>
-                        <ul>
-                            <li>
-                                <a class="nav-link link-warning" onClick={()=>(navigate('/categories/add'))}>
-                                    Add Category
-                                </a>
-                            </li>
-                        </ul>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link link-warning" onClick={()=>(navigate('/products'))}>
                             Products
                         </a>
-                        <ul>
-                            <li>
-                                <a class="nav-link link-warning" onClick={()=>(navigate('/products/add'))}>
-                                    Add Product
-                                </a>
-                            </li>
-                        </ul>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link link-warning" onClick={()=>(navigate('/customers'))}>
                             Customer Record
                         </a>
-                        <ul>
-                            <li>
-                                <a class="nav-link link-warning" onClick={()=>(navigate('/customers/add'))}>
-                                    Add Record
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </div>
@@ -78,13 +57,15 @@ export default function MainApp() {
             <div class="w-75">
 
                 <div class="p-3">
+                    {/* dont remove the adds from here even if theres adds in the shows,
+                    for some reason it breaks if the adds dont exist here */}
                     <Routes>
                         <Route exact path ="/" element={<Home/>}/>
-                        <Route exact path ="/categories" element={<CategoryShow/>}/>
+                        <Route exact path ="/categories/*" element={<CategoryShow/>}/>
                         <Route exact path ="/categories/add" element={<CategoryAdd/>}/>
-                        <Route exact path ="/products" element={<ProductShow/>}/>
+                        <Route exact path ="/products/*" element={<ProductShow/>}/>
                         <Route exact path ="/products/add" element={<ProductAdd/>}/>
-                        <Route exact path ="/customers" element={<CustomerShow/>}/>
+                        <Route exact path ="/customers/*" element={<CustomerShow/>}/>
                         <Route exact path ="/customers/add" element={<CustomerAdd/>}/>
                     </Routes>
                 </div>

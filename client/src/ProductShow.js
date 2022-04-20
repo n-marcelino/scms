@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from "react";
+import {
+    HashRouter as Router,
+    Routes,
+    Route,
+    useNavigate
+} from "react-router-dom";
+
+import ProductAdd from "./ProductAdd";
 
 export default function ProductShow() {
+
+    const navigate = useNavigate();
 
     //observable variable and function that updates variable
     const [products, setProducts] = useState([]); //empty array
@@ -45,9 +55,18 @@ export default function ProductShow() {
                     }
 
                     <div class="bg-light c-card" >
-                        <div class="add-new d-flex align-items-center justify-content-center">
-                            {/* <i class="bi-plus-circle text-warning"></i> */}
-                            
+                        <div onClick={()=>(navigate('/products/add'))} class="btn h-100 w-100 d-flex align-items-center justify-content-center">
+                            <div>
+                                <svg 
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    width="82 " 
+                                    height="82" 
+                                    fill="currentColor" 
+                                    class="bi bi-plus-circle-fill text-warning" viewBox="0 0 16 16"
+                                >
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                                </svg>
+                            </div>                            
                         </div>
                     </div>
 
@@ -75,6 +94,9 @@ export default function ProductShow() {
 
             {renderProducts()}
 
+            <Routes>
+                <Route exact path ="/add" element={<ProductAdd/>}/>
+            </Routes>
 
         </div>
     )

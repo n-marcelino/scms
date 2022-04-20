@@ -35,7 +35,7 @@ public class ProductsController {
 			value= {"","/"},
 			method=RequestMethod.POST,
 			produces=MediaType.APPLICATION_JSON_VALUE)
-	@CrossOrigin(origins="*")
+	@CrossOrigin(origins = "*")
 	public String save(@RequestBody String payload) {
 		Gson gson = new Gson();
 		HashMap<String,Object> data = new HashMap<String,Object>();
