@@ -7,6 +7,10 @@
     color:black;
 }
 
+.add-new {
+    font-size: 5rem;
+}
+
 .cc-container {
     flex-basis: auto;
 }

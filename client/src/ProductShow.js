@@ -44,14 +44,12 @@ export default function ProductShow() {
                         })
                     }
 
-                        <div class="bg-light p-5">
-                            
-                            <div class="d-flex gap-1 pt-4">
-                                <button type="button" class="w-100 btn btn-warning">
-                                    Edit
-                                </button>
-                            </div>
+                    <div class="bg-light c-card" >
+                        <div class="add-new d-flex align-items-center justify-content-center">
+                            {/* <i class="bi-plus-circle text-warning"></i> */}
+                            \
                         </div>
+                    </div>
 
                 </div>
             )
