@@ -26,7 +26,7 @@ export default function CustomerShow() {
     function renderCustomers() {
         if(customers.length > 0) {
             return(
-                <div class="d-flex gap-3">
+                <div class="d-flex flex-wrap gap-3">
                     {
                         customers.map((c) => {
                             return(

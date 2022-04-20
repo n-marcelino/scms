@@ -28,7 +28,7 @@ export default function CategoryShow() {
 
         if(categories.length > 0) {
             return(
-                <div class="d-flex gap-3">
+                <div class="d-flex flex-wrap gap-3">
                     {
                         categories.map((c) => {
                             return(

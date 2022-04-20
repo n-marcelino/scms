@@ -25,7 +25,7 @@ export default function ProductShow() {
     function renderProducts() {
         if(products.length > 0) {
             return(
-                <div class="d-flex gap-3">
+                <div class="d-flex flex-wrap gap-3">
                     {
                         products.map((p) => {
                             return(
