@@ -1,7 +1,6 @@
 # scms
-```
+
 ## SIMPLE COMMERCE MANAGEMENT SYSTEM
-```
 
 1. backend folder contains java project made on eclipse
 
