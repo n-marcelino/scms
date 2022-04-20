@@ -23,6 +23,7 @@ import com.google.gson.Gson;
 @Controller
 @ResponseBody
 @RequestMapping(value= {"/api/customers"})
+@CrossOrigin(origins="*")
 public class CustomersController {
 	
 	@Autowired

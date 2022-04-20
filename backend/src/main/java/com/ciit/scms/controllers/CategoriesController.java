@@ -22,6 +22,7 @@ import com.google.gson.Gson;
 @Controller
 @ResponseBody
 @RequestMapping(value= {"/api/categories"})
+@CrossOrigin(origins="*")
 public class CategoriesController {
 	
 	@Autowired
