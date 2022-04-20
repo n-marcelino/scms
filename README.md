@@ -2,16 +2,16 @@
 
 ## TO-DO LIST (!!!)
 1. **crud**
-    * **c**
+    * **c**reate
         * client ✅ 
         * backend ✅ 
-    * **r**
+    * **r**ead
         * client ✅ 
         * backend ✅ 
-    * **u**
+    * **u**pdate
         * client ❓
         * backend ❓
-    * **d**
+    * **d**elete
         * client ❓
         * backend ❓
 2. **orders:**
