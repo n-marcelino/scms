@@ -27,6 +27,7 @@
     * Find a way to make a restriction on the forms
     * columns cant be empty etc etc
     * preferably figure out how to bootstrap ur way into it?
+    * https://getbootstrap.com/docs/5.0/forms/overview/
 
 
 
