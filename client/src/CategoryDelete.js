@@ -14,7 +14,7 @@ export default function CategoryDelete() {
 
         fetch(urlCategories, 
             {
-                method: 'UPDATE',
+                method: 'DELETE',
                 headers: {
                     'Content-Type':'application/json'
                 },

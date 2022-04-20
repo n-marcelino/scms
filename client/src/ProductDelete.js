@@ -31,7 +31,7 @@ export default function ProductDelete() {
 
         fetch(urlProducts, 
             {
-                method: 'POST',
+                method: 'DELETE',
                 headers: {
                     'Content-Type':'application/json'
                 },

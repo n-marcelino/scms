@@ -31,7 +31,7 @@ export default function CustomerUpdate() {
 
         fetch(urlCustomers, 
             {
-                method: 'POST',
+                method: 'UPDATE',
                 headers: {
                     'Content-Type':'application/json'
                 },

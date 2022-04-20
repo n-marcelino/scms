@@ -41,7 +41,7 @@ export default function ProductUpdate() {
 
         fetch(urlProducts, 
             {
-                method: 'POST',
+                method: 'UPDATE',
                 headers: {
                     'Content-Type':'application/json'
                 },
