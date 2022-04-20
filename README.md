@@ -55,7 +55,7 @@ E:\Programming\github\scms\client> []     <= this thing is ur cursor
 ```
 ./node_modules/.bin/webpack serve --mode development
 ``` 
-7. go to localhost:8081
+9. go to localhost:8081
 
 ## making new "show" js
 
