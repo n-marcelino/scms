@@ -24,7 +24,7 @@
         * Builder ❓
 
 
-## SIMPLE COMMERCE MANAGEMENT SYSTEM (!!!)
+## HOW TO RUN (!!!)
 
 1. backend folder contains java project made on eclipse
 
