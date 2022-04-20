@@ -10,7 +10,7 @@
     * how to render that?
 
 ## TO-DO LIST (!!!)
-0. make github account, setup github desktop, figure out how to collab on the same repo
+0. **make github account, setup github desktop, figure out how to collab on the same repo**
 
 1. **crud**
     * **c**reate
