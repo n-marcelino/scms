@@ -20,49 +20,53 @@ export default function MainApp() {
 
     return (
         <div class="d-flex gap-2 ">
-            <div class="w-25 bg-light vh-100 p-3">
+            <div class="cc-side-nav w-25 bg-light vh-100 p-3">
+                {/* dont remove, this is here to push the rest of the body to the side */}
+            </div>
+
+            <div class="cc-side-nav w-25 bg-light vh-100 p-3 position-fixed">
                 <h2>Simple Commerce Management System</h2>
                 <hr></hr>
                 <ul class="navbar-nav pl-5">
-                    <li>
-                        <a onClick={()=>(navigate('/'))}>
+                    <li class="nav-item">
+                        <a class="nav-link link-warning" onClick={()=>(navigate('/'))}>
                             Home
                         </a>
                     </li>
 
-                    <li>
-                        <a onClick={()=>(navigate('/categories'))}>
+                    <li class="nav-item">
+                        <a class="nav-link link-warning" onClick={()=>(navigate('/categories'))}>
                         Categories
                         </a>
                         <ul>
                             <li>
-                                    <a onClick={()=>(navigate('/categories/add'))}>
+                                    <a class="nav-link link-warning" onClick={()=>(navigate('/categories/add'))}>
                                         Add Category
                                     </a>
                             </li>
                         </ul>
                     </li>
 
-                    <li>
-                        <a onClick={()=>(navigate('/products'))}>
+                    <li class="nav-item">
+                        <a class="nav-link link-warning" onClick={()=>(navigate('/products'))}>
                             Products
                         </a>
                         <ul>
                             <li>
-                                    <a onClick={()=>(navigate('/products/add'))}>
+                                    <a class="nav-link link-warning" onClick={()=>(navigate('/products/add'))}>
                                         Add Product
                                     </a>
                             </li>
                         </ul>
                     </li>
 
-                    <li>
-                        <a onClick={()=>(navigate('/customers'))}>
+                    <li class="nav-item">
+                        <a class="nav-link link-warning" onClick={()=>(navigate('/customers'))}>
                             Customer Record
                         </a>
                         <ul>
                             <li>
-                                    <a onClick={()=>(navigate('/customers/add'))}>
+                                    <a class="nav-link link-warning" onClick={()=>(navigate('/customers/add'))}>
                                         Add Record
                                     </a>
                             </li>

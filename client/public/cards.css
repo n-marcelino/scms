@@ -1,0 +1,25 @@
+.cc-side-nav {
+    min-width: 15rem;
+}
+
+.cc-side-nav a {
+    cursor:pointer;
+    color:black;
+}
+
+.cc-container {
+    flex-basis: auto;
+}
+
+.c-card {
+    flex-grow:1;
+    max-width: 22rem;
+    min-width: 20rem;
+    word-wrap: break-word;
+}
+
+@media screen and (max-width:960px){
+    .c-card {
+        max-width: 32rem;
+    }
+}

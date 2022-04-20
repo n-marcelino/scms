@@ -26,11 +26,11 @@ export default function CustomerShow() {
     function renderCustomers() {
         if(customers.length > 0) {
             return(
-                <div class="d-flex flex-wrap gap-3">
+                <div class="d-flex flex-wrap gap-3 cc-container">
                     {
                         customers.map((c) => {
                             return(
-                                <div class="bg-light p-5">
+                                <div class="bg-light p-5 c-card">
                                     <h2>{c.lastname + ", " + c.firstname}</h2>
                                     <h5>ID: {c.id}</h5>
                                     <h5>ADDRESS: {c.street + ", " + c.city + " " + c.zip}</h5>

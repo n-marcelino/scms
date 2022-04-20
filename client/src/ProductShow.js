@@ -25,11 +25,11 @@ export default function ProductShow() {
     function renderProducts() {
         if(products.length > 0) {
             return(
-                <div class="d-flex flex-wrap gap-3">
+                <div class="d-flex flex-wrap gap-3 cc-container">
                     {
                         products.map((p) => {
                             return(
-                                <div class="bg-light p-5">
+                                <div class="bg-light p-5 c-card">
                                     <h2>{p.name}</h2>
                                     <h5>ID: {p.id}</h5>
                                     <h5>PRICE: {p.price}</h5>
@@ -43,6 +43,16 @@ export default function ProductShow() {
                             )
                         })
                     }
+
+                        <div class="bg-light p-5">
+                            
+                            <div class="d-flex gap-1 pt-4">
+                                <button type="button" class="w-100 btn btn-warning">
+                                    Edit
+                                </button>
+                            </div>
+                        </div>
+
                 </div>
             )
         } else {

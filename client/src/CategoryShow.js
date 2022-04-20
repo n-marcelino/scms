@@ -28,11 +28,11 @@ export default function CategoryShow() {
 
         if(categories.length > 0) {
             return(
-                <div class="d-flex flex-wrap gap-3">
+                <div class="d-flex flex-wrap gap-3 cc-container">
                     {
                         categories.map((c) => {
                             return(
-                                <div class="bg-light p-5">
+                                <div class="bg-light p-5 c-card">
                                     <h2>{c.name}</h2>
                                     <h5>ID: {c.id}</h5>
                                     <div class="d-flex gap-1 pt-4">
