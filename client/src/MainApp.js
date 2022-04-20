@@ -19,7 +19,7 @@ export default function MainApp() {
     const navigate = useNavigate();
 
     return (
-        <div class="d-flex gap-2 ">
+        <div class="d-flex">
             <div class="cc-side-nav w-25 bg-light vh-100 p-3">
                 {/* dont remove, this is here to push the rest of the body to the side */}
             </div>
@@ -40,9 +40,9 @@ export default function MainApp() {
                         </a>
                         <ul>
                             <li>
-                                    <a class="nav-link link-warning" onClick={()=>(navigate('/categories/add'))}>
-                                        Add Category
-                                    </a>
+                                <a class="nav-link link-warning" onClick={()=>(navigate('/categories/add'))}>
+                                    Add Category
+                                </a>
                             </li>
                         </ul>
                     </li>
@@ -53,9 +53,9 @@ export default function MainApp() {
                         </a>
                         <ul>
                             <li>
-                                    <a class="nav-link link-warning" onClick={()=>(navigate('/products/add'))}>
-                                        Add Product
-                                    </a>
+                                <a class="nav-link link-warning" onClick={()=>(navigate('/products/add'))}>
+                                    Add Product
+                                </a>
                             </li>
                         </ul>
                     </li>
@@ -66,25 +66,28 @@ export default function MainApp() {
                         </a>
                         <ul>
                             <li>
-                                    <a class="nav-link link-warning" onClick={()=>(navigate('/customers/add'))}>
-                                        Add Record
-                                    </a>
+                                <a class="nav-link link-warning" onClick={()=>(navigate('/customers/add'))}>
+                                    Add Record
+                                </a>
                             </li>
                         </ul>
                     </li>
                 </ul>
             </div>
             
-            <div class="p-3 w-75">
-                <Routes>
-                    <Route exact path ="/" element={<Home/>}/>
-                    <Route exact path ="/categories" element={<CategoryShow/>}/>
-                    <Route exact path ="/categories/add" element={<CategoryAdd/>}/>
-                    <Route exact path ="/products" element={<ProductShow/>}/>
-                    <Route exact path ="/products/add" element={<ProductAdd/>}/>
-                    <Route exact path ="/customers" element={<CustomerShow/>}/>
-                    <Route exact path ="/customers/add" element={<CustomerAdd/>}/>
-                </Routes>
+            <div class="w-75">
+
+                <div class="p-3">
+                    <Routes>
+                        <Route exact path ="/" element={<Home/>}/>
+                        <Route exact path ="/categories" element={<CategoryShow/>}/>
+                        <Route exact path ="/categories/add" element={<CategoryAdd/>}/>
+                        <Route exact path ="/products" element={<ProductShow/>}/>
+                        <Route exact path ="/products/add" element={<ProductAdd/>}/>
+                        <Route exact path ="/customers" element={<CustomerShow/>}/>
+                        <Route exact path ="/customers/add" element={<CustomerAdd/>}/>
+                    </Routes>
+                </div>
             </div>
             
             
