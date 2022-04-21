@@ -8,7 +8,6 @@
     * **r**ead
         * client ✅ 
         * backend ✅
-    **cors error** ❓
     * **u**pdate
         * client ✅
         * backend ✅
