@@ -38,17 +38,17 @@ export default function CategoryShow() {
 
         if(categories.length > 0) {
             return(
-                <div class="d-flex flex-wrap gap-3 cc-container">
+                <div classsName="d-flex flex-wrap gap-3 cc-container">
                     {
                         categories.map((c) => {
                             return(
-                                <div class="bg-light p-5 c-card d-flex flex-column">
+                                <div classsName="bg-light p-5 c-card d-flex flex-column">
                                     <h2>{c.name}</h2>
-                                    <div class="mb-4">
+                                    <div classsName="mb-4">
                                         <h5>ID: {c.id}</h5>
                                     </div>
-                                    <div class="mt-auto">
-                                        <button type="button" class="w-100 btn btn-warning">
+                                    <div classsName="mt-auto">
+                                        <button type="button" classsName="w-100 btn btn-warning">
                                             Edit
                                         </button>
                                     </div>
@@ -57,15 +57,15 @@ export default function CategoryShow() {
                         })
                     }
 
-                    <div class="bg-light c-card" >
-                        <div onClick={()=>(navigate('/categories/add'))} class="btn h-100 w-100 d-flex align-items-center justify-content-center">
+                    <div classsName="bg-light c-card" >
+                        <div onClick={()=>(navigate('/categories/add'))} classsName="btn h-100 w-100 d-flex align-items-center justify-content-center">
                             <div>
                                 <svg 
                                     xmlns="http://www.w3.org/2000/svg" 
                                     width="82 " 
                                     height="82" 
                                     fill="currentColor" 
-                                    class="bi bi-plus-circle-fill text-warning" viewBox="0 0 16 16"
+                                    classsName="bi bi-plus-circle-fill text-warning" viewBox="0 0 16 16"
                                 >
                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
                                 </svg>
@@ -77,20 +77,20 @@ export default function CategoryShow() {
         } else {
             return (
                 <div>
-                    <h3 class="mb-5 text-danger">
+                    <h3 classsName="mb-5 text-danger">
                         No Categories Found.
                     </h3>
 
-                    <div class="d-flex flex-wrap gap-3 cc-container">
-                        <div class="bg-light c-card" >
-                            <div onClick={()=>(navigate('/categories/add'))} class="btn h-100 w-100 d-flex align-items-center justify-content-center">
+                    <div classsName="d-flex flex-wrap gap-3 cc-container">
+                        <div classsName="bg-light c-card" >
+                            <div onClick={()=>(navigate('/categories/add'))} classsName="btn h-100 w-100 d-flex align-items-center justify-content-center">
                                 <div>
                                     <svg 
                                         xmlns="http://www.w3.org/2000/svg" 
                                         width="82 " 
                                         height="82" 
                                         fill="currentColor" 
-                                        class="bi bi-plus-circle-fill text-warning" viewBox="0 0 16 16"
+                                        classsName="bi bi-plus-circle-fill text-warning" viewBox="0 0 16 16"
                                     >
                                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
                                     </svg>
@@ -104,7 +104,7 @@ export default function CategoryShow() {
     }
 
     return ( //returns a single element only; so you can nest all other elements inside one div
-        <div class="p-3">
+        <div classsName="p-3">
             <h1>
                 Category List
             </h1>

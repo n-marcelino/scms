@@ -51,15 +51,15 @@ export default function CustomerAdd() {
     }
 
     return (
-        <div class="form-group w-50 p-3">
+        <div classsName="form-group w-50 p-3">
             <h1>Add Customer Record</h1>
-            <div class="form-group row py-2">
-                <label class="col-3 col-form-label">
+            <div classsName="form-group row py-2">
+                <label classsName="col-3 col-form-label">
                     First Name: 
                 </label>
-                <div class="col-9">
+                <div classsName="col-9">
                     <input
-                        class="form-control"
+                        classsName="form-control"
                         value={firstName}
                         onChange= {(event)=>{setFirstName(event.target.value)}}
                     />
@@ -67,13 +67,13 @@ export default function CustomerAdd() {
                
             </div>
 
-            <div class="form-group row py-2">
-                <label class="col-3 col-form-label">
+            <div classsName="form-group row py-2">
+                <label classsName="col-3 col-form-label">
                     Last Name: 
                 </label>
-                <div class="col-9">
+                <div classsName="col-9">
                     <input
-                        class="form-control"
+                        classsName="form-control"
                         value={lastName}
                         onChange= {(event)=>{setLastName(event.target.value)}}
                     />
@@ -81,61 +81,61 @@ export default function CustomerAdd() {
                 
             </div>
            
-            <div class="form-group row py-2">
-                <label class="col-3 col-form-label">
+            <div classsName="form-group row py-2">
+                <label classsName="col-3 col-form-label">
                     Street: 
                 </label>
-                <div class="col-9">
+                <div classsName="col-9">
                     <input
-                        class="form-control"
+                        classsName="form-control"
                         value={street}
                         onChange= {(event)=>{setStreet(event.target.value)}}
                     />
                 </div>
             </div>
 
-            <div class="form-group row py-2">
-                <label class="col-3 col-form-label">
+            <div classsName="form-group row py-2">
+                <label classsName="col-3 col-form-label">
                     City: 
                 </label>
-                <div class="col-9">
+                <div classsName="col-9">
                     <input
-                        class="form-control"
+                        classsName="form-control"
                         value={city}
                         onChange= {(event)=>{setCity(event.target.value)}}
                     />
                 </div>                
             </div>
 
-            <div class="form-group row py-2">
-                <label class="col-3 col-form-label">
+            <div classsName="form-group row py-2">
+                <label classsName="col-3 col-form-label">
                     ZIP: 
                 </label>
-                <div class="col-9">
+                <div classsName="col-9">
                     <input
-                        class="form-control"
+                        classsName="form-control"
                         value={zip}
                         onChange= {(event)=>{setZip(event.target.value)}}
                     />
                 </div>                
             </div>
 
-            <div class="form-group row py-2">
-                <label class="col-3 col-form-label">
+            <div classsName="form-group row py-2">
+                <label classsName="col-3 col-form-label">
                     Phone Number: 
                 </label>
-                <div class="col-9">
+                <div classsName="col-9">
                     <input
-                        class="form-control"
+                        classsName="form-control"
                         value={phone}
                         onChange= {(event)=>{setPhone(event.target.value)}}
                     />
                 </div>
             </div>
 
-            <div class="pt-4">
+            <div classsName="pt-4">
                 <button
-                    class="form-control btn-warning"
+                    classsName="form-control btn-warning"
                     onClick={()=>{handleSave()}}
                 >
                     Add New Customer

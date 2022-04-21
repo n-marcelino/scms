@@ -36,19 +36,19 @@ export default function CustomerShow() {
     function renderCustomers() {
         if(customers.length > 0) {
             return(
-                <div class="d-flex flex-wrap gap-3 cc-container">
+                <div classsName="d-flex flex-wrap gap-3 cc-container">
                     {
                         customers.map((c) => {
                             return(
-                                <div class="bg-light p-5 c-card d-flex flex-column">
-                                    <div class="mb-4">
+                                <div classsName="bg-light p-5 c-card d-flex flex-column">
+                                    <div classsName="mb-4">
                                         <h2>{c.lastname + ", " + c.firstname}</h2>
                                         <h5>ID: {c.id}</h5>
                                         <h5>ADDRESS: {c.street + ", " + c.city + " " + c.zip}</h5>
                                         <h5>Phone Number: {c.phone}</h5>
                                     </div>
-                                    <div class="mt-auto">
-                                        <button type="button" class="w-100 btn btn-warning">
+                                    <div classsName="mt-auto">
+                                        <button type="button" classsName="w-100 btn btn-warning">
                                             Edit
                                         </button>
                                     </div>
@@ -57,15 +57,15 @@ export default function CustomerShow() {
                         })
                     }
 
-                    <div class="bg-light c-card" >
-                        <div onClick={()=>(navigate('/customers/add'))}class="btn h-100 w-100 d-flex align-items-center justify-content-center">
+                    <div classsName="bg-light c-card" >
+                        <div onClick={()=>(navigate('/customers/add'))}classsName="btn h-100 w-100 d-flex align-items-center justify-content-center">
                             <div>
                                 <svg 
                                     xmlns="http://www.w3.org/2000/svg" 
                                     width="82 " 
                                     height="82" 
                                     fill="currentColor" 
-                                    class="bi bi-plus-circle-fill text-warning" viewBox="0 0 16 16"
+                                    classsName="bi bi-plus-circle-fill text-warning" viewBox="0 0 16 16"
                                 >
                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
                                 </svg>
@@ -77,20 +77,20 @@ export default function CustomerShow() {
         } else {
             return (
                 <div>
-                    <h3 class="mb-5 text-danger">
+                    <h3 classsName="mb-5 text-danger">
                         No Customers Found.
                     </h3>
 
-                    <div class="d-flex flex-wrap gap-3 cc-container">
-                        <div class="bg-light c-card" >
-                            <div onClick={()=>(navigate('/customers/add'))} class="btn h-100 w-100 d-flex align-items-center justify-content-center">
+                    <div classsName="d-flex flex-wrap gap-3 cc-container">
+                        <div classsName="bg-light c-card" >
+                            <div onClick={()=>(navigate('/customers/add'))} classsName="btn h-100 w-100 d-flex align-items-center justify-content-center">
                                 <div>
                                     <svg 
                                         xmlns="http://www.w3.org/2000/svg" 
                                         width="82 " 
                                         height="82" 
                                         fill="currentColor" 
-                                        class="bi bi-plus-circle-fill text-warning" viewBox="0 0 16 16"
+                                        classsName="bi bi-plus-circle-fill text-warning" viewBox="0 0 16 16"
                                     >
                                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
                                     </svg>
@@ -104,7 +104,7 @@ export default function CustomerShow() {
     }
 
     return ( //returns a single element only; so you can nest all other elements inside one div
-        <div class="p-3">
+        <div classsName="p-3">
             <h1>
                 Customer Records
             </h1>

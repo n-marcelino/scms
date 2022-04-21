@@ -17,7 +17,7 @@ export default function ProductAdd() {
         fetch(urlCategories)
             .then(response => response.json())
             .then(data => {
-                if(data.categories.length > 0) {
+                if (data.categories.length > 0) {
                     setCategoryId(data.categories[0].id)
                 }
                 setCategories(data.categories);
@@ -37,17 +37,17 @@ export default function ProductAdd() {
             categoryId: categoryId
         }
 
-        fetch(urlProducts, 
+        fetch(urlProducts,
             {
                 method: 'POST',
                 headers: {
-                    'Content-Type':'application/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(payload)
             }
         )
             .then(response => response.json())
-            .then(data => {
+            .then(() => {
                 console.log(response);
                 setName("");
                 setPrice(0.00);
@@ -57,46 +57,46 @@ export default function ProductAdd() {
     }
 
     return (
-        <div class="p-3">
-            <div class="form-group w-50">
+        <div classsName="p-3">
+            <div classsName="form-group w-50">
                 <h1>Add Products</h1>
-                <div class="form-group row py-2">
-                    <label class="col-2 col-form-label">
-                        Name: 
+                <div classsName="form-group row py-2">
+                    <label classsName="col-2 col-form-label">
+                        Name:
                     </label>
-                    <div class="col-10">
-                        <input 
-                            class="form-control"
-                            value={name}
-                            onChange= {(event)=>{setName(event.target.value)}}
-                        />
-                    </div>
-                    
-                </div>
-
-                <div class="form-group row py-2">
-                    <label class="col-sm-2 col-form-label">
-                        Price: 
-                    </label>
-                    <div class="col-sm-10">
+                    <div classsName="col-10">
                         <input
-                            class="form-control"
-                            value={price}
-                            onChange= {(event)=>{setPrice(event.target.value)}}
+                            classsName="form-control"
+                            value={name}
+                            onChange={(event) => { setName(event.target.value) }}
                         />
                     </div>
-                    
+
                 </div>
 
-                <div class="form-group row py-2">
-                    <label class="col-sm-2 col-form-label">
-                        Category: 
+                <div classsName="form-group row py-2">
+                    <label classsName="col-sm-2 col-form-label">
+                        Price:
                     </label>
-                    <div class="col-sm-10">
-                        <select 
-                            class="form-control"
+                    <div classsName="col-sm-10">
+                        <input
+                            classsName="form-control"
+                            value={price}
+                            onChange={(event) => { setPrice(event.target.value) }}
+                        />
+                    </div>
+
+                </div>
+
+                <div classsName="form-group row py-2">
+                    <label classsName="col-sm-2 col-form-label">
+                        Category:
+                    </label>
+                    <div classsName="col-sm-10">
+                        <select
+                            classsName="form-control"
                             value={categoryId}
-                            onChange = {(event)=> {setCategoryId(event.target.value)}}
+                            onChange={(event) => { setCategoryId(event.target.value) }}
                         >
                             <option selected="selected" disabled>
                                 --Categories--
@@ -104,7 +104,7 @@ export default function ProductAdd() {
                             {
                                 categories.map((c) => {
                                     return (
-                                        <option value = {c.id}>
+                                        <option value={c.id}>
                                             {c.name}
                                         </option>
                                     )
@@ -112,13 +112,13 @@ export default function ProductAdd() {
                             }
                         </select>
                     </div>
-                    
+
                 </div>
 
-                <div class="pt-4">
+                <div classsName="pt-4">
                     <button
-                        class="form-control btn-warning"
-                        onClick={()=>{handleSave()}}
+                        classsName="form-control btn-warning"
+                        onClick={() => { handleSave() }}
                     >
                         Add New Product
                     </button>
