@@ -17,7 +17,7 @@ export default function ProductAdd() {
         fetch(urlCategories)
             .then(response => response.json())
             .then(data => {
-                if(data.categories.length > 0) {
+                if (data.categories.length > 0) {
                     setCategoryId(data.categories[0].id)
                 }
                 setCategories(data.categories);
@@ -37,11 +37,11 @@ export default function ProductAdd() {
             categoryId: categoryId
         }
 
-        fetch(urlProducts, 
+        fetch(urlProducts,
             {
                 method: 'POST',
                 headers: {
-                    'Content-Type':'application/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(payload)
             }
@@ -62,46 +62,46 @@ export default function ProductAdd() {
                 <h1>Add Products</h1>
                 <div class="form-group row py-2">
                     <label class="col-2 col-form-label">
-                        Name: 
+                        Name:
                     </label>
                     <div class="col-10">
-                        <input 
+                        <input
                             class="form-control"
                             value={name}
-                            onChange= {(event)=>{setName(event.target.value)}}
+                            onChange={(event) => { setName(event.target.value) }}
                         />
                     </div>
-                    
+
                 </div>
 
                 <div class="form-group row py-2">
                     <label class="col-sm-2 col-form-label">
-                        Price: 
+                        Price:
                     </label>
                     <div class="col-sm-10">
                         <input
                             class="form-control"
                             value={price}
-                            onChange= {(event)=>{setPrice(event.target.value)}}
+                            onChange={(event) => { setPrice(event.target.value) }}
                         />
                     </div>
-                    
+
                 </div>
 
                 <div class="form-group row py-2">
                     <label class="col-sm-2 col-form-label">
-                        Category: 
+                        Category:
                     </label>
                     <div class="col-sm-10">
-                        <select 
+                        <select
                             class="form-control"
                             value={categoryId}
-                            onChange = {(event)=> {setCategoryId(event.target.value)}}
+                            onChange={(event) => { setCategoryId(event.target.value) }}
                         >
                             {
                                 categories.map((c) => {
                                     return (
-                                        <option value = {c.id}>
+                                        <option value={c.id}>
                                             {c.name}
                                         </option>
                                     )
@@ -109,15 +109,22 @@ export default function ProductAdd() {
                             }
                         </select>
                     </div>
-                    
+
                 </div>
 
-                <div class="pt-4">
+                <div class="pt-4 d-flex gap-3">
                     <button
                         class="form-control btn-warning"
-                        onClick={()=>{handleSave()}}
+                        onClick={() => { handleSave() }}
                     >
                         Add New Product
+                    </button>
+
+                    <button
+                        class="form-control btn-danger"
+                        onClick={() => { history.back() }}
+                    >
+                        Cancel
                     </button>
                 </div>
             </div>

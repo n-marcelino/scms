@@ -133,12 +133,19 @@ export default function CustomerAdd() {
                 </div>
             </div>
 
-            <div class="pt-4">
+            <div class="pt-4 d-flex gap-3">
                 <button
                     class="form-control btn-warning"
                     onClick={()=>{handleSave()}}
                 >
                     Add New Customer
+                </button>
+
+                <button
+                    class="form-control btn-danger"
+                    onClick={()=>{history.back()}}
+                >
+                    Cancel
                 </button>
             </div>
         </div>

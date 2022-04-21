@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import CustomerAdd from "./CustomerAdd";
+import CustomerUpdate from "./CustomerUpdate";
 
 export default function CustomerShow() {
 
@@ -47,7 +48,11 @@ export default function CustomerShow() {
                                         <h5>Phone Number: {c.phone}</h5>
                                     </div>
                                     <div className="mt-auto">
-                                        <button type="button" className="w-100 btn btn-warning">
+                                        <button 
+                                            type="button" 
+                                            className="w-100 btn btn-warning"
+                                            onClick={() => {navigate('/categories/update');}}
+                                        >
                                             Edit
                                         </button>
                                     </div>
@@ -113,7 +118,8 @@ export default function CustomerShow() {
             {renderCustomers()}
 
             <Routes>
-                <Route exact path ="/add" element={<CustomerAdd/>}/>
+                <Route exact path ="/customers/add" element={<CustomerAdd/>}/>
+                <Route exact path="/categories/update" element={<CustomerUpdate />} />
             </Routes>
 
         </div>

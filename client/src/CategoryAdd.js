@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import FormValidation from "./FormValidation";
 
 export default function CategoryAdd() {
     const [name, setName] = useState("");
@@ -48,12 +47,19 @@ export default function CategoryAdd() {
                 
             </div>
 
-            <div class="pt-4">
+            <div class="pt-4 d-flex gap-3">
                 <button
                     class="form-control btn-warning"
                     onClick={()=>{handleSave()}}
                 >
                     Add New Category
+                </button>
+
+                <button
+                    class="form-control btn-danger"
+                    onClick={()=>{history.back()}}
+                >
+                    Cancel
                 </button>
             </div>
         </div>

@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import ProductAdd from "./ProductAdd";
+import ProductUpdate from "./ProductUpdate";
 
 export default function ProductShow() {
 
@@ -47,7 +48,11 @@ export default function ProductShow() {
                                         <h5>CATEGORY: {p.category}</h5>
                                     </div>
                                     <div className="mt-auto">
-                                        <button type="button" className="w-100 btn btn-warning">
+                                        <button 
+                                            type="button" 
+                                            className="w-100 btn btn-warning"
+                                            onClick={() => {navigate('/categories/update');}}
+                                        >
                                             Edit
                                         </button>
                                     </div>
@@ -115,7 +120,8 @@ export default function ProductShow() {
             {renderProducts()}
 
             <Routes>
-                <Route exact path ="/add" element={<ProductAdd/>}/>
+                <Route exact path ="/products/add" element={<ProductAdd/>}/>
+                <Route exact path="/products/update" element={<ProductUpdate/>}/>
             </Routes>
 
         </div>
