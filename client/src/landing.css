@@ -1,4 +1,4 @@
-*{
+.home{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -17,7 +17,6 @@
     background-color: rgb(203, 166, 43);
     min-height: 45vh;
     position: relative;
-    top: 1px;
     padding-top: 50px;
     padding-left: 70px;
 }
@@ -47,30 +46,41 @@
 
 .text {
     max-width: 100;
-    padding: 5rem;
     text-align: center;
 }
 
 .text h1{
-    color: rgb(168, 138, 40);
+    color: rgb(203, 166, 43);
 }
 
 .content{
+    flex-basis:0;
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
     margin-right: 1rem;
     border-radius: 20px;
-    padding: 20px;
-    width: 50rem;
-    height: 40vh;
+    flex-grow: 1;
+    padding: 25px;
+    /* width: 50rem;
+    height: 40vh; */
+
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-#top{
-    width: 55rem;
+.content:hover {
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.207);
+}
+
+.content p {
+    text-align: left;
+    line-height: 2rem;
 }
 
 #bottom {
     position: relative;
     top: 30px;
 }
-

@@ -35,19 +35,19 @@ export default function ProductShow() {
     function renderProducts() {
         if(products.length > 0) {
             return(
-                <div class="d-flex flex-wrap gap-3 cc-container">
+                <div className="d-flex flex-wrap gap-3 cc-container">
                     {
                         products.map((p) => {
                             return(
-                                <div class="bg-light p-5 c-card d-flex flex-column">
-                                    <div class="mb-4">
+                                <div className="bg-light p-5 c-card d-flex flex-column">
+                                    <div className="mb-4">
                                         <h2>{p.name}</h2>
                                         <h5>ID: {p.id}</h5>
                                         <h5>PRICE: {p.price}</h5>
                                         <h5>CATEGORY: {p.category}</h5>
                                     </div>
-                                    <div class="mt-auto">
-                                        <button type="button" class="w-100 btn btn-warning">
+                                    <div className="mt-auto">
+                                        <button type="button" className="w-100 btn btn-warning">
                                             Edit
                                         </button>
                                     </div>
@@ -56,15 +56,15 @@ export default function ProductShow() {
                         })
                     }
 
-                    <div class="bg-light c-card" >
-                        <div onClick={()=>(navigate('/products/add'))} class="btn h-100 w-100 d-flex align-items-center justify-content-center">
+                    <div className="bg-light c-card" >
+                        <div onClick={()=>(navigate('/products/add'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
                             <div>
                                 <svg 
                                     xmlns="http://www.w3.org/2000/svg" 
                                     width="82 " 
                                     height="82" 
                                     fill="currentColor" 
-                                    class="bi bi-plus-circle-fill text-warning" viewBox="0 0 16 16"
+                                    className="bi bi-plus-circle-fill text-warning" viewBox="0 0 16 16"
                                 >
                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
                                 </svg>
@@ -77,20 +77,20 @@ export default function ProductShow() {
         } else {
             return (
                 <div>
-                    <h3 class="mb-5 text-danger">
+                    <h3 className="mb-5 text-danger">
                         No Products Found.
                     </h3>
 
-                    <div class="d-flex flex-wrap gap-3 cc-container">
-                        <div class="bg-light c-card" >
-                            <div onClick={()=>(navigate('/products/add'))} class="btn h-100 w-100 d-flex align-items-center justify-content-center">
+                    <div className="d-flex flex-wrap gap-3 cc-container">
+                        <div className="bg-light c-card" >
+                            <div onClick={()=>(navigate('/products/add'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
                                 <div>
                                     <svg 
                                         xmlns="http://www.w3.org/2000/svg" 
                                         width="82 " 
                                         height="82" 
                                         fill="currentColor" 
-                                        class="bi bi-plus-circle-fill text-warning" viewBox="0 0 16 16"
+                                        className="bi bi-plus-circle-fill text-warning" viewBox="0 0 16 16"
                                     >
                                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
                                     </svg>
@@ -105,7 +105,7 @@ export default function ProductShow() {
     }
 
     return ( //returns a single element only; so you can nest all other elements inside one div
-        <div class="p-3">
+        <div className="p-3">
             <h1>
                 My List of Products
             </h1>
