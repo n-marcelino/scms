@@ -3,7 +3,7 @@
 ## IMPORTANT
 
 <details>
-<summary>TO-DO LIST (!!!)</summary>
+<summary style="color:red; font-weight: bold;">TO-DO LIST (!!!)</summary>
 
 1. **crud**
     * **c**reate ✅
@@ -27,7 +27,7 @@
     * columns cant be empty etc etc
     * preferably figure out how to bootstrap ur way into it?
     * https://getbootstrap.com/docs/5.0/forms/overview/
-    
+
 </details>
 
 <details>
