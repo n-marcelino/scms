@@ -51,7 +51,7 @@ export default function ProductShow() {
                                         <button 
                                             type="button" 
                                             className="w-100 btn btn-warning"
-                                            onClick={() => {navigate('/categories/update');}}
+                                            onClick={() => {navigate('/products/update');}}
                                         >
                                             Edit
                                         </button>
@@ -118,11 +118,6 @@ export default function ProductShow() {
             <hr/>
 
             {renderProducts()}
-
-            <Routes>
-                <Route exact path ="/products/add" element={<ProductAdd/>}/>
-                <Route exact path="/products/update" element={<ProductUpdate/>}/>
-            </Routes>
 
         </div>
     )

@@ -123,11 +123,6 @@ export default function CategoryShow() {
 
             {renderCategories()}
 
-            <Routes>
-                <Route exact path="/categories/add" element={<CategoryAdd />} />
-                <Route exact path="/categories/update" element={<CategoryUpdate />} />
-            </Routes>
-
         </div>
     )
 

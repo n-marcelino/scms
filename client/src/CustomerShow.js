@@ -117,11 +117,6 @@ export default function CustomerShow() {
 
             {renderCustomers()}
 
-            <Routes>
-                <Route exact path ="/customers/add" element={<CustomerAdd/>}/>
-                <Route exact path="/categories/update" element={<CustomerUpdate />} />
-            </Routes>
-
         </div>
     )
 

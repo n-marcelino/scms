@@ -93,10 +93,6 @@ export default function OrderShow() {
             <hr/>
 
             {renderOrders()}
-
-            <Routes>
-                <Route exact path ="/orders/add" element={<OrderAdd/>}/>
-            </Routes>
         </div>
     )
 

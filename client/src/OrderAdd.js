@@ -111,7 +111,6 @@ export default function OrderAdd() {
                                 type="radio"
                                 id="checkTrue"
                                 value={true}
-                                checked
                                 onChange={(event) => { setIsOrderFulfilled(event.target.value) }}
                             />
                             <label class="form-check-label" for="checkTrue">
