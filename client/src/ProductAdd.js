@@ -17,7 +17,7 @@ export default function ProductAdd() {
         fetch(urlCategories)
             .then(response => response.json())
             .then(data => {
-                if (data.categories.length > 0) {
+                if(data.categories.length > 0) {
                     setCategoryId(data.categories[0].id)
                 }
                 setCategories(data.categories);
@@ -37,11 +37,11 @@ export default function ProductAdd() {
             categoryId: categoryId
         }
 
-        fetch(urlProducts,
+        fetch(urlProducts, 
             {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type':'application/json'
                 },
                 body: JSON.stringify(payload)
             }
@@ -57,77 +57,82 @@ export default function ProductAdd() {
     }
 
     return (
-        <div className="p-3">
-            <div className="form-group w-50">
+        <div>
+            <div class="form-group w-50">
                 <h1>Add Products</h1>
-                <div className="form-group row py-2">
-                    <label className="col-2 col-form-label">
-                        Name:
+                <div class="form-group row py-2">
+                    <label class="col-2 col-form-label">
+                        Name: 
                     </label>
-                    <div className="col-10">
-                        <input
-                            className="form-control"
+                    <div class="col-10">
+                        <input 
+                            class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
                             value={name}
-                            onChange={(event) => { setName(event.target.value) }}
+                            onChange= {(event)=>{setName(event.target.value)}}
                         />
+
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                        This field is required.
                     </div>
 
+                    </div>
+                    
                 </div>
 
-                <div className="form-group row py-2">
-                    <label className="col-sm-2 col-form-label">
-                        Price:
+                <div class="form-group row py-2">
+                    <label class="col-sm-2 col-form-label">
+                        Price: 
                     </label>
-                    <div className="col-sm-10">
+                    <div class="col-sm-10">
                         <input
-                            className="form-control"
+                            class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
                             value={price}
-                            onChange={(event) => { setPrice(event.target.value) }}
+                            onChange= {(event)=>{setPrice(event.target.value)}}
                         />
+
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                        This field is required.
                     </div>
 
+                    </div>
+                    
                 </div>
 
-                <div className="form-group row py-2">
-                    <label className="col-sm-2 col-form-label">
-                        Category:
+                <div class="form-group row py-2">
+                    <label class="col-sm-2 col-form-label">
+                        Category: 
                     </label>
-                    <div className="col-sm-10">
-                        <select
-                            className="form-control"
+                    <div class="col-sm-10">
+                        <select 
+                            class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
                             value={categoryId}
-                            onChange={(event) => { setCategoryId(event.target.value) }}
+                            onChange = {(event)=> {setCategoryId(event.target.value)}}
                         >
-                            <option selected="selected" disabled>
-                                --Categories--
-                            </option>
                             {
                                 categories.map((c) => {
                                     return (
-                                        <option value={c.id}>
+                                        <option value = {c.id}>
                                             {c.name}
                                         </option>
                                     )
                                 })
                             }
                         </select>
-                    </div>
 
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                        This field is required.
+                        </div>
+
+                    </div>
+                    
                 </div>
 
-                <div className="pt-4 d-flex gap-3">
+                <div class="pt-4">
                     <button
-                        className="form-control btn-warning"
-                        onClick={() => { handleSave() }}
+                        class="form-control btn-warning"
+                        onClick={()=>{handleSave()}}
                     >
                         Add New Product
-                    </button>
-
-                    <button
-                        className="form-control btn-danger"
-                        onClick={() => { history.back() }}
-                    >
-                        Cancel
                     </button>
                 </div>
             </div>

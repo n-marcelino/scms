@@ -27,11 +27,11 @@ export default function CustomerAdd() {
             phone: phone
         }
 
-        fetch(urlCustomers,
+        fetch(urlCustomers, 
             {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type':'application/json'
                 },
                 body: JSON.stringify(payload)
             }
@@ -51,101 +51,123 @@ export default function CustomerAdd() {
     }
 
     return (
-        <div className="form-group w-50 p-3">
+        <div class="form-group w-50">
             <h1>Add Customer Record</h1>
-            <div className="form-group row py-2">
-                <label className="col-3 col-form-label">
-                    First Name:
+            <div class="form-group row py-2">
+                <label class="col-3 col-form-label">
+                    First Name: 
                 </label>
-                <div className="col-9">
+                <div class="col-9">
                     <input
-                        className="form-control"
+                        class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
                         value={firstName}
-                        onChange={(event) => { setFirstName(event.target.value) }}
+                        onChange= {(event)=>{setFirstName(event.target.value)}}
                     />
-                </div>
 
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                        This field is required.
+                    </div>
+
+                </div>
+               
             </div>
 
-            <div className="form-group row py-2">
-                <label className="col-3 col-form-label">
-                    Last Name:
+            <div class="form-group row py-2">
+                <label class="col-3 col-form-label">
+                    Last Name: 
                 </label>
-                <div className="col-9">
+                <div class="col-9">
                     <input
-                        className="form-control"
+                        class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
                         value={lastName}
-                        onChange={(event) => { setLastName(event.target.value) }}
+                        onChange= {(event)=>{setLastName(event.target.value)}}
                     />
+
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                        This field is required.
+                    </div>
+
                 </div>
-
+                
             </div>
-
-            <div className="form-group row py-2">
-                <label className="col-3 col-form-label">
-                    Street:
+           
+            <div class="form-group row py-2">
+                <label class="col-3 col-form-label">
+                    Street: 
                 </label>
-                <div className="col-9">
+                <div class="col-9">
                     <input
-                        className="form-control"
+                        class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
                         value={street}
-                        onChange={(event) => { setStreet(event.target.value) }}
+                        onChange= {(event)=>{setStreet(event.target.value)}}
                     />
+
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                        This field is required.
+                    </div>
+
                 </div>
             </div>
 
-            <div className="form-group row py-2">
-                <label className="col-3 col-form-label">
-                    City:
+            <div class="form-group row py-2">
+                <label class="col-3 col-form-label">
+                    City: 
                 </label>
-                <div className="col-9">
+                <div class="col-9">
                     <input
-                        className="form-control"
+                        class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
                         value={city}
-                        onChange={(event) => { setCity(event.target.value) }}
+                        onChange= {(event)=>{setCity(event.target.value)}}
                     />
-                </div>
+
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                        This field is required.
+                    </div>
+                </div>                
             </div>
 
-            <div className="form-group row py-2">
-                <label className="col-3 col-form-label">
-                    ZIP:
+            <div class="form-group row py-2">
+                <label class="col-3 col-form-label">
+                    ZIP: 
                 </label>
-                <div className="col-9">
+                <div class="col-9">
                     <input
-                        className="form-control"
+                        class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
                         value={zip}
-                        onChange={(event) => { setZip(event.target.value) }}
+                        onChange= {(event)=>{setZip(event.target.value)}}
                     />
-                </div>
+
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                        This field is required.
+                    </div>
+
+                </div>                
             </div>
 
-            <div className="form-group row py-2">
-                <label className="col-3 col-form-label">
-                    Phone Number:
+            <div class="form-group row py-2">
+                <label class="col-3 col-form-label">
+                    Phone Number: 
                 </label>
-                <div className="col-9">
+                <div class="col-9">
                     <input
-                        className="form-control"
+                        class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
                         value={phone}
-                        onChange={(event) => { setPhone(event.target.value) }}
+                        onChange= {(event)=>{setPhone(event.target.value)}}
                     />
+
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                        This field is required.
+                    </div>
+
                 </div>
             </div>
 
-            <div className="pt-4 d-flex gap-3">
+            <div class="pt-4">
                 <button
-                    className="form-control btn-warning"
-                    onClick={() => { handleSave() }}
+                    class="form-control btn-warning"
+                    onClick={()=>{handleSave()}}
                 >
                     Add New Customer
-                </button>
-
-                <button
-                    className="form-control btn-danger"
-                    onClick={() => { history.back() }}
-                >
-                    Cancel
                 </button>
             </div>
         </div>
