@@ -52,8 +52,9 @@
 <summary>THINGS TO CONSULT SIR ABOUT</summary>
 
 1. ung id system ang gulo :l
-2. ung orders, how to work w/ date?
-    * how to have a form input for date? and how to convert that into smth that the backend can use???
+2. ung orders, how to work with many to many relationships?
+    * how to have a form input for many inputs (like list of product)? 
+    * and how to convert that into smth that the backend can use???
     * how to work with the builder + controller?
 3. additionally, how to work with arrays sa render product?
     * e.g. in categories, show localhost:8080, the array of products under a category
