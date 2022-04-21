@@ -7,13 +7,14 @@
         * backend ✅ 
     * **r**ead
         * client ✅ 
-        * backend ✅ 
+        * backend ✅
+    **cors error** ❓
     * **u**pdate
-        * client ❓
-        * backend ❓
+        * client ✅
+        * backend ✅
     * **d**elete
-        * client ❓
-        * backend ❓
+        * client ✅
+        * backend ✅
 2. **orders:**
     * The problem here is i cant figure out how to work with dates :L
     * client
