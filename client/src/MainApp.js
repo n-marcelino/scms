@@ -9,6 +9,7 @@ import {
 import Home from "./Home";
 import CategoryShow from "./CategoryShow";
 import CategoryAdd from "./CategoryAdd";
+import CategoryUpdate from "./CategoryUpdate";
 import ProductShow from "./ProductShow";
 import ProductAdd from "./ProductAdd";
 import CustomerShow from "./CustomerShow";
@@ -70,6 +71,7 @@ export default function MainApp() {
                         <Route exact path ="/*" element={<Home/>}/>
                         <Route exact path ="/categories/*" element={<CategoryShow/>}/>
                         <Route exact path ="/categories/add" element={<CategoryAdd/>}/>
+                        <Route exact path ="/categories/update" element={<CategoryUpdate/>}/>
                         <Route exact path ="/products/*" element={<ProductShow/>}/>
                         <Route exact path ="/products/add" element={<ProductAdd/>}/>
                         <Route exact path ="/customers/*" element={<CustomerShow/>}/>
@@ -79,8 +81,6 @@ export default function MainApp() {
                     </Routes>
                 </div>
             </div>
-            
-            
         </div>
     )
 

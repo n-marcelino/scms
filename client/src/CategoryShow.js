@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import CategoryAdd from "./CategoryAdd";
+import CategoryUpdate from "./CategoryUpdate";
 
 export default function CategoryShow() {
 
@@ -32,21 +33,37 @@ export default function CategoryShow() {
             });
     }
 
+    function closePopup() {
+        var edit = document.getElementById("editing-window-container");
+        edit.classList.add("d-none");
+        navigate('/categories');
+
+    }
+
     function renderCategories() {
-        
-        if(categories.length > 0) {
-            return(
+
+        if (categories.length > 0) {
+            return (
                 <div className="d-flex flex-wrap gap-3 cc-container">
                     {
                         categories.map((c) => {
-                            return(
+                            return (
                                 <div className="bg-light p-5 c-card d-flex flex-column">
                                     <h2>{c.name}</h2>
                                     <div className="mb-4">
                                         <h5>ID: {c.id}</h5>
                                     </div>
                                     <div className="mt-auto">
-                                        <button type="button" className="w-100 btn btn-warning">
+                                        <button
+                                            type="button"
+                                            onClick={
+                                                () => {
+                                                    var edit = document.getElementById("editing-window-container");
+                                                    edit.classList.remove("d-none");
+                                                    navigate('/categories/update');
+                                                }
+                                            }
+                                            className="w-100 btn btn-warning">
                                             Edit
                                         </button>
                                     </div>
@@ -56,18 +73,18 @@ export default function CategoryShow() {
                     }
 
                     <div className="bg-light c-card" >
-                        <div onClick={()=>(navigate('/categories/add'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
+                        <div onClick={() => (navigate('/categories/add'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
                             <div>
-                                <svg 
-                                    xmlns="http://www.w3.org/2000/svg" 
-                                    width="82 " 
-                                    height="82" 
-                                    fill="currentColor" 
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="82 "
+                                    height="82"
+                                    fill="currentColor"
                                     className="bi bi-plus-circle-fill text-warning" viewBox="0 0 16 16"
                                 >
-                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
                                 </svg>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -81,18 +98,18 @@ export default function CategoryShow() {
 
                     <div className="d-flex flex-wrap gap-3 cc-container">
                         <div className="bg-light c-card" >
-                            <div onClick={()=>(navigate('/categories/add'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
+                            <div onClick={() => (navigate('/categories/add'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
                                 <div>
-                                    <svg 
-                                        xmlns="http://www.w3.org/2000/svg" 
-                                        width="82 " 
-                                        height="82" 
-                                        fill="currentColor" 
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="82 "
+                                        height="82"
+                                        fill="currentColor"
                                         className="bi bi-plus-circle-fill text-warning" viewBox="0 0 16 16"
                                     >
-                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
                                     </svg>
-                                </div>                            
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -103,16 +120,50 @@ export default function CategoryShow() {
 
     return ( //returns a single element only; so you can nest all other elements inside one div
         <div className="p-3">
+
+            <div id="editing-window-container" className="d-none">
+                <div id="editing-window-shadow"></div>
+                <div
+                    id="editing-window"
+                    className="card container position- bg-light w-50 h-50 position-absolute top-50 start-50 translate-middle"
+                >
+                    <div className="d-flex flex-column p-3">
+                        <div>
+                        </div>
+
+                        <div className="d-flex gap-3 mt-auto">
+                            <button
+                                className="form-control btn-warning"
+                                onClick={() => { 
+
+                                    closePopup();
+                                }}
+                            >
+                                Confirm
+                            </button>
+                            <button
+                                className="form-control btn-danger"
+                                onClick={() => {
+                                    closePopup();
+                                }}
+                            >
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <h1>
                 Category List
             </h1>
 
-            <hr/>
+            <hr />
 
             {renderCategories()}
 
             <Routes>
-                <Route exact path ="/categories/add" element={<CategoryAdd/>}/>
+                <Route exact path="/categories/add" element={<CategoryAdd />} />
             </Routes>
 
         </div>
