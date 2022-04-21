@@ -39,13 +39,20 @@ export default function CategoryAdd() {
                 </label>
                 <div class="col-10">
                     <input
-                        class="form-control"
+                        class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
                         value={name}
                         onChange= {(event)=>{setName(event.target.value)}}
                     />
+
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                        This field is required.
+                    
+                    </div>
                 </div>
+
                 
             </div>
+            
 
             <div class="pt-4">
                 <button
