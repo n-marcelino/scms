@@ -54,12 +54,10 @@ public class OrdersController {
 		
 		Integer customerId 	= (int)Double.parseDouble(data.get("customer").toString());
 		Iterable<Integer> productId = Arrays.asList((int)Double.parseDouble(data.get("product").toString()));
-		Date orderDate = java.sql.Date.valueOf(data.get("orderDate").toString());
 		Boolean isOrderFulfilled = Boolean.parseBoolean(data.get("isOrderFulfilled").toString());
 		
 		
 		Order o = new Order();
-		o.setOrderDate(orderDate);
 		
 		Customer c = customerRepository.findById(customerId).get();
 		o.setCustomer(c);

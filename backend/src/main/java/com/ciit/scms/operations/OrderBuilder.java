@@ -18,7 +18,6 @@ public class OrderBuilder {
 	public void execute() {
 		data.put("customer", order.getCustomer());
 		data.put("product", order.getProducts());
-		data.put("orderDate", order.getOrderDate());
 		data.put("isOrderFulfilled", order.getIsOrderFulfilled());
 	}
 	

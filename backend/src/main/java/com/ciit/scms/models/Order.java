@@ -31,9 +31,6 @@ public class Order {
 	@ManyToMany(fetch=FetchType.EAGER, mappedBy="orders")//eager vs lazy; eager pulls out category from database and queries at the same  time
 	Set<Product> products;
 	
-	@Column(name = "order_date", nullable = false)
-	private Date orderDate;
-	
 	@Column(name="isOrderFulfilled", nullable=false)
 	private Boolean isOrderFulfilled;
 
@@ -61,14 +58,6 @@ public class Order {
 
 	public void setProducts(Set<Product> products) {
 		this.products = products;
-	}
-
-	public Date getOrderDate() {
-		return orderDate;
-	}
-
-	public void setOrderDate(Date orderDate) {
-		this.orderDate = orderDate;
 	}
 
 	public Boolean getIsOrderFulfilled() {
