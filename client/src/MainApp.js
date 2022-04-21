@@ -25,7 +25,7 @@ export default function MainApp() {
             </div>
 
             <div className="cc-side-nav w-25 bg-light vh-100 p-3 position-fixed">
-                <h2>Simple Commerce Management System</h2>
+                <h2 id="logo-title" onClick={()=>(navigate('/'))}>Simple Commerce Management System</h2>
                 <hr></hr>
                 <ul className="navbar-nav pl-5">
                     <li className="nav-item">

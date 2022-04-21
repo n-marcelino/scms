@@ -31,7 +31,7 @@ export default function CategoryAdd() {
     }
 
     return (
-        <div class="form-group w-50">
+        <div class="form-group w-50 p-3">
             <h1>Add Categories</h1>
             <div class="form-group row py-2">
                 <label class="col-2 col-form-label">
