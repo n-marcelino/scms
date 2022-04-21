@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import FormValidation from "./FormValidation";
 
 export default function CategoryAdd() {
     const [name, setName] = useState("");
@@ -39,14 +40,13 @@ export default function CategoryAdd() {
                 </label>
                 <div class="col-10">
                     <input
-                        class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
+                        class="form-control"
+                        required
                         value={name}
                         onChange= {(event)=>{setName(event.target.value)}}
                     />
-
-                    <div id="validationServer03Feedback" class="invalid-feedback">
+                    <div class="invalid-feedback">
                         This field is required.
-                    
                     </div>
                 </div>
 
