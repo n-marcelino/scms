@@ -3,8 +3,12 @@
 ## THINGS TO CONSULT MISS ABOUT (!!!)
 1. how our backend and client works
 2. incompatibility with the java tutorial she showed
+    * java & jdbc vs. java spring framework & mysql
 3. we're following the oop that our other major is talking about
 4. ensure that she knows there is mysql involved
+    * we dont have a specific .sql file, BUT we are working with sql
+    * the only thing that needs to be done is make a scms db in mysql
+    * then our backend will handle the rest
 
 ## THINGS TO CONSULT SIR ABOUT (!!!)
 1. ung id system ang gulo :l
