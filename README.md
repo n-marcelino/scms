@@ -3,7 +3,7 @@
 ## IMPORTANT
 
 <details>
-<summary style="color:red">TO-DO LIST (!!!)</summary>
+<summary>TO-DO LIST (!!!)</summary>
 
 1. **crud**
     * **c**reate ✅
