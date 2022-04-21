@@ -56,7 +56,8 @@
 
     1. import as project the backend to eclipse
     
-    2. within eclipse, in src/main/resources/application.properties, change the necessary info to match ur sql settings
+    2. within eclipse, in src/main/resources/application.properties,
+    change the necessary info to match ur sql settings
 
     3. run 'program.java' within the backend project on eclipse
 
