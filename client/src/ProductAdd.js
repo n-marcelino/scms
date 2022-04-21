@@ -47,7 +47,7 @@ export default function ProductAdd() {
             }
         )
             .then(response => response.json())
-            .then(() => {
+            .then(data => {
                 console.log(response);
                 setName("");
                 setPrice(0.00);

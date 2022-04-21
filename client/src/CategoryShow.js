@@ -35,7 +35,6 @@ export default function CategoryShow() {
 
     function renderCategories() {
         
-
         if(categories.length > 0) {
             return(
                 <div className="d-flex flex-wrap gap-3 cc-container">

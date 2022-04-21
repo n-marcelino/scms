@@ -30,7 +30,8 @@ public class Product {
 	@JoinColumn(name="category_id",nullable=false)
 	private Category category;
 	
-	@ManyToMany(fetch=FetchType.EAGER, mappedBy="products")//eager vs lazy; eager pulls out category from database and queries at the same  time
+	@ManyToMany//eager vs lazy; eager pulls out category from database and queries at the same  time
+	@JoinColumn(name="order_id",nullable=false)
 	Set<Order> orders;
 
 	//SETTERS AND GETTERS

@@ -28,8 +28,7 @@ public class Order {
 	
 	//equivalent of foreign key
 	//mappedby must correspond to existing equal key in other table
-	@ManyToMany(fetch=FetchType.EAGER)//eager vs lazy; eager pulls out category from database and queries at the same  time
-	@JoinTable
+	@ManyToMany(fetch=FetchType.EAGER, mappedBy="orders")//eager vs lazy; eager pulls out category from database and queries at the same  time
 	Set<Product> products;
 	
 	@Column(name = "order_date", nullable = false)
