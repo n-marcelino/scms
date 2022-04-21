@@ -59,15 +59,10 @@ export default function CustomerAdd() {
                 </label>
                 <div class="col-9">
                     <input
-                        class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
+                        class="form-control"
                         value={firstName}
                         onChange= {(event)=>{setFirstName(event.target.value)}}
                     />
-
-                    <div id="validationServer03Feedback" class="invalid-feedback">
-                        This field is required.
-                    </div>
-
                 </div>
                
             </div>
@@ -78,15 +73,10 @@ export default function CustomerAdd() {
                 </label>
                 <div class="col-9">
                     <input
-                        class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
+                        class="form-control"
                         value={lastName}
                         onChange= {(event)=>{setLastName(event.target.value)}}
                     />
-
-                    <div id="validationServer03Feedback" class="invalid-feedback">
-                        This field is required.
-                    </div>
-
                 </div>
                 
             </div>
@@ -97,15 +87,10 @@ export default function CustomerAdd() {
                 </label>
                 <div class="col-9">
                     <input
-                        class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
+                        class="form-control"
                         value={street}
                         onChange= {(event)=>{setStreet(event.target.value)}}
                     />
-
-                    <div id="validationServer03Feedback" class="invalid-feedback">
-                        This field is required.
-                    </div>
-
                 </div>
             </div>
 
@@ -115,14 +100,10 @@ export default function CustomerAdd() {
                 </label>
                 <div class="col-9">
                     <input
-                        class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
+                        class="form-control"
                         value={city}
                         onChange= {(event)=>{setCity(event.target.value)}}
                     />
-
-                    <div id="validationServer03Feedback" class="invalid-feedback">
-                        This field is required.
-                    </div>
                 </div>                
             </div>
 
@@ -132,15 +113,10 @@ export default function CustomerAdd() {
                 </label>
                 <div class="col-9">
                     <input
-                        class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
+                        class="form-control"
                         value={zip}
                         onChange= {(event)=>{setZip(event.target.value)}}
                     />
-
-                    <div id="validationServer03Feedback" class="invalid-feedback">
-                        This field is required.
-                    </div>
-
                 </div>                
             </div>
 
@@ -150,15 +126,10 @@ export default function CustomerAdd() {
                 </label>
                 <div class="col-9">
                     <input
-                        class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
+                        class="form-control"
                         value={phone}
                         onChange= {(event)=>{setPhone(event.target.value)}}
                     />
-
-                    <div id="validationServer03Feedback" class="invalid-feedback">
-                        This field is required.
-                    </div>
-
                 </div>
             </div>
 

@@ -66,15 +66,10 @@ export default function ProductAdd() {
                     </label>
                     <div class="col-10">
                         <input 
-                            class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
+                            class="form-control"
                             value={name}
                             onChange= {(event)=>{setName(event.target.value)}}
                         />
-
-                    <div id="validationServer03Feedback" class="invalid-feedback">
-                        This field is required.
-                    </div>
-
                     </div>
                     
                 </div>
@@ -85,15 +80,10 @@ export default function ProductAdd() {
                     </label>
                     <div class="col-sm-10">
                         <input
-                            class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
+                            class="form-control"
                             value={price}
                             onChange= {(event)=>{setPrice(event.target.value)}}
                         />
-
-                    <div id="validationServer03Feedback" class="invalid-feedback">
-                        This field is required.
-                    </div>
-
                     </div>
                     
                 </div>
@@ -104,7 +94,7 @@ export default function ProductAdd() {
                     </label>
                     <div class="col-sm-10">
                         <select 
-                            class="form-control is-invalid"  aria-describedby="validationServer03Feedback" required
+                            class="form-control"
                             value={categoryId}
                             onChange = {(event)=> {setCategoryId(event.target.value)}}
                         >
@@ -118,11 +108,6 @@ export default function ProductAdd() {
                                 })
                             }
                         </select>
-
-                        <div id="validationServer03Feedback" class="invalid-feedback">
-                        This field is required.
-                        </div>
-
                     </div>
                     
                 </div>
