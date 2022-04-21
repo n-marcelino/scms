@@ -20,7 +20,7 @@ export default function MainApp() {
 
     return (
         <div class="d-flex">
-            <div class="cc-side-nav w-25 bg-light vh-100 p-3">
+            <div class="cc-side-nav w-25 bg-light vh-100 p-3 position-block">
                 {/* dont remove, this is here to push the rest of the body to the side */}
             </div>
 
@@ -54,7 +54,7 @@ export default function MainApp() {
                 </ul>
             </div>
             
-            <div class="flex-grow-1">
+            <div class="flex-grow-1 w-75">
                 <div>
                     {/* dont remove the adds from here even if theres adds in the shows,
                     for some reason it breaks if the adds dont exist here */}
