@@ -54,8 +54,7 @@ export default function MainApp() {
                 </ul>
             </div>
             
-            <div class="w-75">
-
+            <div class="flex-grow-1">
                 <div>
                     {/* dont remove the adds from here even if theres adds in the shows,
                     for some reason it breaks if the adds dont exist here */}

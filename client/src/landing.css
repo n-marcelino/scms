@@ -1,19 +1,13 @@
 .head-container{
     min-height: 50vh;
     width: 100%;
-    background-position: center;
-    background-size: cover;
-    position: relative;
 }
 
 .head {
     background-color: rgb(203, 166, 43);
     min-height: 45vh;
-    position: relative;
-    top: 45px;
     padding-top: 50px;
     padding-left: 70px;
-    z-index: 10;
 }
 
 .head h2{
