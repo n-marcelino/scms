@@ -56,7 +56,7 @@
 
     1. import as project the backend to eclipse
     
-    2. within eclipse, in src/main/resources/application.properties, <br>
+    2. within eclipse, in src/main/resources/application.properties,
     change the necessary info to match ur sql settings
 
     3. run 'program.java' within the backend project on eclipse
@@ -66,18 +66,18 @@
 <details>
 <summary>5. what to do on vscode</summary>
 
-1. add the client folder to ur vscode workspace
+    1. add the client folder to ur vscode workspace
 
-2. make sure that your terminal is set to the client folder directory
-    * e.g. your terminal should look like this:
-```
-E:\Programming\github\scms\client> []     <= this thing is ur cursor
-```
+    2. make sure that your terminal is set to the client folder directory
+        * e.g. your terminal should look like this:
+    ```
+    E:\Programming\github\scms\client> []     <= this thing is ur cursor
+    ```
 
-3. on your terminal, run this:
-```
-./node_modules/.bin/webpack serve --mode development
-``` 
+    3. on your terminal, run this:
+    ```
+    ./node_modules/.bin/webpack serve --mode development
+    ``` 
 </details>
 
 6. on your browser, go to localhost:8081
