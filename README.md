@@ -2,8 +2,12 @@
 
 ## THINGS TO CONSULT MISS ABOUT (!!!)
 1. how our backend and client works
+    * backend thats built on spring framework that is connected to a mysql db
+    * client that runs on react and js
 2. incompatibility with the java tutorial she showed
     * java & jdbc vs. java spring framework & mysql
+    * wrong understanding that we needed a .sql file to have a working backend?
+    * rather, we are connected to sql already
 3. we're following the oop that our other major is talking about
 4. ensure that she knows there is mysql involved
     * we dont have a specific .sql file, BUT we are working with sql
