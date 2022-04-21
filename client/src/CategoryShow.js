@@ -121,39 +121,6 @@ export default function CategoryShow() {
     return ( //returns a single element only; so you can nest all other elements inside one div
         <div className="p-3">
 
-            <div id="editing-window-container" className="d-none">
-                <div id="editing-window-shadow"></div>
-                <div
-                    id="editing-window"
-                    className="card container position- bg-light w-50 h-50 position-absolute top-50 start-50 translate-middle"
-                >
-                    <div className="d-flex flex-column p-3">
-                        <div>
-                        </div>
-
-                        <div className="d-flex gap-3 mt-auto">
-                            <button
-                                className="form-control btn-warning"
-                                onClick={() => { 
-
-                                    closePopup();
-                                }}
-                            >
-                                Confirm
-                            </button>
-                            <button
-                                className="form-control btn-danger"
-                                onClick={() => {
-                                    closePopup();
-                                }}
-                            >
-                                Cancel
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <h1>
                 Category List
             </h1>
