@@ -3,6 +3,34 @@
 ## IMPORTANT
 
 <details>
+<summary>TO-DO LIST (!!!)</summary>
+
+1. **crud**
+    * **c**reate ✅
+        * we can create entries in category, customer, and product
+        * orders are still broken..... 
+    * **r**ead
+        * figure out a searchbar ❗
+    * **u**pdate ❓
+    * **d**elete ❓
+2. **orders:**
+    * The problem here is i cant figure out how to work with dates :L
+    * client
+        * OrderShow ❓
+        * OrderAdd ❓
+    * back-end
+        * Save function in orderscontroller ❓
+        * Builder for gson/json edit to be compatible converting back and forth ❓
+            * there should be no concatenated anything in builder bc it wont be able to convert back from gson to java
+3. **Form authentication**
+    * Find a way to make a restriction on the forms
+    * columns cant be empty etc etc
+    * preferably figure out how to bootstrap ur way into it?
+    * https://getbootstrap.com/docs/5.0/forms/overview/
+    
+</details>
+
+<details>
 <summary>THINGS TO CONSULT MISS ABOUT (!!!)</summary>
 
 1. how our backend and client works
@@ -30,37 +58,8 @@
 3. additionally, how to work with arrays sa render product?
     * e.g. in categories, show localhost:8080, the array of products under a category
     * how to render that?
-    
+
 </details>
-
-
-## TO-DO LIST (!!!)
-0. **❗❗make github account, setup github desktop, figure out how to collab on the same repo❗❗**
-
-1. **crud**
-    * **c**reate ✅
-        * we can create entries in category, customer, and product
-        * orders are still broken..... 
-    * **r**ead
-        * figure out a searchbar ❗
-    * **u**pdate ❓
-    * **d**elete ❓
-2. **orders:**
-    * The problem here is i cant figure out how to work with dates :L
-    * client
-        * OrderShow ❓
-        * OrderAdd ❓
-    * back-end
-        * Save function in orderscontroller ❓
-        * Builder for gson/json edit to be compatible converting back and forth ❓
-            * there should be no concatenated anything in builder bc it wont be able to convert back from gson to java
-3. **Form authentication**
-    * Find a way to make a restriction on the forms
-    * columns cant be empty etc etc
-    * preferably figure out how to bootstrap ur way into it?
-    * https://getbootstrap.com/docs/5.0/forms/overview/
-
-
 
 ## HOW TO RUN (!!!)
 
