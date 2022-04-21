@@ -7,13 +7,19 @@ import {
 } from "react-router-dom";
 
 import Home from "./Home";
+
 import CategoryShow from "./CategoryShow";
 import CategoryAdd from "./CategoryAdd";
 import CategoryUpdate from "./CategoryUpdate";
+
 import ProductShow from "./ProductShow";
 import ProductAdd from "./ProductAdd";
+import ProductUpdate from "./ProductUpdate";
+
 import CustomerShow from "./CustomerShow";
 import CustomerAdd from "./CustomerAdd";
+import CustomerUpdate from "./CustomerUpdate";
+
 import OrderShow from "./OrderShow";
 import OrderAdd from "./OrderAdd";
 
@@ -69,13 +75,19 @@ export default function MainApp() {
                     for some reason it breaks if the adds dont exist here */}
                     <Routes>
                         <Route exact path ="/*" element={<Home/>}/>
+
                         <Route exact path ="/categories/*" element={<CategoryShow/>}/>
                         <Route exact path ="/categories/add" element={<CategoryAdd/>}/>
                         <Route exact path ="/categories/update" element={<CategoryUpdate/>}/>
+
                         <Route exact path ="/products/*" element={<ProductShow/>}/>
                         <Route exact path ="/products/add" element={<ProductAdd/>}/>
+                        <Route exact path ="/products/update" element={<ProductUpdate/>}/>
+
                         <Route exact path ="/customers/*" element={<CustomerShow/>}/>
                         <Route exact path ="/customers/add" element={<CustomerAdd/>}/>
+                        <Route exact path ="/customers/update" element={<CustomerUpdate/>}/>
+
                         <Route exact path ="/orders/*" element={<OrderShow/>}/>
                         <Route exact path ="/orders/add" element={<OrderAdd/>}/>
                     </Routes>

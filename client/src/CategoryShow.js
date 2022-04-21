@@ -56,13 +56,7 @@ export default function CategoryShow() {
                                     <div className="mt-auto">
                                         <button
                                             type="button"
-                                            onClick={
-                                                () => {
-                                                    var edit = document.getElementById("editing-window-container");
-                                                    edit.classList.remove("d-none");
-                                                    navigate('/categories/update');
-                                                }
-                                            }
+                                            onClick={() => {navigate('/categories/update');}}
                                             className="w-100 btn btn-warning">
                                             Edit
                                         </button>
@@ -131,6 +125,7 @@ export default function CategoryShow() {
 
             <Routes>
                 <Route exact path="/categories/add" element={<CategoryAdd />} />
+                <Route exact path="/categories/update" element={<CategoryUpdate />} />
             </Routes>
 
         </div>
