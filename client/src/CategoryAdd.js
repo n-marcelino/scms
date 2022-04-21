@@ -7,10 +7,11 @@ export default function CategoryAdd() {
 
     function handleSave() {
         console.log("Name: " + name);
+
         var payload = {
             name: name
         }
-        
+
         fetch(urlCategories, 
             {
                 method: 'POST',
