@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from "react";
 
-export default function CategoryUpdate() {
-    const [name, setName] = useState("");
-    const [id, setID] = useState(0);
+export default function CustomerDelete() {
+    const [id, setId] = useState(0);
 
-    const urlCategories = "http://localhost:8080/api/categories";
+    const urlCustomers = "http://localhost:8080/api/customers";
 
     function handleUpdate() {
-        console.log("Name: " + name);
-
+        
         var payload = {
             id: id,
-            name: name
         }
 
-        fetch(urlCategories, 
+        fetch(urlCustomers, 
             {
-                method: 'UPDATE',
+                method: 'DELETE',
                 headers: {
                     'Content-Type':'application/json'
                 },
@@ -26,8 +23,7 @@ export default function CategoryUpdate() {
             .then(response => response.json())
             .then(data => {
                 console.log(response);
-                setName("");
-                setID(0);
+                setId(0);
             })
             .catch((error) => {
             });
@@ -35,31 +31,19 @@ export default function CategoryUpdate() {
 
     return (
         <div class="form-group w-50">
-            <h1>Update Categories</h1>
+            <h1>Delete Customer Record</h1>
             <div class="form-group row py-2">
-                <label class="col-2 col-form-label">
+                <label class="col-3 col-form-label">
                     ID: 
                 </label>
-                <div class="col-10">
+                <div class="col-9">
                     <input
                         class="form-control"
                         value={id}
-                        onChange= {(event)=>{setID(event.target.value)}}
+                        onChange= {(event)=>{setId(event.target.value)}}
                     />
                 </div>
-            </div>
-
-            <div class="form-group row py-2">
-                <label class="col-2 col-form-label">
-                    Name: 
-                </label>
-                <div class="col-10">
-                    <input
-                        class="form-control"
-                        value={name}
-                        onChange= {(event)=>{setName(event.target.value)}}
-                    />
-                </div>
+               
             </div>
 
             <div class="pt-4">
@@ -67,7 +51,7 @@ export default function CategoryUpdate() {
                     class="form-control btn-warning"
                     onClick={()=>{handleUpdate()}}
                 >
-                    Update Category
+                    Delete Customer
                 </button>
             </div>
         </div>

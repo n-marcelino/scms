@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 
-export default function CategoryAdd() {
-    const [name, setName] = useState("");
+export default function CategoryDelete() {
+    const [id, setID] = useState(0);
 
     const urlCategories = "http://localhost:8080/api/categories";
 
-    function handleSave() {
-        console.log("Name: " + name);
+    function handleUpdate() {
+
         var payload = {
-            name: name
+            id: id,
+           
         }
-        
+
         fetch(urlCategories, 
             {
-                method: 'POST',
+                method: 'DELETE',
                 headers: {
                     'Content-Type':'application/json'
                 },
@@ -23,42 +24,34 @@ export default function CategoryAdd() {
             .then(response => response.json())
             .then(data => {
                 console.log(response);
-                setName("");
+                setID("");
             })
             .catch((error) => {
             });
     }
 
     return (
-        <div class="form-group w-50 p-3">
-            <h1>Add Categories</h1>
+        <div class="form-group w-50">
+            <h1>Delete Categories</h1>
             <div class="form-group row py-2">
                 <label class="col-2 col-form-label">
-                    Name: 
+                    ID: 
                 </label>
                 <div class="col-10">
                     <input
                         class="form-control"
-                        value={name}
-                        onChange= {(event)=>{setName(event.target.value)}}
+                        value={id}
+                        onChange= {(event)=>{setId(event.target.value)}}
                     />
                 </div>
-                
             </div>
 
-            <div class="pt-4 d-flex gap-3">
+            <div class="pt-4">
                 <button
                     class="form-control btn-warning"
-                    onClick={()=>{handleSave()}}
+                    onClick={()=>{handleUpdate()}}
                 >
-                    Add New Category
-                </button>
-
-                <button
-                    class="form-control btn-danger"
-                    onClick={()=>{history.back()}}
-                >
-                    Cancel
+                    Delete Category
                 </button>
             </div>
         </div>
