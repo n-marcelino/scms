@@ -10,6 +10,7 @@ import './landing.css'
 import ProductShow from "./ProductShow";
 import CategoryShow from "./CategoryShow";
 import CustomerShow from "./CustomerShow";
+import OrderShow from "./OrderShow";
 
 export default function Home() {
 
@@ -81,7 +82,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className="content" onClick={() => (navigate(''))}>
+                    <div className="content" onClick={() => (navigate('/orders'))}>
                         <h1 className="">
                             <b>Order</b>
                         </h1>
@@ -104,6 +105,7 @@ export default function Home() {
                 <Route exact path="/categories/*" element={<CategoryShow />} />
                 <Route exact path="/products/*" element={<ProductShow />} />
                 <Route exact path="/customers/*" element={<CustomerShow />} />
+                <Route exact path="/orders/*" element={<OrderShow />} />
             </Routes>
 
         </div>

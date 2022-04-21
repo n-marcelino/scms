@@ -27,11 +27,11 @@ export default function CustomerAdd() {
             phone: phone
         }
 
-        fetch(urlCustomers, 
+        fetch(urlCustomers,
             {
                 method: 'POST',
                 headers: {
-                    'Content-Type':'application/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(payload)
             }
@@ -55,90 +55,97 @@ export default function CustomerAdd() {
             <h1>Add Customer Record</h1>
             <div className="form-group row py-2">
                 <label className="col-3 col-form-label">
-                    First Name: 
+                    First Name:
                 </label>
                 <div className="col-9">
                     <input
                         className="form-control"
                         value={firstName}
-                        onChange= {(event)=>{setFirstName(event.target.value)}}
+                        onChange={(event) => { setFirstName(event.target.value) }}
                     />
                 </div>
-               
+
             </div>
 
             <div className="form-group row py-2">
                 <label className="col-3 col-form-label">
-                    Last Name: 
+                    Last Name:
                 </label>
                 <div className="col-9">
                     <input
                         className="form-control"
                         value={lastName}
-                        onChange= {(event)=>{setLastName(event.target.value)}}
+                        onChange={(event) => { setLastName(event.target.value) }}
                     />
                 </div>
-                
+
             </div>
-           
+
             <div className="form-group row py-2">
                 <label className="col-3 col-form-label">
-                    Street: 
+                    Street:
                 </label>
                 <div className="col-9">
                     <input
                         className="form-control"
                         value={street}
-                        onChange= {(event)=>{setStreet(event.target.value)}}
+                        onChange={(event) => { setStreet(event.target.value) }}
                     />
                 </div>
             </div>
 
             <div className="form-group row py-2">
                 <label className="col-3 col-form-label">
-                    City: 
+                    City:
                 </label>
                 <div className="col-9">
                     <input
                         className="form-control"
                         value={city}
-                        onChange= {(event)=>{setCity(event.target.value)}}
+                        onChange={(event) => { setCity(event.target.value) }}
                     />
-                </div>                
+                </div>
             </div>
 
             <div className="form-group row py-2">
                 <label className="col-3 col-form-label">
-                    ZIP: 
+                    ZIP:
                 </label>
                 <div className="col-9">
                     <input
                         className="form-control"
                         value={zip}
-                        onChange= {(event)=>{setZip(event.target.value)}}
+                        onChange={(event) => { setZip(event.target.value) }}
                     />
-                </div>                
+                </div>
             </div>
 
             <div className="form-group row py-2">
                 <label className="col-3 col-form-label">
-                    Phone Number: 
+                    Phone Number:
                 </label>
                 <div className="col-9">
                     <input
                         className="form-control"
                         value={phone}
-                        onChange= {(event)=>{setPhone(event.target.value)}}
+                        onChange={(event) => { setPhone(event.target.value) }}
                     />
                 </div>
             </div>
 
-            <div className="pt-4">
+            <div className="pt-4 d-flex gap-3">
                 <button
                     className="form-control btn-warning"
-                    onClick={()=>{handleSave()}}
+                    onClick={() => { handleSave() }}
                 >
                     Add New Customer
+                </button>
+
+                <button
+                    className="form-control btn-danger"
+                    onClick={() => { history.back() }}
+                >
+                    Cancel
                 </button>
             </div>
         </div>

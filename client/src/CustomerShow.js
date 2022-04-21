@@ -113,7 +113,7 @@ export default function CustomerShow() {
             {renderCustomers()}
 
             <Routes>
-                <Route exact path ="/customers/add" element={<CustomerAdd/>}/>
+                <Route exact path ="/add" element={<CustomerAdd/>}/>
             </Routes>
 
         </div>

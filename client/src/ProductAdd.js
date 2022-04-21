@@ -115,12 +115,19 @@ export default function ProductAdd() {
 
                 </div>
 
-                <div className="pt-4">
+                <div className="pt-4 d-flex gap-3">
                     <button
                         className="form-control btn-warning"
                         onClick={() => { handleSave() }}
                     >
                         Add New Product
+                    </button>
+
+                    <button
+                        className="form-control btn-danger"
+                        onClick={() => { history.back() }}
+                    >
+                        Cancel
                     </button>
                 </div>
             </div>
