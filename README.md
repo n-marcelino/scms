@@ -1,6 +1,10 @@
 # scms
 
-## THINGS TO CONSULT MISS ABOUT (!!!)
+## IMPORTANT
+
+<details>
+<summary>THINGS TO CONSULT MISS ABOUT (!!!)</summary>
+
 1. how our backend and client works
     * backend thats built on spring framework that is connected to a mysql db
     * client that runs on react and js
@@ -14,7 +18,11 @@
     * the only thing that needs to be done is make a scms db in mysql
     * then our backend will handle the rest
 
-## THINGS TO CONSULT SIR ABOUT (!!!)
+</details>
+
+<details>
+<summary>THINGS TO CONSULT SIR ABOUT (!!!)</summary>
+
 1. ung id system ang gulo :l
 2. ung orders, how to work w/ date?
     * how to have a form input for date? and how to convert that into smth that the backend can use???
@@ -22,6 +30,9 @@
 3. additionally, how to work with arrays sa render product?
     * e.g. in categories, show localhost:8080, the array of products under a category
     * how to render that?
+    
+</details>
+
 
 ## TO-DO LIST (!!!)
 0. **❗❗make github account, setup github desktop, figure out how to collab on the same repo❗❗**
