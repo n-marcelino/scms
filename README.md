@@ -53,7 +53,7 @@
 
 <details>
 <summary>4. what to do on eclipse</summary>
-<br>
+
 1. import as project the backend to eclipse
 
 2. within eclipse, in src/main/resources/application.properties, change the necessary info to match ur sql settings
@@ -63,7 +63,7 @@
 
 <details>
 <summary>5. what to do on vscode</summary>
-<br>
+
 1. add the client folder to ur vscode workspace
 
 2. make sure that your terminal is set to the client folder directory
@@ -83,7 +83,7 @@ E:\Programming\github\scms\client> []     <= this thing is ur cursor
 ## misc.
 <details>
 <summary>making new "show" js</summary>
-<br>
+
 1. import the ff:
 
 ```
