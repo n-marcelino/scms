@@ -70,7 +70,7 @@ public class CategoriesController {
 		return result;
 	}
 	
-	// update (NOT WORKING YET BECUZ CANT TEST (throwing some error 400's or CORS at me))
+	// update 
 	@RequestMapping(
 			value= {"","/"},
 			method=RequestMethod.PATCH,
@@ -90,7 +90,25 @@ public class CategoriesController {
 		categoryRepository.save(c);
 		return " { \"message\": \"ok\" } ";
 	}
+	
+	// delete
+	@RequestMapping(
+			value= {"","/"},
+			method=RequestMethod.DELETE,
+			produces=MediaType.APPLICATION_JSON_VALUE)
+	@CrossOrigin(origins="*")
+	public String delete(@RequestBody String payload) {
+		Gson gson = new Gson();
+		HashMap<String,Object> data = new HashMap<String,Object>();
+		data = gson.fromJson(payload, data.getClass());
 		
+		int id = Integer.parseInt(data.get("id").toString());
+		
+		categoryRepository.deleteById(id);
+		
+		return " { \"message\": \"ok\" } ";
+	}
+	
 	@RequestMapping(
 			value= {"/{id}"},
 			method=RequestMethod.GET,

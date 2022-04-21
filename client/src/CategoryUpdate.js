@@ -27,7 +27,7 @@ export default function CategoryUpdate() {
             .then(data => {
                 console.log(response);
                 setName("");
-                setID("");
+                setID(0);
             })
             .catch((error) => {
             });
@@ -44,7 +44,7 @@ export default function CategoryUpdate() {
                     <input
                         class="form-control"
                         value={id}
-                        onChange= {(event)=>{setId(event.target.value)}}
+                        onChange= {(event)=>{setID(event.target.value)}}
                     />
                 </div>
             </div>

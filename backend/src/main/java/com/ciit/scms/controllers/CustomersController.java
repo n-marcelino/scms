@@ -81,6 +81,56 @@ public class CustomersController {
 		return result;
 	}
 	
+	// update 
+		@RequestMapping(
+				value= {"","/"},
+				method=RequestMethod.PATCH,
+				produces=MediaType.APPLICATION_JSON_VALUE)
+		@CrossOrigin(origins="*")
+		public String update(@RequestBody String payload) {
+			Gson gson = new Gson();
+			HashMap<String,Object> data = new HashMap<String,Object>();
+			data = gson.fromJson(payload, data.getClass());
+			
+			int id = Integer.parseInt(data.get("id").toString());
+			String firstName = data.get("firstName").toString();
+			String lastName = data.get("lastName").toString();
+			String street = data.get("street").toString();
+			String city = data.get("city").toString();
+			String zip = data.get("zip").toString();
+			String phone = data.get("phone").toString();
+			
+			Customer c = customerRepository.findById(id).get();
+			c.setFirstName(firstName);
+			c.setLastName(lastName);
+			c.setStreet(street);
+			c.setCity(city);
+			c.setZip(zip);
+			c.setPhone(phone);
+			
+			
+			customerRepository.save(c);
+			return " { \"message\": \"ok\" } ";
+		}
+	
+	// delete
+		@RequestMapping(
+				value= {"","/"},
+				method=RequestMethod.DELETE,
+				produces=MediaType.APPLICATION_JSON_VALUE)
+		@CrossOrigin(origins="*")
+		public String delete(@RequestBody String payload) {
+			Gson gson = new Gson();
+			HashMap<String,Object> data = new HashMap<String,Object>();
+			data = gson.fromJson(payload, data.getClass());
+			
+			int id = Integer.parseInt(data.get("id").toString());
+			
+			customerRepository.deleteById(id);
+			
+			return " { \"message\": \"ok\" } ";
+		}
+	
 	@RequestMapping(
 			value= {"/{id}"},
 			method=RequestMethod.GET,

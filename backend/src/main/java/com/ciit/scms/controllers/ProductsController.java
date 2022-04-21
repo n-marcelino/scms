@@ -2,6 +2,7 @@ package com.ciit.scms.controllers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -87,6 +88,57 @@ public class ProductsController {
 		
 		return result;
 	}
+	
+	// update 
+		@RequestMapping(
+				value= {"","/"},
+				method=RequestMethod.PATCH,
+				produces=MediaType.APPLICATION_JSON_VALUE)
+		@CrossOrigin(origins="*")
+		public String update(@RequestBody String payload) {
+			Gson gson = new Gson();
+			HashMap<String,Object> data = new HashMap<String,Object>();
+			data = gson.fromJson(payload, data.getClass());
+			
+			int id = Integer.parseInt(data.get("id").toString());
+			String name = data.get("name").toString();
+			Double price = Double.parseDouble(data.get("price").toString());
+			int category_id = Integer.parseInt(data.get("category_id").toString());
+			
+//			// get category by name
+//			String category_name = data.get("category").toString();
+//			
+//			// added findByName at category repo
+//			List<Category> c_list = categoryRepository.findByName(category_name);
+			
+			Category c = categoryRepository.findById(category_id).get();
+			Product p = productRepository.findById(id).get();
+			p.setName(name);
+			p.setPrice(price);
+			p.setCategory(c);
+			
+			productRepository.save(p);
+			return " { \"message\": \"ok\" } ";
+		}
+	
+	// delete
+	@RequestMapping(
+			value= {"","/"},
+			method=RequestMethod.DELETE,
+			produces=MediaType.APPLICATION_JSON_VALUE)
+	@CrossOrigin(origins="*")
+	public String delete(@RequestBody String payload) {
+		Gson gson = new Gson();
+		HashMap<String,Object> data = new HashMap<String,Object>();
+		data = gson.fromJson(payload, data.getClass());
+		
+		int id = Integer.parseInt(data.get("id").toString());
+		
+		productRepository.deleteById(id);
+		
+		return " { \"message\": \"ok\" } ";
+	}
+
 	
 	@RequestMapping(
 			value= {"/{id}"},
