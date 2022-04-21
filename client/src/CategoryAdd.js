@@ -31,15 +31,15 @@ export default function CategoryAdd() {
     }
 
     return (
-        <div classsName="form-group w-50 p-3">
+        <div className="form-group w-50 p-3">
             <h1>Add Categories</h1>
-            <div classsName="form-group row py-2">
-                <label classsName="col-2 col-form-label">
+            <div className="form-group row py-2">
+                <label className="col-2 col-form-label">
                     Name: 
                 </label>
-                <div classsName="col-10">
+                <div className="col-10">
                     <input
-                        classsName="form-control"
+                        className="form-control"
                         value={name}
                         onChange= {(event)=>{setName(event.target.value)}}
                     />
@@ -47,9 +47,9 @@ export default function CategoryAdd() {
                 
             </div>
 
-            <div classsName="pt-4">
+            <div className="pt-4">
                 <button
-                    classsName="form-control btn-warning"
+                    className="form-control btn-warning"
                     onClick={()=>{handleSave()}}
                 >
                     Add New Category

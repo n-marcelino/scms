@@ -57,16 +57,16 @@ export default function ProductAdd() {
     }
 
     return (
-        <div classsName="p-3">
-            <div classsName="form-group w-50">
+        <div className="p-3">
+            <div className="form-group w-50">
                 <h1>Add Products</h1>
-                <div classsName="form-group row py-2">
-                    <label classsName="col-2 col-form-label">
+                <div className="form-group row py-2">
+                    <label className="col-2 col-form-label">
                         Name:
                     </label>
-                    <div classsName="col-10">
+                    <div className="col-10">
                         <input
-                            classsName="form-control"
+                            className="form-control"
                             value={name}
                             onChange={(event) => { setName(event.target.value) }}
                         />
@@ -74,13 +74,13 @@ export default function ProductAdd() {
 
                 </div>
 
-                <div classsName="form-group row py-2">
-                    <label classsName="col-sm-2 col-form-label">
+                <div className="form-group row py-2">
+                    <label className="col-sm-2 col-form-label">
                         Price:
                     </label>
-                    <div classsName="col-sm-10">
+                    <div className="col-sm-10">
                         <input
-                            classsName="form-control"
+                            className="form-control"
                             value={price}
                             onChange={(event) => { setPrice(event.target.value) }}
                         />
@@ -88,13 +88,13 @@ export default function ProductAdd() {
 
                 </div>
 
-                <div classsName="form-group row py-2">
-                    <label classsName="col-sm-2 col-form-label">
+                <div className="form-group row py-2">
+                    <label className="col-sm-2 col-form-label">
                         Category:
                     </label>
-                    <div classsName="col-sm-10">
+                    <div className="col-sm-10">
                         <select
-                            classsName="form-control"
+                            className="form-control"
                             value={categoryId}
                             onChange={(event) => { setCategoryId(event.target.value) }}
                         >
@@ -115,9 +115,9 @@ export default function ProductAdd() {
 
                 </div>
 
-                <div classsName="pt-4">
+                <div className="pt-4">
                     <button
-                        classsName="form-control btn-warning"
+                        className="form-control btn-warning"
                         onClick={() => { handleSave() }}
                     >
                         Add New Product
