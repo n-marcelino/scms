@@ -3,7 +3,7 @@
 ## IMPORTANT
 
 <details>
-<summary>TO-DO LIST (!!!)</summary>
+<summary>TO-DO LIST</summary>
 
 1. **crud**
     * **c**reate ✅
@@ -31,7 +31,7 @@
 </details>
 
 <details>
-<summary>THINGS TO CONSULT MISS ABOUT (!!!)</summary>
+<summary>THINGS TO CONSULT MISS ABOUT ✅</summary>
 
 1. how our backend and client works
     * backend thats built on spring framework that is connected to a mysql db
@@ -49,7 +49,7 @@
 </details>
 
 <details>
-<summary>THINGS TO CONSULT SIR ABOUT (!!!)</summary>
+<summary>THINGS TO CONSULT SIR ABOUT</summary>
 
 1. ung id system ang gulo :l
 2. ung orders, how to work w/ date?
