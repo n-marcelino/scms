@@ -41,19 +41,9 @@ export default function CategoryAdd() {
                 <div class="col-10">
                     <input
                         class="form-control"
-<<<<<<< HEAD
-                        required
                         value={name}
                         onChange= {(event)=>{setName(event.target.value)}}
                     />
-                    <div class="invalid-feedback">
-                        This field is required.
-                    </div>
-=======
-                        value={name}
-                        onChange= {(event)=>{setName(event.target.value)}}
-                    />
->>>>>>> parent of dd10f2cb (validation)
                 </div>
                 
             </div>
