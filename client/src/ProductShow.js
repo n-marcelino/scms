@@ -77,7 +77,7 @@ export default function ProductShow() {
         } else {
             return (
                 <div>
-                    <h3 className="mb-5 text-danger">
+                    <h3 className="mb-4 text-danger">
                         No Products Found.
                     </h3>
 
@@ -110,10 +110,7 @@ export default function ProductShow() {
                 My List of Products
             </h1>
 
-            {/* <input
-                value={message}
-                onChange={(event)=>{setMessage(event.target.value)}}
-            /> */}
+            <hr/>
 
             {renderProducts()}
 

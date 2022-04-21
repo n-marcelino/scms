@@ -13,7 +13,6 @@ export default function CategoryShow() {
     const navigate = useNavigate();
 
     //observable variable and function that updates variable
-    const [message, setMessage] = useState(""); //string
     const [categories, setCategories] = useState([]); //empty array
     const urlCategories = "http://localhost:8080/api/categories";
 
@@ -76,7 +75,7 @@ export default function CategoryShow() {
         } else {
             return (
                 <div>
-                    <h3 className="mb-5 text-danger">
+                    <h3 className="mb-4 text-danger">
                         No Categories Found.
                     </h3>
 
@@ -108,15 +107,7 @@ export default function CategoryShow() {
                 Category List
             </h1>
 
-            {/* <input
-                value={message}
-                onChange={(event)=>{setMessage(event.target.value)}}
-            /> */}
-
-            <div>
-                {/* a variable called message, which will be rendered*/}
-                {message}
-            </div>
+            <hr/>
 
             {renderCategories()}
 

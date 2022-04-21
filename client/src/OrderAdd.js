@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 export default function OrderAdd() {
     const [customer, setCustomer] = useState("");
     const [products, setProducts] = useState([]);
-    const [orderDate, setOrderDate] = useState("");
 
     const urlCategories = "http://localhost:8080/api/categories";
     const urlProducts = "http://localhost:8080/api/products";

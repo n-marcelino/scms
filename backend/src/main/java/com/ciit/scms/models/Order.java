@@ -60,6 +60,7 @@ public class Order {
 		this.products = products;
 	}
 
+
 	public Boolean getIsOrderFulfilled() {
 		return isOrderFulfilled;
 	}

@@ -7,7 +7,6 @@ export default function OrderShow() {
     const [orders, setOrders] = useState([]); //empty array
 
     const urlOrders = "http://localhost:8080/api/orders";
-    const urlProducts = "http://localhost:8080/api/products";
 
     useEffect(() => {
         loadOrders()
@@ -26,7 +25,7 @@ export default function OrderShow() {
     }
 
     function renderOrders() {
-        if (products.length > 0) {
+        if (orders.length > 0) {
             return (
                 <div>
                     {
@@ -35,8 +34,10 @@ export default function OrderShow() {
                                 <div>
                                     <h2>Order #{o.id}</h2>
                                     <h5>Customer: {o.customer.getLastName() + ", " + o.customer.getFirstName()}</h5>
-                                    <h5>Products: {o.products}</h5>
-                                    <h5>Order date: {o.orderDate}</h5>
+                                    <h5>
+                                        Products: 
+                                        {/* {o.products} */}
+                                    </h5>
                                     <h5>Is Order Fulfilled?: {o.isOrderFulfilled}</h5>
                                 </div>
                             )
@@ -54,20 +55,12 @@ export default function OrderShow() {
     }
 
     return ( //returns a single element only; so you can nest all other elements inside one div
-        <div>
+        <div class="p-3">
             <h1>
                 Order Record
             </h1>
 
-            {/* <input
-                value={message}
-                onChange={(event)=>{setMessage(event.target.value)}}
-            /> */}
-
-            <div>
-                {/* a variable called message, which will be rendered*/}
-                {message}
-            </div>
+            <hr/>
 
             {renderOrders()}
 

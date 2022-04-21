@@ -24,8 +24,7 @@ public class Category {
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="category")//eager vs lazy; eager pulls out category from database and queries at the same  time
 	Set<Product> products;
 	//not a column, but a query mapping
-	//a query to fetch all products of a single category?
-
+	//a query to fetch all products of a single category
 	
 	//SETTERS AND GETTERS
 	

@@ -13,7 +13,6 @@ export default function CustomerShow() {
     const navigate = useNavigate();
 
     //observable variable and function that updates variable
-    const [message, setMessage] = useState(""); //string
     const [customers, setCustomers] = useState([]); //empty array
     const urlCustomers = "http://localhost:8080/api/customers";
 
@@ -77,7 +76,7 @@ export default function CustomerShow() {
         } else {
             return (
                 <div>
-                    <h3 className="mb-5 text-danger">
+                    <h3 className="mb-4 text-danger">
                         No Customers Found.
                     </h3>
 
@@ -109,15 +108,7 @@ export default function CustomerShow() {
                 Customer Records
             </h1>
 
-            {/* <input
-                value={message}
-                onChange={(event)=>{setMessage(event.target.value)}}
-            />
-
-            <div>
-                a variable called message, which will be rendered
-                {message}
-            </div> */}
+            <hr/>
 
             {renderCustomers()}
 

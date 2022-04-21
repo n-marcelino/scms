@@ -1,10 +1,14 @@
 package com.ciit.scms.models;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -31,6 +35,9 @@ public class Customer {
 	
 	@Column(name = "phone_number", nullable = false)
 	private String phone;
+	
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="customer")//eager vs lazy; eager pulls out category from database and queries at the same  time
+	Set<Order> orders;
 
 	public Integer getId() {
 		return id;
@@ -88,4 +95,11 @@ public class Customer {
 		this.phone = phone;
 	}
 	
+	public Set<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(Set<Order> orders) {
+		this.orders = orders;
+	}	
 }

@@ -31,7 +31,9 @@ public class Product {
 	private Category category;
 	
 	@ManyToMany//eager vs lazy; eager pulls out category from database and queries at the same  time
-	@JoinColumn(name="order_id",nullable=false)
+	@JoinColumn(
+			name="order_id",
+			nullable=false)
 	Set<Order> orders;
 
 	//SETTERS AND GETTERS
