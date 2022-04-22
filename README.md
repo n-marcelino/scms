@@ -2,7 +2,7 @@
 
 ## IMPORTANT
 <details>
-<summary>TO-DO LIST</summary>
+<summary>TO-DO LIST (last updated: 22/04/22 - 10:04 P.M.)</summary>
 
 - implement "update" functionality into the saves
     - backend
