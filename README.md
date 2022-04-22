@@ -46,13 +46,15 @@
     
     <details>
     <summary>client ✅</summary>
+
     1. category ✅ 
 
     2. customer ✅
 
     3. order ✅
-    
+
     4. product ✅
+    
     </details>
 
 
