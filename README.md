@@ -5,35 +5,46 @@
 <summary>TO-DO LIST (last updated: 22/04/22 - 10:04 P.M.)</summary>
 
 - implement "update" functionality into the saves
-    - backend
-        * category
-        * customer
-        * order
-        * product
-    - client
-        * category
-        * customer
-        * order
-        * product
-        
-        <details>
-            <summary>client: things of note</summary>
+    <details>
+    <summary>backend</summary>
+    * category
 
-            - make sure that the header changes if there is an id received (check recording for more info)
+    * customer
 
-            - if there is an id (which means u are editing), then header is "Editing {object} {id}}"
-                - where 
-                    - object is either category, customer, order, or product
-                    - id is the object's id
-                - e.g. Editing Product 1
+    * order
 
-            - should delete button be:
-                - in category show, beside the edit button (like how sir did it)
-                - or embedded in the edit page as a danger zone?
-                    - if danger zone, set it so it only appears when u go to save page through the edit button
-                    - if there is id, then return danger zone
+    * product
+    </details>
 
-        </details>
+    <details>
+    <summary>client</summary>
+    * category
+
+    * customer
+
+    * order
+    
+    * product
+
+    <details>
+    <summary>client: things of note</summary>
+
+    - make sure that the header changes if there is an id received (check recording for more info)
+
+    - if there is an id (which means u are editing), then header is "Editing {object} {id}}"
+        - where 
+            - object is either category, customer, order, or product
+            - id is the object's id
+            - e.g. Editing Product 1
+
+        - should delete button be:
+            - in category show, beside the edit button (like how sir did it)
+            - or embedded in the edit page as a danger zone?
+                - if danger zone, set it so it only appears when u go to save page through the edit button
+                - if there is id, then return danger zone
+
+    </details>
+    </details>
         
 - implement "delete" functionality into the saves
     <details>
