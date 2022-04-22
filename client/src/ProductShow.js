@@ -27,13 +27,26 @@ export default function ProductShow() {
             });
     }
 
+    function handleDeleteProduct(id) {
+        var deleteUrl = `http://localhost:8080/api/products/${id}/delete`;
+
+        if (confirm("Danger Zone! Do you wish to delete this entry?\r\n\r\nNote: Deletion may fail if there is an order containing this product.") == true) {
+            fetch(deleteUrl)
+                .then(response => response.json())
+                .then(data => {
+                    loadProducts();
+                })
+                .catch((error) => {
+                });
+        }
+    }
     function renderProducts() {
-        if(products.length > 0) {
-            return(
+        if (products.length > 0) {
+            return (
                 <div className="d-flex flex-wrap gap-3 cc-container">
                     {
                         products.map((p) => {
-                            return(
+                            return (
                                 <div className="bg-light p-5 c-card d-flex flex-column">
                                     <div className="mb-4">
                                         <h2>{p.name}</h2>
@@ -41,14 +54,22 @@ export default function ProductShow() {
                                         <h5>PRICE: {p.price}</h5>
                                         <h5>CATEGORY: {p.category}</h5>
                                     </div>
-                                    <div className="mt-auto">
-                                        <button 
-                                            type="button" 
+                                    <div className="mt-auto d-flex gap-2">
+                                        <button
+                                            type="button"
                                             className="w-100 btn btn-warning"
-                                            onClick={() => {navigate('/products/update');}}
+                                            onClick={() => { navigate('/products/update'); }}
                                         >
                                             Edit
                                         </button>
+
+                                        <button
+                                            className="form-control btn-danger"
+                                            onClick={() => { handleDeleteProduct(p.id) }}
+                                        >
+                                            Delete
+                                        </button>
+
                                     </div>
                                 </div>
                             )
@@ -56,18 +77,18 @@ export default function ProductShow() {
                     }
 
                     <div className="bg-light c-card" >
-                        <div onClick={()=>(navigate('/products/add'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
+                        <div onClick={() => (navigate('/products/add'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
                             <div>
-                                <svg 
-                                    xmlns="http://www.w3.org/2000/svg" 
-                                    width="82 " 
-                                    height="82" 
-                                    fill="currentColor" 
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="82 "
+                                    height="82"
+                                    fill="currentColor"
                                     className="bi bi-plus-circle-fill text-warning" viewBox="0 0 16 16"
                                 >
-                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
                                 </svg>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
 
@@ -82,23 +103,23 @@ export default function ProductShow() {
 
                     <div className="d-flex flex-wrap gap-3 cc-container">
                         <div className="bg-light c-card" >
-                            <div onClick={()=>(navigate('/products/add'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
+                            <div onClick={() => (navigate('/products/add'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
                                 <div>
-                                    <svg 
-                                        xmlns="http://www.w3.org/2000/svg" 
-                                        width="82 " 
-                                        height="82" 
-                                        fill="currentColor" 
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="82 "
+                                        height="82"
+                                        fill="currentColor"
                                         className="bi bi-plus-circle-fill text-warning" viewBox="0 0 16 16"
                                     >
-                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
                                     </svg>
-                                </div>                            
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                    
+
             )
         }
     }
@@ -109,7 +130,7 @@ export default function ProductShow() {
                 My List of Products
             </h1>
 
-            <hr/>
+            <hr />
 
             {renderProducts()}
 

@@ -34,6 +34,20 @@ export default function CategoryShow() {
 
     }
 
+    function handleDeleteCategory(id) {
+        var deleteUrl = `http://localhost:8080/api/categories/${id}/delete`;
+
+        if (confirm("Danger Zone! Do you wish to delete this entry?\r\n\r\nNote: Deletion may fail if there is a product under this category.") == true) {
+            fetch(deleteUrl)
+                .then(response => response.json())
+                .then(data => {
+                    loadCategories();
+                })
+                .catch((error) => {
+                });
+        } 
+    }
+
     function renderCategories() {
 
         if (categories.length > 0) {
@@ -47,18 +61,18 @@ export default function CategoryShow() {
                                     <div className="mb-4">
                                         <h5>ID: {c.id}</h5>
                                     </div>
-                                    <div className="mt-auto d-flex gap-3">
+                                    <div className="mt-auto d-flex gap-2">
                                         <button
                                             type="button"
-                                            onClick={() => {navigate('/categories/:id');}}
+                                            onClick={() => { navigate('/categories/:id'); }}
                                             className="w-100 btn btn-warning">
                                             Edit
                                         </button>
 
                                         <button
-                                            type="button"
-                                            onClick={() => { }}
-                                            className="w-100 btn btn-danger">
+                                            className="form-control btn-danger"
+                                            onClick={() => { handleDeleteCategory(c.id) }}
+                                        >
                                             Delete
                                         </button>
                                     </div>
