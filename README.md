@@ -92,13 +92,24 @@
 
 2. the backend folder contains the java project compatible with eclipse, while the client folder contians html/js to be launched on vscode
 
-3. first run the sql script by typing this in your terminal (command prompt):
+<details>
+<summary>3. what to do on vscode</summary>
+
+    1. add the client folder to ur vscode workspace
+
+    2. make sure that your terminal is set to the client folder directory
+        * e.g. your terminal should look like this:
+        
+    E:\Programming\github\scms\client> []     <= this thing is ur cursor
+</details>
+
+4. in a new terminal, type the following in order to run the sql script:
 ```
 mysql -p -u (sql username) < scms.sql
 ```
 
 <details>
-<summary>4. what to do on eclipse</summary>
+<summary>5. what to do on eclipse</summary>
 
     1. import as project the backend to eclipse
     
@@ -107,17 +118,6 @@ mysql -p -u (sql username) < scms.sql
 
     3. run 'program.java' within the backend project on eclipse
 
-</details>
-
-<details>
-<summary>5. what to do on vscode</summary>
-
-    1. add the client folder to ur vscode workspace
-
-    2. make sure that your terminal is set to the client folder directory
-        * e.g. your terminal should look like this:
-        
-    E:\Programming\github\scms\client> []     <= this thing is ur cursor
 </details>
 
 6. on your terminal, run this code:
