@@ -88,14 +88,14 @@
 
 ## HOW TO RUN (!!!)
 
-1. first run the sql script by typing this in your terminal (command prompt):
+1. download the zip file of the project and extract to any location on your drive
+
+2. the backend folder contains the java project compatible with eclipse, while the client folder contians html/js to be launched on vscode
+
+3. first run the sql script by typing this in your terminal (command prompt):
 ```
 mysql -p -u (sql username) < scms.sql
 ```
-
-2. backend folder contains java project made on eclipse
-
-3. client folder contains html/js made on vscode
 
 <details>
 <summary>4. what to do on eclipse</summary>
