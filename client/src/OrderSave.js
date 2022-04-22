@@ -111,55 +111,82 @@ export default function OrderSave() {
         if (orderItems.length == 0) {
             return (
                 <div>
-                    No items
+                    No items have been added to this order yet.
                 </div>
             )
         } else {
             return (
                 orderItems.map((o) => {
                     return (
-                        <div>
-                            Item {o.index}
+                        <div class="form-group">
+                            <div class="d-flex">
+                                <h5>Item {o.index}</h5>
 
-                            <input
-                                value={o.price}
-                                onChange={
-                                    (event) => { handlePriceChanged(o.index, event.target.value) }
-                                }
-                            >
-                            </input>
+                                <div class="ms-auto">
+                                    <button
+                                        class="form-control btn-danger px-5"
+                                        onClick={() => {removeItem(o.index)}}
+                                    >
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
 
-                            <input
-                                value={o.quantity}
-                                onChange={
-                                    (event) => { handleQuantityChange(o.index, event.target.value) }
-                                }
-                            >
-                            </input>
+                            <div class="form-group row py-1">
+                                <label class="col-sm-2 col-form-label">
+                                    Product:
+                                </label>
+                                <div class="col-sm-10">
+                                    <select
+                                        class="form-control"
+                                        value={o.productId}
+                                        onChange={(event) => {
+                                            handleProductChanged(o.index, event.target.value)
+                                        }}
+                                    >
+                                        {
+                                            products.map((p) => {
+                                                return (
+                                                    <option value={p.id}>
+                                                        {p.name}
+                                                    </option>
+                                                )
+                                            })
+                                        }
+                                    </select>
+                                </div>
+                            </div>
 
-                            <select
-                                class="form-control"
-                                value={o.productId}
-                                onChange={(event) => {
-                                    handleProductChanged(o.index, event.target.value)
-                                }}
-                            >
-                                {
-                                    products.map((p) => {
-                                        return (
-                                            <option value={p.id}>
-                                                {p.name}
-                                            </option>
-                                        )
-                                    })
-                                }
-                            </select>
+                            <div class="form-group row py-1 pb-3">
+                                <label class="col-sm-2 col-form-label">
+                                    Price:
+                                </label>
+                                <div class="col-sm-4">
+                                    <input
+                                        class="form-control"
+                                        value={o.price}
+                                        onChange={
+                                            (event) => { handlePriceChanged(o.index, event.target.value) }
+                                        }
+                                    >
+                                    </input>
+                                </div>
 
-                            <button onClick={() => {
-                                removeItem(o.index)
-                            }}>
-                                Delete
-                            </button>
+                                <label class="col-sm-2 col-form-label">
+                                    Quantity:
+                                </label>
+                                <div class="col-sm-4">
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        value={o.quantity}
+                                        onChange={
+                                            (event) => { handleQuantityChange(o.index, event.target.value) }
+                                        }
+                                    >
+                                    </input>
+                                </div>
+                            </div>
                         </div>
                     )
                 })
@@ -187,8 +214,6 @@ export default function OrderSave() {
         orderItems.push(orderItem);
         setOrderItems([...orderItems]);
     }
-
-
 
     return (
         <div>

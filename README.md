@@ -1,5 +1,50 @@
 # scms
 
+## HOW TO RUN (!!!)
+
+1. launch mysql, and make a new database named "scms" (this will be populated by ur backend)
+
+2. backend folder contains java project made on eclipse
+
+3. client folder contains html/js made on vscode
+
+4. run the sql script by typing this in your terminal:
+
+```
+mysql -p -u (sql username) < scms.sql
+```
+
+<details>
+<summary>5. what to do on eclipse</summary>
+
+    1. import as project the backend to eclipse
+    
+    2. within eclipse, in src/main/resources/application.properties,
+    change the necessary info to match ur sql settings
+
+    3. run 'program.java' within the backend project on eclipse
+
+</details>
+
+<details>
+<summary>6. what to do on vscode</summary>
+
+    1. add the client folder to ur vscode workspace
+
+    2. make sure that your terminal is set to the client folder directory
+        * e.g. your terminal should look like this:
+    ```
+    E:\Programming\github\scms\client> []     <= this thing is ur cursor
+    ```
+
+    3. on your terminal, run this:
+    ```
+    ./node_modules/.bin/webpack serve --mode development
+    ``` 
+</details>
+
+7. on your browser, go to localhost:8081
+
 ## IMPORTANT
 
 <details>
@@ -14,28 +59,40 @@
 <details>
 <summary>TO-DO LIST</summary>
 
-1. **crud**
-    * **c**reate ✅
-        * we can create entries in category, customer, and product
-        * orders are still broken..... 
-    * **r**ead
-        * figure out a searchbar ❗
-    * **u**pdate ❓
-    * **d**elete ❓
-2. **orders:**
-    * The problem here is i cant figure out how to work with dates :L
-    * client
-        * OrderShow ❓
-        * OrderAdd ❓
-    * back-end
-        * Save function in orderscontroller ❓
-        * Builder for gson/json edit to be compatible converting back and forth ❓
-            * there should be no concatenated anything in builder bc it wont be able to convert back from gson to java
-3. **Form authentication**
-    * Find a way to make a restriction on the forms
-    * columns cant be empty etc etc
-    * preferably figure out how to bootstrap ur way into it?
-    * https://getbootstrap.com/docs/5.0/forms/overview/
+- implement "update" functionality into the saves
+    - backend
+        1. category
+        2. customer
+        3. order
+        4. product
+    - client
+        - make sure that the header changes if there is an id received (check recording for more info)
+            - if there is an id (which means u are editing), then header is "Editing {object} {id}}"
+                - where 
+                    - object is either category, customer, order, or product
+                    - id is the object's id
+                - e.g. Editing Product 1
+        - should delete button be:
+            - in category show, beside the edit button (like how sir did it)
+            - or embedded in the edit page as a danger zone?
+                - if danger zone, set it so it only appears when u go to save page through the edit button
+                - if there is id, then return danger zone
+        1. category
+        2. customer
+        3. order
+        4. product
+- implement "delete" functionality into the saves
+    - backend
+        1. category
+        2. customer
+        3. order
+        4. product
+    - client
+        1. category
+        2. customer
+        3. order
+        4. product
+
 
 </details>
 
@@ -73,162 +130,3 @@
 
 </details>
 
-## HOW TO RUN (!!!)
-
-1. launch mysql, and make a new database named "scms" (this will be populated by ur backend)
-
-2. backend folder contains java project made on eclipse
-
-3. client folder contains html/js made on vscode
-
-<details>
-<summary>4. what to do on eclipse</summary>
-
-    1. import as project the backend to eclipse
-    
-    2. within eclipse, in src/main/resources/application.properties,
-    change the necessary info to match ur sql settings
-
-    3. run 'program.java' within the backend project on eclipse
-
-</details>
-
-<details>
-<summary>5. what to do on vscode</summary>
-
-    1. add the client folder to ur vscode workspace
-
-    2. make sure that your terminal is set to the client folder directory
-        * e.g. your terminal should look like this:
-    ```
-    E:\Programming\github\scms\client> []     <= this thing is ur cursor
-    ```
-
-    3. on your terminal, run this:
-    ```
-    ./node_modules/.bin/webpack serve --mode development
-    ``` 
-</details>
-
-6. on your browser, go to localhost:8081
-
-## misc.
-<details>
-<summary>making new "show" js</summary>
-
-1. import the ff:
-
-```
-import React, { useState, useEffect } from "react";
-```
-
-2. make the necessary function with the following syntax:
-```
-export default function functionName() {}
-```
-
-3. declare the const variables needed:
-
-```
-1. empty array containing a variable 'object', and a function 'setObject' to change it: 
-const [object, setObject] = useState([]);
-\\e.g.
-const [products, setProducts] = useState([]);
-
-2. url
-const urlObject = "http://localhost:8080/api/object"
-\\note: this was declared in eclipse
-
-\\e.g.
-const urlProducts = "http://localhost:8080/api/products";
-```
-
-4. declare use effect and load object:
-
-```
-useEffect(() => {
-        loadProducts()
-    }, []); //function called only once
-
-    function loadProducts() {
-        // Step 1: Call the urlProducts URL
-        fetch(urlProducts)
-            .then(response => response.json())
-            .then(data => {
-                // Step 2: Given the json response, load it to products variable
-                setProducts(data.products);
-            })
-            .catch((error) => {
-            });
-    }
-```
-
-5. render products code
-
-```
-function renderObject() {
-    if (objects.length > 0) {
-        return (
-            <div>
-                {
-                    objects.map((o) => {
-                        return(
-                            <div>
-                                <h2>{o.name}</h2>
-                                    <h5>ID: {o.id}</h5>
-                                    <h5>PRICE: {o.price}</h5>
-                                    <h5>CATEGORY: {o.category}</h5>
-                            </div>
-                        )
-                    })
-                }
-            </div>
-        )
-    } else {
-        return (
-            <h2>
-                No Products Foud
-            </h2>
-        )
-    }
-}
-```
-
-6. the final return
-```
-return(
-    <div>
-        <h1>
-                My List of Objects
-        </h1>
-
-        {renderObject()}
-    </div>
-)
-```
-
-7. add the save function on ur java file in eclipse
-
-```
-@RequestMapping(
-	value= {"","/"},
-	method=RequestMethod.POST,
-	produces=MediaType.APPLICATION_JSON_VALUE)
-@CrossOrigin(origins="*")
-public String save(@RequestBody String payload) {
-	Gson gson = new Gson();
-	HashMap<String,Object> data = new HashMap<String,Object>();
-	data = gson.fromJson(payload, data.getClass());
-	
-    Datatype attribute = data.get("attribute").toDataType();
-		
-	Object o = new Object();
-	o.setAttribute(firstNattributeame);
-		
-	objectRepository.save(o);
-	return " { \"message\": \"ok\" } ";
-}
-```
-
-8. reset ur backend (stop running, then run again)
-</details>
