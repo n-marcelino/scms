@@ -27,6 +27,18 @@ export default function ProductShow() {
             });
     }
 
+    function handleDeleteProduct(id) {
+        var deleteUrl = `http://localhost:8080/api/products/${id}/delete`;
+
+        fetch(deleteUrl)
+        .then(response => response.json())
+        .then(data => {
+            loadProducts();
+        })
+        .catch((error) => {
+        });
+    }
+
     function renderProducts() {
         if(products.length > 0) {
             return(
@@ -49,6 +61,14 @@ export default function ProductShow() {
                                         >
                                             Edit
                                         </button>
+
+                                        <button
+                                            className="form-control btn-danger"
+                                            onClick={() => {handleDeleteProduct(p.id)}}
+                                        >
+                                            Delete
+                                        </button>
+
                                     </div>
                                 </div>
                             )

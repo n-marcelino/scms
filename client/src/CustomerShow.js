@@ -27,6 +27,18 @@ export default function CustomerShow() {
             });
     }
 
+    function handleDeleteCustomer(id) {
+        var deleteUrl = `http://localhost:8080/api/customers/${id}/delete`;
+
+        fetch(deleteUrl)
+        .then(response => response.json())
+        .then(data => {
+            loadCustomers();
+        })
+        .catch((error) => {
+        });
+    }
+
     function renderCustomers() {
         if(customers.length > 0) {
             return(
@@ -48,6 +60,13 @@ export default function CustomerShow() {
                                             onClick={() => {navigate('/categories/update');}}
                                         >
                                             Edit
+                                        </button>
+
+                                        <button
+                                            className="form-control btn-danger"
+                                            onClick={() => {handleDeleteCustomer(c.id)}}
+                                        >
+                                            Delete
                                         </button>
                                     </div>
                                 </div>
@@ -108,6 +127,10 @@ export default function CustomerShow() {
             </h1>
 
             <hr/>
+
+            <div id="note">
+                Note: You can not delete a customer record if he/she has an uncomplete order.
+            </div>
 
             {renderCustomers()}
 

@@ -34,6 +34,18 @@ export default function CategoryShow() {
 
     }
 
+    function handleDeleteCategory(id) {
+        var deleteUrl = `http://localhost:8080/api/categories/${id}/delete`;
+
+        fetch(deleteUrl)
+        .then(response => response.json())
+        .then(data => {
+            loadCategories();
+        })
+        .catch((error) => {
+        });
+    }
+
     function renderCategories() {
 
         if (categories.length > 0) {
@@ -56,9 +68,9 @@ export default function CategoryShow() {
                                         </button>
 
                                         <button
-                                            type="button"
-                                            onClick={() => { }}
-                                            className="w-100 btn btn-danger">
+                                            className="form-control btn-danger"
+                                            onClick={() => {handleDeleteCategory(c.id)}}
+                                        >
                                             Delete
                                         </button>
                                     </div>
@@ -121,6 +133,10 @@ export default function CategoryShow() {
             </h1>
 
             <hr />
+
+            <div id="note">
+                Note: You can not delete a category if there is a product within it.
+            </div>
 
             {renderCategories()}
 
