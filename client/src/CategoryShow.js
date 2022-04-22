@@ -45,7 +45,7 @@ export default function CategoryShow() {
                 })
                 .catch((error) => {
                 });
-        } 
+        }
     }
 
     function renderCategories() {
@@ -59,7 +59,20 @@ export default function CategoryShow() {
                                 <div className="bg-light p-5 c-card d-flex flex-column">
                                     <h2>{c.name}</h2>
                                     <div className="mb-4">
-                                        <h5>ID: {c.id}</h5>
+                                        <h5><b>ID: </b>{c.id}</h5>
+                                        <h5>
+                                            <b>Products: </b>
+                                            <ul>
+                                                {
+                                                    c.products.map((cp) => {
+                                                        return (
+                                                            <li>{cp.name}</li>
+                                                            // " " + op.product  + " (" + op.quantity + "x), "
+                                                        )
+                                                    })
+                                                }
+                                            </ul>
+                                        </h5>
                                     </div>
                                     <div className="mt-auto d-flex gap-2">
                                         <button

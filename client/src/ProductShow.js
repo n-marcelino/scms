@@ -50,9 +50,9 @@ export default function ProductShow() {
                                 <div className="bg-light p-5 c-card d-flex flex-column">
                                     <div className="mb-4">
                                         <h2>{p.name}</h2>
-                                        <h5>ID: {p.id}</h5>
-                                        <h5>PRICE: {p.price}</h5>
-                                        <h5>CATEGORY: {p.category}</h5>
+                                        <h5><b>ID: </b>{p.id}</h5>
+                                        <h5><b>PRICE: </b>{p.price}</h5>
+                                        <h5><b>CATEGORY: </b>{p.category}</h5>
                                     </div>
                                     <div className="mt-auto d-flex gap-2">
                                         <button

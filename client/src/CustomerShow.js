@@ -51,9 +51,9 @@ export default function CustomerShow() {
                                 <div className="bg-light p-5 c-card d-flex flex-column">
                                     <div className="mb-4">
                                         <h2>{c.lastname + ", " + c.firstname}</h2>
-                                        <h5>ID: {c.id}</h5>
-                                        <h5>ADDRESS: {c.street + ", " + c.city + " " + c.zip}</h5>
-                                        <h5>Phone Number: {c.phone}</h5>
+                                        <h5><b>ID: </b>{c.id}</h5>
+                                        <h5><b>ADDRESS: </b>{c.street + ", " + c.city + " " + c.zip}</h5>
+                                        <h5><b>Phone Number: </b>{c.phone}</h5>
                                     </div>
                                     <div className="mt-auto d-flex gap-2">
                                         <button

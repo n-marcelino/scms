@@ -80,17 +80,19 @@ export default function OrderShow() {
                                     <div className="mb-4">
                                         <h2>Order #{o.id}</h2>
                                         <h5><b>Customer:</b> {o.customer}</h5>
+                                        <h5><b>Order Status</b>: {getOrderStatus(o)}</h5>
                                         <h5>
                                             <b>Products: </b>
-                                            {
-                                                orders.map((o) => {
-                                                    return (
-                                                        " " + o.products[o.products.length-1].product + ","
-                                                    )
-                                                })
-                                            }
+                                            <ul>
+                                                {
+                                                    o.products.map((op) => {
+                                                        return (
+                                                            <li>{" (" + op.quantity + "x) " + op.product}</li>
+                                                        )
+                                                    })
+                                                }
+                                            </ul>
                                         </h5>
-                                        <h5><b>Order Status</b>: {getOrderStatus(o)}</h5>
                                     </div>
 
                                     <div className="mt-auto d-flex gap-2">
