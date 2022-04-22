@@ -51,26 +51,31 @@ mysql -p -u (sql username) < scms.sql
 
 - implement "update" functionality into the saves
     - backend
-        1. category
-        2. customer
-        3. order
-        4. product
+        * category
+        * customer
+        * order
+        * product
     - client
-        - make sure that the header changes if there is an id received (check recording for more info)
+        * category
+        * customer
+        * order
+        * product
+        *
+        <details>
+            <summary>things of note</summary>
+            - make sure that the header changes if there is an id received (check recording for more info)
             - if there is an id (which means u are editing), then header is "Editing {object} {id}}"
                 - where 
                     - object is either category, customer, order, or product
                     - id is the object's id
                 - e.g. Editing Product 1
-        - should delete button be:
-            - in category show, beside the edit button (like how sir did it)
-            - or embedded in the edit page as a danger zone?
-                - if danger zone, set it so it only appears when u go to save page through the edit button
-                - if there is id, then return danger zone
-        1. category
-        2. customer
-        3. order
-        4. product
+            - should delete button be:
+                - in category show, beside the edit button (like how sir did it)
+                - or embedded in the edit page as a danger zone?
+                    - if danger zone, set it so it only appears when u go to save page through the edit button
+                    - if there is id, then return danger zone
+        </details>
+        
 - implement "delete" functionality into the saves
     - backend
         1. category
