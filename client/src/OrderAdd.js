@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from "react";
 
 export default function OrderAdd() {
+
+    // const [orders, setOrder] = useState({
+    //     // fields
+    //     // referenceNumber:"",
+    //     // isFulfilled: false,
+    //     // orderItems: [{
+    //     // }]
+    // });
+
+    const [orderItems, setOrderItems] = useState([]);
     const [customers, setCustomers] = useState([]);
     const [customerId, setCustomerId] = useState("");
     const [products, setProducts] = useState([]);
@@ -44,14 +54,16 @@ export default function OrderAdd() {
 
     function handleSave() {
         console.log("customerId: " + customerId);
-        console.log("productId: " + productId);
+        console.log("orderItems: " + orderItems);
         console.log("isOrderFulfilled" + isOrderFulfilled);
 
         var payload = {
             customerId: customerId,
-            productId: productId,
+            orderItems: orderItems,
             isOrderFulfilled: isOrderFulfilled
         }
+
+        console.log(payload);
 
         fetch(urlOrders,
             {
@@ -65,12 +77,118 @@ export default function OrderAdd() {
             .then(response => response.json())
             .then(data => {
                 console.log(response);
-                setName("");
-                setPrice(0.00);
             })
             .catch((error) => {
             });
     }
+
+    function handlePriceChanged(index, value) {
+        orderItems[index].price = value;
+        setOrderItems([...orderItems]);
+    }
+
+    function handleProductChanged(index, value) {
+        orderItems[index].productId = value;
+        setOrderItems([...orderItems]);
+    }
+
+    function handleQuantityChange(index, value) {
+        orderItems[index].quantity = value;
+        setOrderItems([...orderItems]);
+    }
+
+    function removeItem(index) {
+        orderItems.splice(index, 1);
+
+        for (var i = 0; i < orderItems.length; i++) {
+            orderItems[i].index = i;
+        }
+
+        setOrderItems([...orderItems]);
+    }
+
+    function renderOrderItems() {
+        if (orderItems.length == 0) {
+            return (
+                <div>
+                    No items
+                </div>
+            )
+        } else {
+            return (
+                orderItems.map((o) => {
+                    return (
+                        <div>
+                            Item {o.index}
+
+                            <input
+                                value={o.price}
+                                onChange={
+                                    (event) => { handlePriceChanged(o.index, event.target.value) }
+                                }
+                            >
+                            </input>
+
+                            <input
+                                value={o.quantity}
+                                onChange={
+                                    (event) => { handleQuantityChange(o.index, event.target.value) }
+                                }
+                            >
+                            </input>
+
+                            <select
+                                class="form-control"
+                                value={o.productId}
+                                onChange={(event) => {
+                                    handleProductChanged(o.index, event.target.value)
+                                }}
+                            >
+                                {
+                                    products.map((p) => {
+                                        return (
+                                            <option value={p.id}>
+                                                {p.name}
+                                            </option>
+                                        )
+                                    })
+                                }
+                            </select>
+
+                            <button onClick={() => {
+                                removeItem(o.index)
+                            }}>
+                                Delete
+                            </button>
+                        </div>
+                    )
+                })
+            )
+        }
+    }
+
+    function addOrderItem() {
+
+        var index = orderItems.length - 1;
+
+        if (orderItems.length == 0) {
+            index = 0;
+        } else {
+            index = orderItems.length;
+        }
+
+        var orderItem = {
+            productId: products[0].id,
+            price: 0.00,
+            quantity: 0,
+            index: index
+        };
+
+        orderItems.push(orderItem);
+        setOrderItems([...orderItems]);
+    }
+
+
 
     return (
         <div>
@@ -130,6 +248,17 @@ export default function OrderAdd() {
                             </label>
                         </div>
                     </div>
+                </div>
+
+                <div>
+                    {renderOrderItems()}
+
+                    <button
+                        class="form-control btn-warning"
+                        onClick={() => { addOrderItem() }}
+                    >
+                        Add Order Item
+                    </button>
                 </div>
 
                 <div class="pt-4 d-flex gap-3">

@@ -1,10 +1,12 @@
 package com.ciit.scms.controllers;
 
+import java.lang.reflect.Type;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +22,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ciit.scms.models.Category;
 import com.ciit.scms.models.Customer;
 import com.ciit.scms.models.Order;
+import com.ciit.scms.models.OrderItem;
 import com.ciit.scms.models.Product;
 import com.ciit.scms.operations.OrderBuilder;
 import com.ciit.scms.repositories.CustomerRepository;
+import com.ciit.scms.repositories.OrderItemRepository;
 import com.ciit.scms.repositories.OrderRepository;
 import com.ciit.scms.repositories.ProductRepository;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 @Controller
 @ResponseBody
@@ -35,6 +40,9 @@ public class OrdersController {
 
 	@Autowired
 	private OrderRepository orderRepository;
+	
+	@Autowired
+	private OrderItemRepository orderItemRepository;
 	
 	@Autowired
 	private CustomerRepository customerRepository;
@@ -48,27 +56,43 @@ public class OrdersController {
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	@CrossOrigin(origins="*")
 	public String save(@RequestBody String payload) {
+		
+		System.out.println(payload);
+		
 		Gson gson = new Gson();
 		HashMap<String,Object> data = new HashMap<String,Object>();
 		data = gson.fromJson(payload, data.getClass());
 		
-		Integer customerId 	= (int)Double.parseDouble(data.get("customer").toString());
-		Iterable<Integer> productId = Arrays.asList((int)Double.parseDouble(data.get("product").toString()));
+		Integer customerId 	= (int)Double.parseDouble(data.get("customerId").toString());
+//		Iterable<Integer> productId = Arrays.asList((int)Double.parseDouble(data.get("product").toString()));
+		ArrayList<HashMap<String,Object>> orderItems = new ArrayList<HashMap<String,Object>>();
+		Type listType = new TypeToken<List<HashMap<String, String>>>(){}.getType();
+
+		orderItems = gson.fromJson(data.get("orderItems").toString(), listType);
 		Boolean isOrderFulfilled = Boolean.parseBoolean(data.get("isOrderFulfilled").toString());
-		
 		
 		Order o = new Order();
 		
 		Customer c = customerRepository.findById(customerId).get();
 		o.setCustomer(c);
 		
-		Set<Product> p = (Set<Product>) productRepository.findAllById(productId);
-		o.setProducts(p);
-		
-		o.setIsOrderFulfilled(isOrderFulfilled);
+		int isFulfilled = isOrderFulfilled ? 1 : 0; //ternary operator
+		o.setIsOrderFulfilled(isFulfilled);
 		
 		
 		orderRepository.save(o);
+		
+		for(HashMap<String, Object> temp : orderItems) { //temp is a var representing hashamp
+			OrderItem objectToSave = new OrderItem();
+			Product p = productRepository.findById((int)Double.parseDouble(temp.get("productId").toString())).get();
+			objectToSave.setProduct(p);
+			objectToSave.setQuantity((int)Double.parseDouble(temp.get("quantity").toString()));
+			objectToSave.setOrder(o);
+			objectToSave.setPrice(Double.parseDouble(temp.get("price").toString()));
+			
+			orderItemRepository.save(objectToSave);
+		}
+		
 		return " { \"message\": \"ok\" } ";
 	}
 	
