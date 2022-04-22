@@ -33,17 +33,17 @@ mysql -p -u (sql username) < scms.sql
 
     2. make sure that your terminal is set to the client folder directory
         * e.g. your terminal should look like this:
-    ```
+        
     E:\Programming\github\scms\client> []     <= this thing is ur cursor
-    ```
-
-    3. on your terminal, run this:
-    ```
-    ./node_modules/.bin/webpack serve --mode development
-    ``` 
 </details>
 
-7. on your browser, go to localhost:8081
+7. on your terminal, run this code:
+
+```
+./node_modules/.bin/webpack serve --mode development
+```
+
+8. on your browser, go to localhost:8081
 
 ## IMPORTANT
 
