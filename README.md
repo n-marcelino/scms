@@ -115,7 +115,7 @@ mysql -p -u (sql username) < scms.sql
 </details>
 
 <details>
-<summary>THINGS TO CONSULT SIR ABOUT</summary>
+<summary>THINGS TO CONSULT SIR ABOUT ✅</summary>
 
 1. ung id system ang gulo :l
 2. ung orders, how to work with many to many relationships?
