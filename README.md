@@ -3,6 +3,15 @@
 ## IMPORTANT
 
 <details>
+<summary>22/04/22 to-do list after consultation w sir and class</summary>
+
+- relabel all adds into saves
+- implement update into saves in both backend and client
+- make sure danger zone and header changes if there is an id received :)
+
+</details>
+
+<details>
 <summary>TO-DO LIST</summary>
 
 1. **crud**

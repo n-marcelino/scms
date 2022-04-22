@@ -48,6 +48,19 @@ CREATE TABLE `order_items` (
 );
 
 
--- order item
--- referencing product & order, with column price
--- record price fetched by products table
+-- DEFAULT DATA
+INSERT INTO categories (name) VALUES
+    ('Clothes'),
+    ('Gadgets'),
+    ('Toys');
+
+INSERT INTO products (name, price, category_id) VALUES
+    ('With You Hoodie', 9899.99, 1),
+    ('Armyst Hoodie', 9899.99, 1),
+    ('Mikrokosmos Mood Lamp', 15699.99, 2),
+    ('DC-Red Hood Figurine', 10499.99, 3);
+
+INSERT INTO customers (first_name, last_name, street, city, zip_code, phone_number) VALUES
+    ('Jimin','Park','Somewhere in','Seoul','1013','09111111111'),
+    ('Namjoon','Kim','Somewhere in','Seoul','0912','09222222222'),
+    ('Jungkook','Jeon','Somewhere in','Seoul','0901','09333333333');

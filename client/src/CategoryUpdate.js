@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 export default function CategoryUpdate() {
+
     return(
         <div>
             <div class="form-group w-50 p-3">
