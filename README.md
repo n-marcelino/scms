@@ -48,33 +48,7 @@
         </details>
     </details>
         
-- implement "delete" functionality into the saves
-    <details>
-    <summary>backend ✅</summary>
-
-    * category ✅ 
-
-    * customer ✅
-
-    * order ✅
-
-    * product ✅
-    
-    </details>
-    
-    <details>
-    <summary>client ✅</summary>
-
-    * category ✅ 
-
-    * customer ✅
-
-    * order ✅
-
-    * product ✅
-    
-    </details>
-
+- implement "delete" functionality ✅
 
 </details>
 
