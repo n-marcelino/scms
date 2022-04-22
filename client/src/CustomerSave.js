@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function CustomerAdd() {
+export default function CustomerSave() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [street, setStreet] = useState("");

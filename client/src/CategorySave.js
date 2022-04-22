@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function CategoryAdd() {
+export default function CategorySave() {
     const [name, setName] = useState("");
 
     const urlCategories = "http://localhost:8080/api/categories";

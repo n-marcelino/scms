@@ -9,19 +9,16 @@ import {
 import Home from "./Home";
 
 import CategoryShow from "./CategoryShow";
-import CategoryAdd from "./CategoryAdd";
-import CategoryUpdate from "./CategoryUpdate";
+import CategorySave from "./CategorySave";
 
 import ProductShow from "./ProductShow";
-import ProductAdd from "./ProductAdd";
-import ProductUpdate from "./ProductUpdate";
+import ProductSave from "./ProductSave";
 
 import CustomerShow from "./CustomerShow";
-import CustomerAdd from "./CustomerAdd";
-import CustomerUpdate from "./CustomerUpdate";
+import CustomerSave from "./CustomerSave";
 
 import OrderShow from "./OrderShow";
-import OrderAdd from "./OrderAdd";
+import OrderSave from "./OrderSave";
 
 export default function MainApp() {
     
@@ -77,19 +74,16 @@ export default function MainApp() {
                         <Route exact path ="/*" element={<Home/>}/>
 
                         <Route exact path ="/categories/*" element={<CategoryShow/>}/>
-                        <Route exact path ="/categories/add" element={<CategoryAdd/>}/>
-                        <Route exact path ="/categories/update" element={<CategoryUpdate/>}/>
+                        <Route exact path ="/categories/add" element={<CategorySave/>}/>
 
                         <Route exact path ="/products/*" element={<ProductShow/>}/>
-                        <Route exact path ="/products/add" element={<ProductAdd/>}/>
-                        <Route exact path ="/products/update" element={<ProductUpdate/>}/>
+                        <Route exact path ="/products/add" element={<ProductSave/>}/>
 
                         <Route exact path ="/customers/*" element={<CustomerShow/>}/>
-                        <Route exact path ="/customers/add" element={<CustomerAdd/>}/>
-                        <Route exact path ="/customers/update" element={<CustomerUpdate/>}/>
+                        <Route exact path ="/customers/add" element={<CustomerSave/>}/>
 
                         <Route exact path ="/orders/*" element={<OrderShow/>}/>
-                        <Route exact path ="/orders/add" element={<OrderAdd/>}/>
+                        <Route exact path ="/orders/add" element={<OrderSave/>}/>
                     </Routes>
                 </div>
             </div>
