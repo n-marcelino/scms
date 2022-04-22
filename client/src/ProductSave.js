@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
+import {
+    useNavigate
+} from "react-router-dom";
 
 export default function ProductAdd() {
+
+    const navigate = useNavigate();
+
     const [name, setName] = useState("");
     const [price, setPrice] = useState(0.00);
     const [categories, setCategories] = useState([]);
@@ -54,6 +60,12 @@ export default function ProductAdd() {
             })
             .catch((error) => {
             });
+    }
+
+    function alertSuccess() {
+        alert("Operation Successful!");
+
+        navigate('/products/');
     }
 
     return (
@@ -115,14 +127,14 @@ export default function ProductAdd() {
                 <div class="pt-4 d-flex gap-3">
                     <button
                         class="form-control btn-warning"
-                        onClick={() => { handleSave() }}
+                        onClick={() => { handleSave(); alertSuccess() }}
                     >
                         Add New Product
                     </button>
 
                     <button
                         class="form-control btn-danger"
-                        onClick={() => { history.back() }}
+                        onClick={() => { navigate('/products/') }}
                     >
                         Cancel
                     </button>

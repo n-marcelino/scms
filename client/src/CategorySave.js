@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
+import {
+    useNavigate
+} from "react-router-dom";
 
 export default function CategorySave() {
+
+    const navigate = useNavigate();
     const [name, setName] = useState("");
 
     const urlCategories = "http://localhost:8080/api/categories";
@@ -30,6 +35,12 @@ export default function CategorySave() {
             });
     }
 
+    function alertSuccess() {
+        alert("Operation Successful!");
+
+        navigate('/categories/');
+    }
+
     return (
         <div class="form-group w-50 p-3">
             <h1>Add Categories</h1>
@@ -50,14 +61,14 @@ export default function CategorySave() {
             <div class="pt-4 d-flex gap-3">
                 <button
                     class="form-control btn-warning"
-                    onClick={()=>{handleSave()}}
+                    onClick={()=>{handleSave(); alertSuccess() }}
                 >
                     Add New Category
                 </button>
 
                 <button
                     class="form-control btn-danger"
-                    onClick={()=>{history.back()}}
+                    onClick={()=>{navigate('/categories/')}}
                 >
                     Cancel
                 </button>

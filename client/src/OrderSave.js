@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
+import {
+    useNavigate
+} from "react-router-dom";
 
 export default function OrderSave() {
+
+    const navigate = useNavigate();
 
     // const [orders, setOrder] = useState({
     //     // fields
@@ -118,27 +123,28 @@ export default function OrderSave() {
             return (
                 orderItems.map((o) => {
                     return (
-                        <div class="form-group">
-                            <div class="d-flex">
+                        <div className="form-group">
+                            <div className="d-flex">
                                 <h5>Item {o.index}</h5>
 
-                                <div class="ms-auto">
+                                <div className="ms-auto">
                                     <button
-                                        class="form-control btn-danger px-5"
-                                        onClick={() => {removeItem(o.index)}}
+                                        className="form-control btn-danger px-5"
+                                        onClick={() => { removeItem(o.index) }}
                                     >
                                         Delete
                                     </button>
                                 </div>
                             </div>
 
-                            <div class="form-group row py-1">
-                                <label class="col-sm-2 col-form-label">
+                            <div className="form-group row py-1">
+                                <label className="col-sm-2 col-form-label">
                                     Product:
                                 </label>
-                                <div class="col-sm-10">
+                                <div className="col-sm-10">
                                     <select
-                                        class="form-control"
+                                        id="product_select"
+                                        className="form-control"
                                         value={o.productId}
                                         onChange={(event) => {
                                             handleProductChanged(o.index, event.target.value)
@@ -148,7 +154,7 @@ export default function OrderSave() {
                                             products.map((p) => {
                                                 return (
                                                     <option value={p.id}>
-                                                        {p.name}
+                                                        {p.name + " (PHP" + p.price +")"}
                                                     </option>
                                                 )
                                             })
@@ -157,13 +163,13 @@ export default function OrderSave() {
                                 </div>
                             </div>
 
-                            <div class="form-group row py-1 pb-3">
-                                <label class="col-sm-2 col-form-label">
+                            <div className="form-group row py-1 pb-3">
+                                <label className="col-sm-2 col-form-label">
                                     Price:
                                 </label>
-                                <div class="col-sm-4">
+                                <div className="col-sm-4">
                                     <input
-                                        class="form-control"
+                                        className="form-control"
                                         value={o.price}
                                         onChange={
                                             (event) => { handlePriceChanged(o.index, event.target.value) }
@@ -172,13 +178,13 @@ export default function OrderSave() {
                                     </input>
                                 </div>
 
-                                <label class="col-sm-2 col-form-label">
+                                <label className="col-sm-2 col-form-label">
                                     Quantity:
                                 </label>
-                                <div class="col-sm-4">
+                                <div className="col-sm-4">
                                     <input
                                         type="number"
-                                        class="form-control"
+                                        className="form-control"
                                         value={o.quantity}
                                         onChange={
                                             (event) => { handleQuantityChange(o.index, event.target.value) }
@@ -215,18 +221,24 @@ export default function OrderSave() {
         setOrderItems([...orderItems]);
     }
 
+    function alertSuccess() {
+        alert("Operation Successful!");
+
+        navigate('/orders/');
+    }
+
     return (
         <div>
-            <div class="form-group w-50 p-3">
+            <div className="form-group w-50 p-3">
                 <h1>Add Order</h1>
 
-                <div class="form-group row py-2">
-                    <label class="col-sm-2 col-form-label">
+                <div className="form-group row py-2">
+                    <label className="col-sm-2 col-form-label">
                         Customer:
                     </label>
-                    <div class="col-sm-10">
+                    <div className="col-sm-10">
                         <select
-                            class="form-control"
+                            className="form-control"
                             value={customerId}
                             onChange={(event) => { setCustomerId(event.target.value) }}
                         >
@@ -243,32 +255,35 @@ export default function OrderSave() {
                     </div>
                 </div>
 
-                <div class="form-group row py-2">
-                    <label class="col-sm-4 col-form-label">
+                <div className="form-group row py-2">
+                    <label className="col-sm-4 col-form-label">
                         Is The Order Fulfilled?:
                     </label>
-                    <div class="col-sm-8">
-                        <div class="form-check">
+                    <div className="col-sm-8">
+                        <div className="form-check">
                             <input
-                                class="form-check-input"
+                                required
+                                name="isOrderFulfilled"
+                                className="form-check-input"
                                 type="radio"
                                 id="checkTrue"
                                 value={true}
                                 onChange={(event) => { setIsOrderFulfilled(event.target.value) }}
                             />
-                            <label class="form-check-label" for="checkTrue">
+                            <label className="form-check-label" for="checkTrue">
                                 True
                             </label>
                         </div>
-                        <div class="form-check">
+                        <div className="form-check">
                             <input
-                                class="form-check-input"
+                                name="isOrderFulfilled"
+                                className="form-check-input"
                                 type="radio"
                                 id="checkFalse"
                                 value={false}
                                 onChange={(event) => { setIsOrderFulfilled(event.target.value) }}
                             />
-                            <label class="form-check-label" for="checkFalse">
+                            <label className="form-check-label" for="checkFalse">
                                 False
                             </label>
                         </div>
@@ -279,24 +294,24 @@ export default function OrderSave() {
                     {renderOrderItems()}
 
                     <button
-                        class="form-control btn-warning"
+                        className="form-control btn-warning"
                         onClick={() => { addOrderItem() }}
                     >
                         Add Order Item
                     </button>
                 </div>
 
-                <div class="pt-4 d-flex gap-3">
+                <div className="pt-4 d-flex gap-3">
                     <button
-                        class="form-control btn-warning"
-                        onClick={() => { handleSave() }}
+                        className="form-control btn-warning"
+                        onClick={() => { handleSave(); alertSuccess() }}
                     >
                         Add New Order
                     </button>
 
                     <button
-                        class="form-control btn-danger"
-                        onClick={() => { history.back() }}
+                        className="form-control btn-danger"
+                        onClick={() => { navigate('/orders/'); }}
                     >
                         Cancel
                     </button>

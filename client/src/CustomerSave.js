@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
+import {
+    useNavigate
+} from "react-router-dom";
 
 export default function CustomerSave() {
+
+    const navigate = useNavigate();
+
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [street, setStreet] = useState("");
@@ -48,6 +54,12 @@ export default function CustomerSave() {
             })
             .catch((error) => {
             });
+    }
+
+    function alertSuccess() {
+        alert("Operation Successful!");
+
+        navigate('/customers/');
     }
 
     return (
@@ -136,14 +148,14 @@ export default function CustomerSave() {
             <div class="pt-4 d-flex gap-3">
                 <button
                     class="form-control btn-warning"
-                    onClick={()=>{handleSave()}}
+                    onClick={()=>{handleSave();  alertSuccess()}}
                 >
                     Add New Customer
                 </button>
 
                 <button
                     class="form-control btn-danger"
-                    onClick={()=>{history.back()}}
+                    onClick={()=>{ navigate('/customers/') }}
                 >
                     Cancel
                 </button>
