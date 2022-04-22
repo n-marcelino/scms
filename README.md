@@ -60,8 +60,7 @@ mysql -p -u (sql username) < scms.sql
         * customer
         * order
         * product
-        *
-        <details>
+        * <details>
             <summary>things of note</summary>
             - make sure that the header changes if there is an id received (check recording for more info)
             - if there is an id (which means u are editing), then header is "Editing {object} {id}}"
