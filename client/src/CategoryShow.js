@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
-    HashRouter as Router,
-    Routes,
-    Route,
     useNavigate
 } from "react-router-dom";
-
-import CategoryAdd from "./CategoryAdd";
-import CategoryUpdate from "./CategoryUpdate";
 
 export default function CategoryShow() {
 
@@ -53,12 +47,19 @@ export default function CategoryShow() {
                                     <div className="mb-4">
                                         <h5>ID: {c.id}</h5>
                                     </div>
-                                    <div className="mt-auto">
+                                    <div className="mt-auto d-flex gap-3">
                                         <button
                                             type="button"
-                                            onClick={() => {navigate('/categories/update');}}
+                                            onClick={() => {navigate('/categories/:id');}}
                                             className="w-100 btn btn-warning">
                                             Edit
+                                        </button>
+
+                                        <button
+                                            type="button"
+                                            onClick={() => { }}
+                                            className="w-100 btn btn-danger">
+                                            Delete
                                         </button>
                                     </div>
                                 </div>

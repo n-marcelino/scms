@@ -86,6 +86,7 @@ public class CustomersController {
 			value= {"/{id}"},
 			method=RequestMethod.GET,
 			produces=MediaType.APPLICATION_JSON_VALUE)
+	@CrossOrigin(origins = "*")
 	public String show(@PathVariable Integer id) {
 		Customer customer = customerRepository.findById(id).get();
 		

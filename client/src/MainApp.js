@@ -75,15 +75,27 @@ export default function MainApp() {
 
                         <Route exact path ="/categories/*" element={<CategoryShow/>}/>
                         <Route exact path ="/categories/add" element={<CategorySave/>}/>
+                        {/* TODO */}
+                        {/* <Route exact path ="/categories/:id" element={<CategorySave/>}/> */}
+                        <Route exact path ="/categories/:id/delete" element={<CategorySave/>}/>
 
                         <Route exact path ="/products/*" element={<ProductShow/>}/>
                         <Route exact path ="/products/add" element={<ProductSave/>}/>
+                        {/* TODO */}
+                        {/* <Route exact path ="/products/:id" element={<ProductSave/>}/>
+                        <Route exact path ="/products/:id/delete" element={<ProductSave/>}/> */}
 
                         <Route exact path ="/customers/*" element={<CustomerShow/>}/>
                         <Route exact path ="/customers/add" element={<CustomerSave/>}/>
+                        TODO
+                        {/* <Route exact path ="/customers/:id" element={<CustomerSave/>}/>
+                        <Route exact path ="/customers/:id/delete" element={<CustomerSave/>}/> */}
 
                         <Route exact path ="/orders/*" element={<OrderShow/>}/>
                         <Route exact path ="/orders/add" element={<OrderSave/>}/>
+                        {/* TODO */}
+                        {/* <Route exact path ="/orders/:id" element={<OrderSave/>}/>
+                        <Route exact path ="/orders/:id/delete" element={<OrderSave/>}/> */}
                     </Routes>
                 </div>
             </div>

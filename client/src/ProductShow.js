@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
-    HashRouter as Router,
-    Routes,
-    Route,
     useNavigate
 } from "react-router-dom";
-
-import ProductAdd from "./ProductAdd";
-import ProductUpdate from "./ProductUpdate";
 
 export default function ProductShow() {
 

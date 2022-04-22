@@ -75,6 +75,7 @@ public class CategoriesController {
 			value= {"/{id}"},
 			method=RequestMethod.GET,
 			produces=MediaType.APPLICATION_JSON_VALUE)
+	@CrossOrigin(origins = "*")
 	public String show(@PathVariable Integer id) {
 		Category category = categoryRepository.findById(id).get();
 		
@@ -91,6 +92,7 @@ public class CategoriesController {
 			value= {"/{id}/delete"},
 			method=RequestMethod.GET,
 			produces=MediaType.APPLICATION_JSON_VALUE)
+	@CrossOrigin(origins = "*")
 	public String delete(@PathVariable Integer id) {
 		
 		//fetching product from database
