@@ -11,8 +11,13 @@
         * order
         * product
     - client
+        * category
+        * customer
+        * order
+        * product
+        
         <details>
-            <summary>things of note</summary>
+            <summary>client: things of note</summary>
 
             - make sure that the header changes if there is an id received (check recording for more info)
 
@@ -29,10 +34,6 @@
                     - if there is id, then return danger zone
 
         </details>
-        * category
-        * customer
-        * order
-        * product
         
 - implement "delete" functionality into the saves
     - backend
