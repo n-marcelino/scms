@@ -59,6 +59,7 @@
 3. additionally, how to work with arrays sa render product?
     * e.g. in categories, show localhost:8080, the array of products under a category
     * how to render that?
+4. how to work with update and delete in the backend?
 
 </details>
 
