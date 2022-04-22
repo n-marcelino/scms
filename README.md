@@ -38,22 +38,27 @@
 - implement "delete" functionality into the saves
     <details>
     <summary>backend ✅</summary>
-    1. category ✅ 
-    2. customer ✅
-    3. order ✅
-    4. product ✅
+
+    * category ✅ 
+
+    * customer ✅
+
+    * order ✅
+
+    * product ✅
+    
     </details>
     
     <details>
     <summary>client ✅</summary>
 
-    1. category ✅ 
+    * category ✅ 
 
-    2. customer ✅
+    * customer ✅
 
-    3. order ✅
+    * order ✅
 
-    4. product ✅
+    * product ✅
     
     </details>
 
