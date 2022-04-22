@@ -64,3 +64,15 @@ INSERT INTO customers (first_name, last_name, street, city, zip_code, phone_numb
     ('Jimin','Park','Somewhere in','Seoul','1013','09111111111'),
     ('Namjoon','Kim','Somewhere in','Seoul','0912','09222222222'),
     ('Jungkook','Jeon','Somewhere in','Seoul','0901','09333333333');
+
+
+INSERT INTO orders (customer_id, is_order_fulfilled) VALUES
+    (1, 0),
+    (2, 1),
+    (3, 0);
+
+INSERT INTO order_items (order_id, product_id, price, quantity) VALUES
+    (1, 1, 9899.99, 2),
+    (3, 3, 15699.99, 1),
+    (3, 2, 9899.99, 1),
+    (2, 4, 10499.99, 1);

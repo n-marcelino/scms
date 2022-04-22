@@ -136,4 +136,22 @@ public class OrdersController {
 		return data;
 	}
 	
+	@RequestMapping(
+			value= {"/{id}/delete"},
+			method=RequestMethod.GET,
+			produces=MediaType.APPLICATION_JSON_VALUE)
+	@CrossOrigin(origins = "*")
+	public String delete(@PathVariable Integer id) {
+		
+		//fetching product from database
+		
+		//if id does not exist, return invalid message
+		//Product product = productRepository.findById(id).get();
+		//productRepository.delete(product);
+		
+		orderRepository.deleteById(id);
+		
+		return " { \"message\": \"ok\" } ";
+	}
+	
 }

@@ -20,7 +20,8 @@ public class OrderBuilder {
 	}
 
 	public void execute() {
-		data.put("customer", order.getCustomer().getLastName());
+		data.put("id", order.getId());
+		data.put("customer", order.getCustomer().getLastName() + ", " + order.getCustomer().getFirstName());
 		data.put("isOrderFulfilled", order.getIsOrderFulfilled());
 	
 		Set<OrderItem> orderItems = order.getOrderItems();
