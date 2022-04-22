@@ -6,9 +6,6 @@ import {
     useNavigate
 } from "react-router-dom";
 
-import CustomerAdd from "./CustomerAdd";
-import CustomerUpdate from "./CustomerUpdate";
-
 export default function CustomerShow() {
 
     const navigate = useNavigate();
