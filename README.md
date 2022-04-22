@@ -88,20 +88,17 @@
 
 ## HOW TO RUN (!!!)
 
-1. launch mysql, and make a new database named "scms" (this will be populated by ur backend)
+1. first run the sql script by typing this in your terminal (command prompt):
+```
+mysql -p -u (sql username) < scms.sql
+```
 
 2. backend folder contains java project made on eclipse
 
 3. client folder contains html/js made on vscode
 
-4. run the sql script by typing this in your terminal:
-
-```
-mysql -p -u (sql username) < scms.sql
-```
-
 <details>
-<summary>5. what to do on eclipse</summary>
+<summary>4. what to do on eclipse</summary>
 
     1. import as project the backend to eclipse
     
@@ -113,7 +110,7 @@ mysql -p -u (sql username) < scms.sql
 </details>
 
 <details>
-<summary>6. what to do on vscode</summary>
+<summary>5. what to do on vscode</summary>
 
     1. add the client folder to ur vscode workspace
 
@@ -123,10 +120,10 @@ mysql -p -u (sql username) < scms.sql
     E:\Programming\github\scms\client> []     <= this thing is ur cursor
 </details>
 
-7. on your terminal, run this code:
+6. on your terminal, run this code:
 
 ```
 ./node_modules/.bin/webpack serve --mode development
 ```
 
-8. on your browser, go to localhost:8081
+7. on your browser, go to localhost:8081
