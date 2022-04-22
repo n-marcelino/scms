@@ -1,50 +1,5 @@
 # scms
 
-## HOW TO RUN (!!!)
-
-1. launch mysql, and make a new database named "scms" (this will be populated by ur backend)
-
-2. backend folder contains java project made on eclipse
-
-3. client folder contains html/js made on vscode
-
-4. run the sql script by typing this in your terminal:
-
-```
-mysql -p -u (sql username) < scms.sql
-```
-
-<details>
-<summary>5. what to do on eclipse</summary>
-
-    1. import as project the backend to eclipse
-    
-    2. within eclipse, in src/main/resources/application.properties,
-    change the necessary info to match ur sql settings
-
-    3. run 'program.java' within the backend project on eclipse
-
-</details>
-
-<details>
-<summary>6. what to do on vscode</summary>
-
-    1. add the client folder to ur vscode workspace
-
-    2. make sure that your terminal is set to the client folder directory
-        * e.g. your terminal should look like this:
-        
-    E:\Programming\github\scms\client> []     <= this thing is ur cursor
-</details>
-
-7. on your terminal, run this code:
-
-```
-./node_modules/.bin/webpack serve --mode development
-```
-
-8. on your browser, go to localhost:8081
-
 ## IMPORTANT
 <details>
 <summary>TO-DO LIST</summary>
@@ -70,7 +25,7 @@ mysql -p -u (sql username) < scms.sql
                     - object is either category, customer, order, or product
                     - id is the object's id
                 - e.g. Editing Product 1
-                
+
             - should delete button be:
                 - in category show, beside the edit button (like how sir did it)
                 - or embedded in the edit page as a danger zone?
@@ -128,3 +83,47 @@ mysql -p -u (sql username) < scms.sql
 
 </details>
 
+## HOW TO RUN (!!!)
+
+1. launch mysql, and make a new database named "scms" (this will be populated by ur backend)
+
+2. backend folder contains java project made on eclipse
+
+3. client folder contains html/js made on vscode
+
+4. run the sql script by typing this in your terminal:
+
+```
+mysql -p -u (sql username) < scms.sql
+```
+
+<details>
+<summary>5. what to do on eclipse</summary>
+
+    1. import as project the backend to eclipse
+    
+    2. within eclipse, in src/main/resources/application.properties,
+    change the necessary info to match ur sql settings
+
+    3. run 'program.java' within the backend project on eclipse
+
+</details>
+
+<details>
+<summary>6. what to do on vscode</summary>
+
+    1. add the client folder to ur vscode workspace
+
+    2. make sure that your terminal is set to the client folder directory
+        * e.g. your terminal should look like this:
+        
+    E:\Programming\github\scms\client> []     <= this thing is ur cursor
+</details>
+
+7. on your terminal, run this code:
+
+```
+./node_modules/.bin/webpack serve --mode development
+```
+
+8. on your browser, go to localhost:8081
