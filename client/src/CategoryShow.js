@@ -27,13 +27,6 @@ export default function CategoryShow() {
             });
     }
 
-    function closePopup() {
-        var edit = document.getElementById("editing-window-container");
-        edit.classList.add("d-none");
-        navigate('/categories');
-
-    }
-
     function handleDeleteCategory(id) {
         var deleteUrl = `http://localhost:8080/api/categories/${id}/delete`;
 
