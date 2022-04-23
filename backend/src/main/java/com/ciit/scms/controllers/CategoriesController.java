@@ -41,6 +41,12 @@ public class CategoriesController {
 		String name = data.get("name").toString();
 		
 		Category c = new Category();
+		
+		if(data.get("id") != null) {
+			Integer id = Integer.parseInt(data.get("id").toString());
+			c = categoryRepository.findById(id).get();
+		}
+		
 		c.setName(name);
 		
 		categoryRepository.save(c);
@@ -77,6 +83,7 @@ public class CategoriesController {
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	@CrossOrigin(origins = "*")
 	public String show(@PathVariable Integer id) {
+		
 		Category category = categoryRepository.findById(id).get();
 		
 		CategoryBuilder builder = new CategoryBuilder(category);

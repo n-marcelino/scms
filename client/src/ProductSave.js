@@ -167,7 +167,7 @@ export default function ProductAdd() {
                         class="form-control btn-warning"
                         onClick={() => { handleSave(); alertSuccess() }}
                     >
-                        Add New Product
+                        Save Product
                     </button>
 
                     <button

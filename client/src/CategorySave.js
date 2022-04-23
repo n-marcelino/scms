@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
-    useNavigate
+    useNavigate,
+    useParams
 } from "react-router-dom";
 
 export default function CategorySave() {
@@ -10,10 +11,47 @@ export default function CategorySave() {
 
     const urlCategories = "http://localhost:8080/api/categories";
 
+    useEffect(()=>{
+        loadCategories();
+    },[]);
+
+    var { id } = useParams();
+
+    function loadCategories() {
+        if(id) {
+            fetch(`${urlCategories}/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                setName(data.name);
+            })
+            .catch((error) => {
+            });
+        }
+    }
+
+    function renderHeader() {
+        if(id) {
+            return(
+                <h1>
+                    Editing Category {id}
+                </h1>
+            )
+        } else {
+            return(
+                <h1>
+                    Add Category
+                </h1>
+            )
+        }
+    }
+
     function handleSave() {
+        console.log("Id: " + id);
         console.log("Name: " + name);
 
         var payload = {
+            id:id,
             name: name
         }
 
@@ -43,7 +81,8 @@ export default function CategorySave() {
 
     return (
         <div class="form-group w-50 p-3">
-            <h1>Add Categories</h1>
+            {renderHeader()}
+
             <div class="form-group row py-2">
                 <label class="col-2 col-form-label">
                     Name: 
@@ -63,7 +102,7 @@ export default function CategorySave() {
                     class="form-control btn-warning"
                     onClick={()=>{handleSave(); alertSuccess() }}
                 >
-                    Add New Category
+                    Save Category
                 </button>
 
                 <button

@@ -70,7 +70,7 @@ export default function CategoryShow() {
                                     <div className="mt-auto d-flex gap-2">
                                         <button
                                             type="button"
-                                            onClick={() => { navigate('/categories/:id'); }}
+                                            onClick={() => { navigate(`/categories/form/${c.id}`); }}
                                             className="w-100 btn btn-warning">
                                             Edit
                                         </button>

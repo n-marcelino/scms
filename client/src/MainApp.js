@@ -75,7 +75,7 @@ export default function MainApp() {
 
                         <Route exact path ="/categories/*" element={<CategoryShow/>}/>
                         <Route exact path ="/categories/form" element={<CategorySave/>}/>
-                        {/* <Route exact path ="/categories/form/:id" element={<CategorySave/>}/> */}
+                        <Route exact path ="/categories/form/:id" element={<CategorySave/>}/>
 
                         <Route exact path ="/products/*" element={<ProductShow/>}/>
                         <Route exact path ="/products/form" element={<ProductSave/>}/>
