@@ -58,7 +58,7 @@ export default function ProductShow() {
                                         <button
                                             type="button"
                                             className="w-100 btn btn-warning"
-                                            onClick={() => { navigate('/products/update'); }}
+                                            onClick={() => { navigate(`/products/form/${p.id}`); }}
                                         >
                                             Edit
                                         </button>
@@ -77,7 +77,7 @@ export default function ProductShow() {
                     }
 
                     <div className="bg-light c-card" >
-                        <div onClick={() => (navigate('/products/add'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
+                        <div onClick={() => (navigate('/products/form'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
                             <div>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +103,7 @@ export default function ProductShow() {
 
                     <div className="d-flex flex-wrap gap-3 cc-container">
                         <div className="bg-light c-card" >
-                            <div onClick={() => (navigate('/products/add'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
+                            <div onClick={() => (navigate('/products/form'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
                                 <div>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"

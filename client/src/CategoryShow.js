@@ -88,7 +88,7 @@ export default function CategoryShow() {
                     }
 
                     <div className="bg-light c-card" >
-                        <div onClick={() => (navigate('/categories/add'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
+                        <div onClick={() => (navigate('/categories/form'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
                             <div>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +113,7 @@ export default function CategoryShow() {
 
                     <div className="d-flex flex-wrap gap-3 cc-container">
                         <div className="bg-light c-card" >
-                            <div onClick={() => (navigate('/categories/add'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
+                            <div onClick={() => (navigate('/categories/form'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
                                 <div>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"

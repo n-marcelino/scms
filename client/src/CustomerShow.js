@@ -77,7 +77,7 @@ export default function CustomerShow() {
                     }
 
                     <div className="bg-light c-card" >
-                        <div onClick={() => (navigate('/customers/add'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
+                        <div onClick={() => (navigate('/customers/form'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
                             <div>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +102,7 @@ export default function CustomerShow() {
 
                     <div className="d-flex flex-wrap gap-3 cc-container">
                         <div className="bg-light c-card" >
-                            <div onClick={() => (navigate('/customers/add'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
+                            <div onClick={() => (navigate('/customers/form'))} className="btn h-100 w-100 d-flex align-items-center justify-content-center">
                                 <div>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"

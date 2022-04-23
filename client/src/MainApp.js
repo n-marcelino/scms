@@ -74,28 +74,23 @@ export default function MainApp() {
                         <Route exact path ="/*" element={<Home/>}/>
 
                         <Route exact path ="/categories/*" element={<CategoryShow/>}/>
-                        <Route exact path ="/categories/add" element={<CategorySave/>}/>
-                        {/* TODO */}
-                        {/* <Route exact path ="/categories/:id" element={<CategorySave/>}/> */}
-                        <Route exact path ="/categories/:id/delete" element={<CategorySave/>}/>
+                        <Route exact path ="/categories/form" element={<CategorySave/>}/>
+                        {/* <Route exact path ="/categories/form/:id" element={<CategorySave/>}/> */}
 
                         <Route exact path ="/products/*" element={<ProductShow/>}/>
-                        <Route exact path ="/products/add" element={<ProductSave/>}/>
+                        <Route exact path ="/products/form" element={<ProductSave/>}/>
                         {/* TODO */}
-                        {/* <Route exact path ="/products/:id" element={<ProductSave/>}/>
-                        <Route exact path ="/products/:id/delete" element={<ProductSave/>}/> */}
+                        <Route exact path ="/products/form/:id" element={<ProductSave/>}/>
 
                         <Route exact path ="/customers/*" element={<CustomerShow/>}/>
                         <Route exact path ="/customers/add" element={<CustomerSave/>}/>
                         TODO
-                        {/* <Route exact path ="/customers/:id" element={<CustomerSave/>}/>
-                        <Route exact path ="/customers/:id/delete" element={<CustomerSave/>}/> */}
+                        {/*<Route exact path ="/customers/form/:id" element={<CustomerSave/>}/> */}
 
                         <Route exact path ="/orders/*" element={<OrderShow/>}/>
-                        <Route exact path ="/orders/add" element={<OrderSave/>}/>
+                        <Route exact path ="/orders/form" element={<OrderSave/>}/>
                         {/* TODO */}
-                        {/* <Route exact path ="/orders/:id" element={<OrderSave/>}/>
-                        <Route exact path ="/orders/:id/delete" element={<OrderSave/>}/> */}
+                        {/* <Route exact path ="/orders/form/:id" element={<OrderSave/>}/>*/}
                     </Routes>
                 </div>
             </div>
