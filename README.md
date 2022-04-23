@@ -104,7 +104,7 @@
     
 </details>
 
-4. in your, type the following in order to run the sql script:
+4. in your vscode terminal, type the following in order to run the sql script:
 ```
 mysql -p -u (sql username) < scms.sql
 ```
