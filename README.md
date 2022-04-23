@@ -4,7 +4,7 @@
 
 1. download the zip file of the project and extract to any location on your drive
 
-2. the backend folder contains the java project compatible with eclipse, while the client folder contians html/js to be launched on vscode
+2. the backend folder contains the java project compatible with eclipse, while the client folder contains html/js to be launched on vscode
 
 <details>
 <summary>3. what to do on vscode</summary>
