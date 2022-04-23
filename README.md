@@ -1,5 +1,49 @@
 # scms
 
+## HOW TO RUN (!!!)
+
+1. download the zip file of the project and extract to any location on your drive
+
+2. the backend folder contains the java project compatible with eclipse, while the client folder contians html/js to be launched on vscode
+
+<details>
+<summary>3. what to do on vscode</summary>
+
+    1. add the client folder to ur vscode workspace
+
+    2. make sure that your terminal is set to the client folder directory
+        * e.g. your terminal should look like this:
+        
+    E:\Programming\github\scms\client> []     <= this thing is ur cursor
+    
+</details>
+
+4. in your vscode terminal, type the following in order to run the sql script:
+```
+mysql -p -u (sql username) < scms.sql
+```
+
+<details>
+<summary>5. what to do on eclipse</summary>
+
+    1. import as project the backend to eclipse
+    
+    2. within eclipse, in src/main/resources/application.properties,
+    change the necessary info to match ur sql settings
+
+    3. run 'program.java' within the backend project on eclipse
+
+</details>
+
+6. going back to your vscode terminal, type this to launch the client:
+
+```
+./node_modules/.bin/webpack serve --mode development
+```
+
+7. on your browser, go to localhost:8081
+
+
 ## IMPORTANT
 <details>
 <summary>TO-DO LIST (last updated: 22/04/22 - 10:04 P.M.)</summary>
@@ -85,46 +129,3 @@
     * problematic cors request errors kahit may cross origin annotation
 
 </details>
-
-## HOW TO RUN (!!!)
-
-1. download the zip file of the project and extract to any location on your drive
-
-2. the backend folder contains the java project compatible with eclipse, while the client folder contians html/js to be launched on vscode
-
-<details>
-<summary>3. what to do on vscode</summary>
-
-    1. add the client folder to ur vscode workspace
-
-    2. make sure that your terminal is set to the client folder directory
-        * e.g. your terminal should look like this:
-        
-    E:\Programming\github\scms\client> []     <= this thing is ur cursor
-    
-</details>
-
-4. in your vscode terminal, type the following in order to run the sql script:
-```
-mysql -p -u (sql username) < scms.sql
-```
-
-<details>
-<summary>5. what to do on eclipse</summary>
-
-    1. import as project the backend to eclipse
-    
-    2. within eclipse, in src/main/resources/application.properties,
-    change the necessary info to match ur sql settings
-
-    3. run 'program.java' within the backend project on eclipse
-
-</details>
-
-6. going back to your vscode terminal, type this to launch the client:
-
-```
-./node_modules/.bin/webpack serve --mode development
-```
-
-7. on your browser, go to localhost:8081
