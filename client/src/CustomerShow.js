@@ -59,7 +59,7 @@ export default function CustomerShow() {
                                         <button
                                             type="button"
                                             className="w-100 btn btn-warning"
-                                            onClick={() => { navigate('/categories/update'); }}
+                                            onClick={() => { navigate(`/customers/form/${c.id}`); }}
                                         >
                                             Edit
                                         </button>

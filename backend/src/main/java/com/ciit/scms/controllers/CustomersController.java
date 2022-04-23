@@ -47,6 +47,12 @@ public class CustomersController {
 		String phone = data.get("phone").toString();
 		
 		Customer c = new Customer();
+		
+		if(data.get("id") != null) {
+			Integer id = Integer.parseInt(data.get("id").toString());
+			c = customerRepository.findById(id).get();
+		}
+		
 		c.setFirstName(firstName);
 		c.setLastName(lastName);
 		c.setStreet(street);
@@ -97,6 +103,24 @@ public class CustomersController {
 		String data = gson.toJson(customerdata);
 		
 		return data;
+	}
+	
+	@RequestMapping(
+			value= {"/{id}/delete"},
+			method=RequestMethod.GET,
+			produces=MediaType.APPLICATION_JSON_VALUE)
+	@CrossOrigin(origins = "*")
+	public String delete(@PathVariable Integer id) {
+		
+		//fetching product from database
+		
+		//if id does not exist, return invalid message
+		//Product product = productRepository.findById(id).get();
+		//productRepository.delete(product);
+		
+		customerRepository.deleteById(id);
+		
+		return " { \"message\": \"ok\" } ";
 	}
 	
 }

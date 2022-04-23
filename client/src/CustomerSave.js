@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
-    useNavigate
+    useNavigate,
+    useParams
 } from "react-router-dom";
 
 export default function CustomerSave() {
@@ -16,6 +17,46 @@ export default function CustomerSave() {
 
     const urlCustomers = "http://localhost:8080/api/customers";
 
+    useEffect(()=>{
+        loadCustomers();
+    },[]);
+
+    var { id } = useParams();
+
+    function loadCustomers() {
+        if(id) {
+            fetch(`${urlCustomers}/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                setFirstName(data.firstname);
+                setLastName(data.lastname);
+                setStreet(data.street);
+                setCity(data.city);
+                setZip(data.zip);
+                setPhone(data.phone);
+            })
+            .catch((error) => {
+            });
+        }
+    }
+
+    function renderHeader() {
+        if(id) {
+            return(
+                <h1>
+                    Editing Customer {id}
+                </h1>
+            )
+        } else {
+            return(
+                <h1>
+                    Add Category
+                </h1>
+            )
+        }
+    }
+
     function handleSave() {
         console.log("firstName: " + firstName);
         console.log("lastName: " + lastName);
@@ -25,6 +66,7 @@ export default function CustomerSave() {
         console.log("phone: " + phone);
 
         var payload = {
+            id:id,
             firstName: firstName,
             lastName: lastName,
             street: street,
@@ -64,7 +106,8 @@ export default function CustomerSave() {
 
     return (
         <div class="form-group w-50 p-3">
-            <h1>Add Customer Record</h1>
+            {renderHeader()}
+
             <div class="form-group row py-2">
                 <label class="col-3 col-form-label">
                     First Name: 
@@ -150,7 +193,7 @@ export default function CustomerSave() {
                     class="form-control btn-warning"
                     onClick={()=>{handleSave();  alertSuccess()}}
                 >
-                    Add New Customer
+                    Save Customer
                 </button>
 
                 <button

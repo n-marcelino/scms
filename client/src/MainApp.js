@@ -84,8 +84,7 @@ export default function MainApp() {
 
                         <Route exact path ="/customers/*" element={<CustomerShow/>}/>
                         <Route exact path ="/customers/add" element={<CustomerSave/>}/>
-                        TODO
-                        {/*<Route exact path ="/customers/form/:id" element={<CustomerSave/>}/> */}
+                        <Route exact path ="/customers/form/:id" element={<CustomerSave/>}/>
 
                         <Route exact path ="/orders/*" element={<OrderShow/>}/>
                         <Route exact path ="/orders/form" element={<OrderSave/>}/>
