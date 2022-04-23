@@ -47,6 +47,12 @@ public class ProductsController {
 		Integer categoryId 	= (int)Double.parseDouble(data.get("categoryId").toString());
 		
 		Product p = new Product();
+		
+		if(data.get("id") != null) {
+			Integer id = Integer.parseInt(data.get("id").toString());
+			p = productRepository.findById(id).get();
+		}
+		
 		p.setName(name);
 		p.setPrice(price);
 		

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
-    useNavigate
+    useNavigate,
+    useParams
 } from "react-router-dom";
 
 export default function ProductAdd() {
@@ -17,13 +18,31 @@ export default function ProductAdd() {
 
     useEffect(() => {
         loadCategories();
+        loadProduct();
     }, []); //function called only once
+
+    var { id } = useParams();
+
+    function loadProduct() {
+        if(id) {
+            fetch(`${urlProducts}/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                setName(data.name);
+                setPrice(data.price);
+                setCategoryId(data.categoryId);
+            })
+            .catch((error) => {
+            });
+        }
+    }
 
     function loadCategories() {
         fetch(urlCategories)
             .then(response => response.json())
             .then(data => {
-                if (data.categories.length > 0) {
+                if (data.categories.length > 0 && !categoryId) {
                     setCategoryId(data.categories[0].id)
                 }
                 setCategories(data.categories);
@@ -32,12 +51,30 @@ export default function ProductAdd() {
             });
     }
 
+    function renderHeader() {
+        if(id) {
+            return(
+                <h1>
+                    Editing Product {id}
+                </h1>
+            )
+        } else {
+            return(
+                <h1>
+                    Add Products
+                </h1>
+            )
+        }
+    }
+
     function handleSave() {
+        console.log("Id: " + id)
         console.log("Name: " + name);
         console.log("Price: " + price);
         console.log("CategoryId: " + categoryId);
 
         var payload = {
+            id: id,
             name: name,
             price: price,
             categoryId: categoryId
@@ -65,13 +102,14 @@ export default function ProductAdd() {
     function alertSuccess() {
         alert("Operation Successful!");
 
-        navigate('/products/');
+        navigate('/products');
     }
 
     return (
         <div>
             <div class="form-group w-50 p-3">
-                <h1>Add Products</h1>
+                {renderHeader()}
+
                 <div class="form-group row py-2">
                     <label class="col-2 col-form-label">
                         Name:
@@ -134,7 +172,7 @@ export default function ProductAdd() {
 
                     <button
                         class="form-control btn-danger"
-                        onClick={() => { navigate('/products/') }}
+                        onClick={() => { navigate('/products') }}
                     >
                         Cancel
                     </button>

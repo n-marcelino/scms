@@ -20,6 +20,7 @@ public class ProductBuilder {
 		data.put("name", product.getName());
 		data.put("price", product.getPrice());
 		data.put("category", product.getCategory().getName());
+		data.put("categoryId", product.getCategory().getId());
 	}
 	
 	public HashMap<String, Object> getData() {
