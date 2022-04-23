@@ -104,19 +104,13 @@
     
 </details>
 
-4. in your terminal, type this to launch the client:
-
-```
-./node_modules/.bin/webpack serve --mode development
-```
-
-5. in a new terminal, type the following in order to run the sql script:
+4. in your, type the following in order to run the sql script:
 ```
 mysql -p -u (sql username) < scms.sql
 ```
 
 <details>
-<summary>6. what to do on eclipse</summary>
+<summary>5. what to do on eclipse</summary>
 
     1. import as project the backend to eclipse
     
@@ -126,5 +120,11 @@ mysql -p -u (sql username) < scms.sql
     3. run 'program.java' within the backend project on eclipse
 
 </details>
+
+6. going back to your vscode terminal, type this to launch the client:
+
+```
+./node_modules/.bin/webpack serve --mode development
+```
 
 7. on your browser, go to localhost:8081
