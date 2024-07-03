@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/order-items")
-@CrossOrigin(origins = "${frontend.origin}")
+@CrossOrigin(origins = "/*")
 public class OrderItemsController {
 
     private final OrderItemBuilder orderItemBuilder;

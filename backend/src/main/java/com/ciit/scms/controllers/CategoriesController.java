@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/categories")
-@CrossOrigin(origins = "${frontend.origin}")
+@CrossOrigin(origins = "/*")
 public class CategoriesController {
 
     private final CategoryBuilder categoryBuilder;

@@ -67,7 +67,7 @@ function App() {
           <div className="flex-grow-1 w-75">
             <div>
               <Routes>
-                <Route exact path="/" element={<Home />} />
+                <Route path="*" element={<Home />} />
 
                 <Route path="/categories/*" element={<CategoryShow />} />
                 <Route path="/categories/form" element={<CategorySave />} />
