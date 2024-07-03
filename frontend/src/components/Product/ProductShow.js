@@ -20,7 +20,7 @@ const ProductShow = () => {
                 return response.json();
             })
             .then(data => {
-                setProducts(data.products);
+                setProducts(data.products || []); // Ensure to handle empty response gracefully
             })
             .catch(error => {
                 console.error('Error loading products:', error);

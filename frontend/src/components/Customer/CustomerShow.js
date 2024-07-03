@@ -19,7 +19,7 @@ const CustomerShow = () => {
                 return response.json();
             })
             .then(data => {
-                setCustomers(data.customers);
+                setCustomers(data.customers || []); // Ensure to handle empty response gracefully
             })
             .catch(error => {
                 console.error('Error loading customers:', error);

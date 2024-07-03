@@ -22,7 +22,7 @@ const OrderShow = () => {
                 return response.json();
             })
             .then(data => {
-                setOrders(data.orders);
+                setOrders(data.orders || []); // Ensure to handle empty response gracefully
             })
             .catch(error => {
                 console.error('Error loading orders:', error);
@@ -39,7 +39,7 @@ const OrderShow = () => {
                 return response.json();
             })
             .then(data => {
-                setCustomers(data.customers);
+                setCustomers(data.customers || []); // Ensure to handle empty response gracefully
             })
             .catch(error => {
                 console.error('Error loading customers:', error);
@@ -51,7 +51,6 @@ const OrderShow = () => {
         const deleteUrl = `http://localhost:8080/api/orders/${id}/delete`;
 
         // Example using a custom confirmation dialog (replace with your preferred modal library)
-        // You can create a separate reusable component for this confirmation dialog
         if (window.confirm("Danger Zone! Do you wish to delete this entry?\r\n\r\nNote: Deletion may fail if order has existing products. Please first remove the products under this order.")) {
             fetch(deleteUrl, {
                 method: 'DELETE',

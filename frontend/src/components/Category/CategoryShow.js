@@ -12,12 +12,18 @@ const CategoryShow = () => {
 
     const loadCategories = () => {
         fetch(urlCategories)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch categories.');
+                }
+                return response.json();
+            })
             .then(data => {
-                setCategories(data.categories);
+                setCategories(data.categories || []); // Ensure to handle empty response gracefully
             })
             .catch(error => {
                 console.error('Error loading categories:', error);
+                // Optionally, you can handle error states here (e.g., show an error message)
             });
     };
 
@@ -26,12 +32,18 @@ const CategoryShow = () => {
 
         if (window.confirm("Danger Zone! Do you wish to delete this entry?\r\n\r\nNote: Deletion may fail if there is a product under this category.")) {
             fetch(deleteUrl)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to delete category.');
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     loadCategories();
                 })
                 .catch(error => {
                     console.error('Error deleting category:', error);
+                    // Optionally, handle delete errors here
                 });
         }
     };
@@ -48,7 +60,7 @@ const CategoryShow = () => {
                                 <h5>
                                     <b>Products: </b>
                                     <ul>
-                                        {c.products.map((cp) => (
+                                        {c.products && c.products.map((cp) => (
                                             <li key={cp.id}>{cp.name}</li>
                                         ))}
                                     </ul>
