@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9f25fcc-e433-42ae-9622-a9ec3c8185df" name="Changes" comment="refactor frontend">
+    <list default="true" id="f9f25fcc-e433-42ae-9622-a9ec3c8185df" name="Changes" comment="fixing cors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ciit/scms/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ciit/scms/config/CorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Category/CategorySave.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Category/CategorySave.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Customer/CustomerSave.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Customer/CustomerSave.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Order/OrderSave.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Order/OrderSave.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ciit/scms/controllers/CategoriesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ciit/scms/controllers/CategoriesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ciit/scms/controllers/CustomersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ciit/scms/controllers/CustomersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ciit/scms/controllers/OrderItemsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ciit/scms/controllers/OrderItemsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ciit/scms/controllers/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ciit/scms/controllers/OrdersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ciit/scms/controllers/ProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ciit/scms/controllers/ProductsController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +120,7 @@
       <option name="presentableId" value="Default" />
       <updated>1720027675216</updated>
       <workItem from="1720027676558" duration="201000" />
-      <workItem from="1720027881457" duration="6601000" />
+      <workItem from="1720027881457" duration="7097000" />
     </task>
     <task id="LOCAL-00001" summary="switching foreign key variables to int instead of obj">
       <option name="closed" value="true" />
@@ -170,7 +170,23 @@
       <option name="project" value="LOCAL" />
       <updated>1720034052484</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="refactor frontend">
+      <option name="closed" value="true" />
+      <created>1720034572836</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1720034572837</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fixing cors">
+      <option name="closed" value="true" />
+      <created>1720034789365</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1720034789365</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,6 +207,7 @@
     <MESSAGE value="switching foreign key variables to int instead of obj" />
     <MESSAGE value="moving frontend" />
     <MESSAGE value="refactor frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor frontend" />
+    <MESSAGE value="fixing cors" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing cors" />
   </component>
 </project>
