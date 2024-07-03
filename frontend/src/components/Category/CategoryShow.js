@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import '../cards.css';
+
 const CategoryShow = () => {
     const navigate = useNavigate();
     const [categories, setCategories] = useState([]);
@@ -19,12 +21,11 @@ const CategoryShow = () => {
                 return response.json();
             })
             .then(data => {
-                console.log('Fetched categories:', data); // Log fetched data for debugging
-                setCategories(data.categories || []);
+                setCategories(data || []); // Assuming data is an array of categories
             })
             .catch(error => {
                 console.error('Error loading categories:', error);
-                // Optionally, handle error states here (e.g., show an error message)
+                // Optionally handle error states
             });
     };
 
@@ -32,9 +33,7 @@ const CategoryShow = () => {
         const deleteUrl = `http://localhost:8080/api/categories/${id}/delete`;
 
         if (window.confirm("Danger Zone! Do you wish to delete this entry?\r\n\r\nNote: Deletion may fail if there is a product under this category.")) {
-            fetch(deleteUrl, {
-                method: 'DELETE'
-            })
+            fetch(deleteUrl)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Failed to delete category.');
@@ -42,11 +41,11 @@ const CategoryShow = () => {
                     return response.json();
                 })
                 .then(data => {
-                    loadCategories(); // Refresh categories after deletion
+                    loadCategories(); // Refresh category list after deletion
                 })
                 .catch(error => {
                     console.error('Error deleting category:', error);
-                    // Optionally, handle delete errors here
+                    // Optionally handle delete errors
                 });
         }
     };
@@ -60,14 +59,7 @@ const CategoryShow = () => {
                             <h2>{c.name}</h2>
                             <div className="mb-4">
                                 <h5><b>ID: </b>{c.id}</h5>
-                                <h5>
-                                    <b>Products: </b>
-                                    <ul>
-                                        {c.products && c.products.map((cp) => (
-                                            <li key={cp.id}>{cp.name}</li>
-                                        ))}
-                                    </ul>
-                                </h5>
+                                {/* Render products or any other details */}
                             </div>
                             <div className="mt-auto d-flex gap-2">
                                 <button
@@ -78,7 +70,7 @@ const CategoryShow = () => {
                                     Edit
                                 </button>
                                 <button
-                                    className="form-control btn-danger"
+                                    className="form-control btn btn-danger"
                                     onClick={() => handleDeleteCategory(c.id)}
                                 >
                                     Delete
@@ -126,7 +118,6 @@ const CategoryShow = () => {
             );
         }
     };
-
 
     return (
         <div className="p-3">

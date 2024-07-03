@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import '../cards.css';
+
 const OrderShow = () => {
     const navigate = useNavigate();
     const [orders, setOrders] = useState([]);
@@ -22,7 +24,7 @@ const OrderShow = () => {
                 return response.json();
             })
             .then(data => {
-                setOrders(data.orders || []); // Ensure to handle empty response gracefully
+                setOrders(data || []);
             })
             .catch(error => {
                 console.error('Error loading orders:', error);
@@ -39,7 +41,7 @@ const OrderShow = () => {
                 return response.json();
             })
             .then(data => {
-                setCustomers(data.customers || []); // Ensure to handle empty response gracefully
+                setCustomers(data  || []);
             })
             .catch(error => {
                 console.error('Error loading customers:', error);

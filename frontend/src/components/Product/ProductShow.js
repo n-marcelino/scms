@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import '../cards.css';
+
 const ProductShow = () => {
     const navigate = useNavigate();
 
@@ -20,7 +22,7 @@ const ProductShow = () => {
                 return response.json();
             })
             .then(data => {
-                setProducts(data.products || []); // Ensure to handle empty response gracefully
+                setProducts(data || []);
             })
             .catch(error => {
                 console.error('Error loading products:', error);

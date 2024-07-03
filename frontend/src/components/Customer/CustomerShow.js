@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import '../cards.css';
+
 const CustomerShow = () => {
     const navigate = useNavigate();
     const [customers, setCustomers] = useState([]);
@@ -19,7 +21,7 @@ const CustomerShow = () => {
                 return response.json();
             })
             .then(data => {
-                setCustomers(data.customers || []); // Ensure to handle empty response gracefully
+                setCustomers(data); // Ensure to handle empty response gracefully
             })
             .catch(error => {
                 console.error('Error loading customers:', error);
@@ -58,7 +60,7 @@ const CustomerShow = () => {
                     {customers.map((c) => (
                         <div key={c.id} className="bg-light p-5 c-card d-flex flex-column">
                             <div className="mb-4">
-                                <h2>{`${c.lastname}, ${c.firstname}`}</h2>
+                                <h2>{`${c.lastName}, ${c.firstName}`}</h2>
                                 <h5><b>ID: </b>{c.id}</h5>
                                 <h5><b>ADDRESS: </b>{`${c.street}, ${c.city} ${c.zip}`}</h5>
                                 <h5><b>Phone Number: </b>{c.phone}</h5>
