@@ -111,7 +111,7 @@ const OrderSave = () => {
                     <div className="d-flex align-items-center">
                         <h5>Item {o.index}</h5>
                         <button
-                            className="form-control btn-danger ms-auto px-5"
+                            className="form-control btn btn-danger ms-auto px-5"
                             onClick={() => removeItem(index)}
                         >
                             Delete
@@ -219,7 +219,7 @@ const OrderSave = () => {
             <div>
                 {renderOrderItems()}
                 <button
-                    className="form-control btn-warning"
+                    className="form-control btn btn-warning"
                     onClick={addOrderItem}
                 >
                     Add Order Item
@@ -227,13 +227,13 @@ const OrderSave = () => {
             </div>
             <div className="pt-4 d-flex gap-3">
                 <button
-                    className="form-control btn-warning"
+                    className="form-control btn btn-warning"
                     onClick={() => { handleSave(); alertSuccess(); }}
                 >
                     Add New Order
                 </button>
                 <button
-                    className="form-control btn-danger"
+                    className="form-control btn btn-danger"
                     onClick={() => navigate('/orders/')}
                 >
                     Cancel

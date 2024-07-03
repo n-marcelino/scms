@@ -87,7 +87,7 @@ const CategorySave = () => {
 
             <div className="pt-4 d-flex gap-3">
                 <button
-                    className="form-control btn-warning"
+                    className="form-control btn btn-warning"
                     onClick={() => {
                         handleSave();
                     }}
@@ -96,7 +96,7 @@ const CategorySave = () => {
                 </button>
 
                 <button
-                    className="form-control btn-danger"
+                    className="form-control btn btn-danger"
                     onClick={() => {
                         navigate('/categories/');
                     }}
