@@ -78,7 +78,7 @@ function App() {
                 <Route path="/products/form/:id" element={<ProductSave />} />
 
                 <Route path="/customers/*" element={<CustomerShow />} />
-                <Route path="/customers/add" element={<CustomerSave />} />
+                <Route path="/customers/form" element={<CustomerSave />} />
                 <Route path="/customers/form/:id" element={<CustomerSave />} />
 
                 <Route path="/orders/*" element={<OrderShow />} />

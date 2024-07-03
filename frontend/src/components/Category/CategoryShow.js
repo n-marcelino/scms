@@ -19,11 +19,12 @@ const CategoryShow = () => {
                 return response.json();
             })
             .then(data => {
-                setCategories(data.categories || []); // Ensure to handle empty response gracefully
+                console.log('Fetched categories:', data); // Log fetched data for debugging
+                setCategories(data.categories || []);
             })
             .catch(error => {
                 console.error('Error loading categories:', error);
-                // Optionally, you can handle error states here (e.g., show an error message)
+                // Optionally, handle error states here (e.g., show an error message)
             });
     };
 
@@ -31,7 +32,9 @@ const CategoryShow = () => {
         const deleteUrl = `http://localhost:8080/api/categories/${id}/delete`;
 
         if (window.confirm("Danger Zone! Do you wish to delete this entry?\r\n\r\nNote: Deletion may fail if there is a product under this category.")) {
-            fetch(deleteUrl)
+            fetch(deleteUrl, {
+                method: 'DELETE'
+            })
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Failed to delete category.');
@@ -39,7 +42,7 @@ const CategoryShow = () => {
                     return response.json();
                 })
                 .then(data => {
-                    loadCategories();
+                    loadCategories(); // Refresh categories after deletion
                 })
                 .catch(error => {
                     console.error('Error deleting category:', error);
