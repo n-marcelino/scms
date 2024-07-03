@@ -2,7 +2,7 @@ package com.ciit.scms.models;
 
 public class Order {
     private int id;
-    private Customer customer;
+    private int customerId;
     private int isOrderFulfilled;
 
     public int getId() {
@@ -13,12 +13,12 @@ public class Order {
         this.id = id;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public int getIsOrderFulfilled() {

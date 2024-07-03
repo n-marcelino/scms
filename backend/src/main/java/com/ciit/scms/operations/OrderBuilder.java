@@ -33,7 +33,7 @@ public class OrderBuilder {
         Optional<Order> orderOptional = orders.stream().filter(o -> o.getId() == id).findFirst();
         if (orderOptional.isPresent()) {
             Order order = orderOptional.get();
-            order.setCustomer(updatedOrder.getCustomer());
+            order.setCustomerId(updatedOrder.getCustomerId());
             order.setIsOrderFulfilled(updatedOrder.getIsOrderFulfilled());
             return order;
         }

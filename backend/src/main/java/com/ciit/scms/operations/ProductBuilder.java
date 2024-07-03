@@ -1,6 +1,5 @@
 package com.ciit.scms.operations;
 
-import com.ciit.scms.models.Category;
 import com.ciit.scms.models.Product;
 import org.springframework.stereotype.Component;
 
@@ -37,7 +36,7 @@ public class ProductBuilder {
             Product product = productOptional.get();
             product.setName(updatedProduct.getName());
             product.setPrice(updatedProduct.getPrice());
-            product.setCategory(updatedProduct.getCategory());
+            product.setCategoryId(updatedProduct.getCategoryId());
             return product;
         }
         return null;

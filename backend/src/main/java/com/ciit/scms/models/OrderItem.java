@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 
 public class OrderItem {
     private int id;
-    private Order order;
-    private OrderItem product;
+    private int orderId;
+    private int productId;
     private BigDecimal price;
     private int quantity;
 
@@ -17,20 +17,20 @@ public class OrderItem {
         this.id = id;
     }
 
-    public Order getOrder() {
-        return order;
+    public int getOrderId() {
+        return orderId;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
-    public OrderItem getProduct() {
-        return product;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setProduct(OrderItem product) {
-        this.product = product;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
     public BigDecimal getPrice() {

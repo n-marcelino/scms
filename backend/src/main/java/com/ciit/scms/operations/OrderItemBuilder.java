@@ -3,6 +3,7 @@ package com.ciit.scms.operations;
 import com.ciit.scms.models.OrderItem;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -21,7 +22,7 @@ public class OrderItemBuilder {
     }
 
     public OrderItem getOrderItemById(int id) {
-        Optional<OrderItem> orderItemOptional = orderItems.stream().filter(oi -> oi.getId() == id).findFirst();
+        Optional<OrderItem> orderItemOptional = orderItems.stream().filter(o -> o.getId() == id).findFirst();
         return orderItemOptional.orElse(null);
     }
 
@@ -30,11 +31,11 @@ public class OrderItemBuilder {
     }
 
     public OrderItem updateOrderItem(int id, OrderItem updatedOrderItem) {
-        Optional<OrderItem> orderItemOptional = orderItems.stream().filter(oi -> oi.getId() == id).findFirst();
+        Optional<OrderItem> orderItemOptional = orderItems.stream().filter(o -> o.getId() == id).findFirst();
         if (orderItemOptional.isPresent()) {
             OrderItem orderItem = orderItemOptional.get();
-            orderItem.setOrder(updatedOrderItem.getOrder());
-            orderItem.setProduct(updatedOrderItem.getProduct());
+            orderItem.setOrderId(updatedOrderItem.getOrderId());
+            orderItem.setProductId(updatedOrderItem.getProductId());
             orderItem.setPrice(updatedOrderItem.getPrice());
             orderItem.setQuantity(updatedOrderItem.getQuantity());
             return orderItem;
@@ -43,7 +44,7 @@ public class OrderItemBuilder {
     }
 
     public boolean deleteOrderItem(int id) {
-        Optional<OrderItem> orderItemOptional = orderItems.stream().filter(oi -> oi.getId() == id).findFirst();
+        Optional<OrderItem> orderItemOptional = orderItems.stream().filter(o -> o.getId() == id).findFirst();
         if (orderItemOptional.isPresent()) {
             return orderItems.remove(orderItemOptional.get());
         }
