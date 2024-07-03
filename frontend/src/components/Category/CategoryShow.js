@@ -127,6 +127,7 @@ const CategoryShow = () => {
         }
     };
 
+
     return (
         <div className="p-3">
             <h1>Category List</h1>

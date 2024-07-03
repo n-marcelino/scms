@@ -84,3 +84,7 @@
   position: relative;
   top: 30px;
 }
+
+.nav-link:hover {
+  color: rgb(203, 166, 43);
+}

@@ -33,31 +33,31 @@ function App() {
             <hr />
             <ul className="navbar-nav pl-5">
               <li className="nav-item">
-                <Link to="/" className="nav-link link-warning">
+                <Link to="/" className="nav-link">
                   Home
                 </Link>
               </li>
 
               <li className="nav-item">
-                <Link to="/categories" className="nav-link link-warning">
+                <Link to="/categories" className="nav-link">
                   Categories
                 </Link>
               </li>
 
               <li className="nav-item">
-                <Link to="/products" className="nav-link link-warning">
+                <Link to="/products" className="nav-link">
                   Products
                 </Link>
               </li>
 
               <li className="nav-item">
-                <Link to="/customers" className="nav-link link-warning">
+                <Link to="/customers" className="nav-link">
                   Customer Records
                 </Link>
               </li>
 
               <li className="nav-item">
-                <Link to="/orders" className="nav-link link-warning">
+                <Link to="/orders" className="nav-link ">
                   Order Records
                 </Link>
               </li>
