@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-import {
-    useNavigate,
-    useParams
-} from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-export default function CustomerSave() {
-
+const CustomerSave = () => {
     const navigate = useNavigate();
+    const { id } = useParams();
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -17,76 +14,46 @@ export default function CustomerSave() {
 
     const urlCustomers = "http://localhost:8080/api/customers";
 
-    useEffect(()=>{
-        loadCustomers();
-    },[]);
-
-    var { id } = useParams();
-
-    function loadCustomers() {
-        if(id) {
+    useEffect(() => {
+        if (id) {
             fetch(`${urlCustomers}/${id}`)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data);
-                    setFirstName(data.firstname);
-                    setLastName(data.lastname);
+                    setFirstName(data.firstName);
+                    setLastName(data.lastName);
                     setStreet(data.street);
                     setCity(data.city);
                     setZip(data.zip);
                     setPhone(data.phone);
                 })
-                .catch((error) => {
+                .catch(error => {
+                    console.error('Error fetching customer:', error);
                 });
         }
-    }
+    }, [id]);
 
-    function renderHeader() {
-        if(id) {
-            return(
-                <h1>
-                    Editing Customer {id}
-                </h1>
-            )
-        } else {
-            return(
-                <h1>
-                    Add Category
-                </h1>
-            )
-        }
-    }
-
-    function handleSave() {
-        console.log("firstName: " + firstName);
-        console.log("lastName: " + lastName);
-        console.log("street: " + street);
-        console.log("city: " + city);
-        console.log("zip: " + zip);
-        console.log("phone: " + phone);
-
-        var payload = {
-            id:id,
+    const handleSave = () => {
+        const payload = {
+            id: id,
             firstName: firstName,
             lastName: lastName,
             street: street,
             city: city,
             zip: zip,
             phone: phone
-        }
+        };
 
-        fetch(urlCustomers,
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type':'application/json'
-                },
-                body: JSON.stringify(payload)
-            }
-        )
+        fetch(urlCustomers, {
+            method: id ? 'PUT' : 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
             .then(response => response.json())
             .then(data => {
-                console.log(response);
+                console.log("Customer saved:", data);
+                alertSuccess();
                 setFirstName("");
                 setLastName("");
                 setStreet("");
@@ -94,115 +61,115 @@ export default function CustomerSave() {
                 setZip("");
                 setPhone("");
             })
-            .catch((error) => {
+            .catch(error => {
+                console.error('Error saving customer:', error);
             });
-    }
+    };
 
-    function alertSuccess() {
+    const alertSuccess = () => {
         alert("Operation Successful!");
-
         navigate('/customers/');
-    }
+    };
+
+    const renderHeader = () => {
+        if (id) {
+            return <h1>Editing Customer {id}</h1>;
+        } else {
+            return <h1>Add Customer</h1>;
+        }
+    };
 
     return (
-        <div class="form-group w-50 p-3">
+        <div className="form-group w-50 p-3">
             {renderHeader()}
 
-            <div class="form-group row py-2">
-                <label class="col-3 col-form-label">
-                    First Name:
-                </label>
-                <div class="col-9">
+            <div className="form-group row py-2">
+                <label className="col-3 col-form-label">First Name:</label>
+                <div className="col-9">
                     <input
-                        class="form-control"
+                        className="form-control"
                         value={firstName}
-                        onChange= {(event)=>{setFirstName(event.target.value)}}
+                        onChange={event => setFirstName(event.target.value)}
                     />
                 </div>
-
             </div>
 
-            <div class="form-group row py-2">
-                <label class="col-3 col-form-label">
-                    Last Name:
-                </label>
-                <div class="col-9">
+            <div className="form-group row py-2">
+                <label className="col-3 col-form-label">Last Name:</label>
+                <div className="col-9">
                     <input
-                        class="form-control"
+                        className="form-control"
                         value={lastName}
-                        onChange= {(event)=>{setLastName(event.target.value)}}
+                        onChange={event => setLastName(event.target.value)}
                     />
                 </div>
-
             </div>
 
-            <div class="form-group row py-2">
-                <label class="col-3 col-form-label">
-                    Street:
-                </label>
-                <div class="col-9">
+            <div className="form-group row py-2">
+                <label className="col-3 col-form-label">Street:</label>
+                <div className="col-9">
                     <input
-                        class="form-control"
+                        className="form-control"
                         value={street}
-                        onChange= {(event)=>{setStreet(event.target.value)}}
+                        onChange={event => setStreet(event.target.value)}
                     />
                 </div>
             </div>
 
-            <div class="form-group row py-2">
-                <label class="col-3 col-form-label">
-                    City:
-                </label>
-                <div class="col-9">
+            <div className="form-group row py-2">
+                <label className="col-3 col-form-label">City:</label>
+                <div className="col-9">
                     <input
-                        class="form-control"
+                        className="form-control"
                         value={city}
-                        onChange= {(event)=>{setCity(event.target.value)}}
+                        onChange={event => setCity(event.target.value)}
                     />
                 </div>
             </div>
 
-            <div class="form-group row py-2">
-                <label class="col-3 col-form-label">
-                    ZIP:
-                </label>
-                <div class="col-9">
+            <div className="form-group row py-2">
+                <label className="col-3 col-form-label">ZIP:</label>
+                <div className="col-9">
                     <input
-                        class="form-control"
+                        className="form-control"
                         value={zip}
-                        onChange= {(event)=>{setZip(event.target.value)}}
+                        onChange={event => setZip(event.target.value)}
                     />
                 </div>
             </div>
 
-            <div class="form-group row py-2">
-                <label class="col-3 col-form-label">
-                    Phone Number:
-                </label>
-                <div class="col-9">
+            <div className="form-group row py-2">
+                <label className="col-3 col-form-label">Phone Number:</label>
+                <div className="col-9">
                     <input
-                        class="form-control"
+                        className="form-control"
                         value={phone}
-                        onChange= {(event)=>{setPhone(event.target.value)}}
+                        onChange={event => setPhone(event.target.value)}
                     />
                 </div>
             </div>
 
-            <div class="pt-4 d-flex gap-3">
+            <div className="pt-4 d-flex gap-3">
                 <button
-                    class="form-control btn-warning"
-                    onClick={()=>{handleSave();  alertSuccess()}}
+                    className="form-control btn-warning"
+                    onClick={() => {
+                        handleSave();
+                    }}
                 >
                     Save Customer
                 </button>
 
                 <button
-                    class="form-control btn-danger"
-                    onClick={()=>{ navigate('/customers/') }}
+                    className="form-control btn-danger"
+                    onClick={() => {
+                        navigate('/customers/');
+                    }}
                 >
                     Cancel
                 </button>
             </div>
         </div>
-    )
-}
+    );
+};
+
+export default CustomerSave;

@@ -1,117 +1,111 @@
 import React, { useState, useEffect } from "react";
-import {
-    useNavigate,
-    useParams
-} from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-export default function CategorySave() {
-
+const CategorySave = () => {
     const navigate = useNavigate();
+    const { id } = useParams();
     const [name, setName] = useState("");
-
     const urlCategories = "http://localhost:8080/api/categories";
 
-    useEffect(()=>{
-        loadCategories();
-    },[]);
-
-    var { id } = useParams();
-
-    function loadCategories() {
-        if(id) {
-            fetch(`${urlCategories}/${id}`)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    setName(data.name);
-                })
-                .catch((error) => {
-                });
+    useEffect(() => {
+        if (id) {
+            loadCategories();
         }
-    }
+    }, [id]);
 
-    function renderHeader() {
-        if(id) {
-            return(
-                <h1>
-                    Editing Category {id}
-                </h1>
-            )
-        } else {
-            return(
-                <h1>
-                    Add Category
-                </h1>
-            )
-        }
-    }
-
-    function handleSave() {
-        console.log("Id: " + id);
-        console.log("Name: " + name);
-
-        var payload = {
-            id:id,
-            name: name
-        }
-
-        fetch(urlCategories,
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type':'application/json'
-                },
-                body: JSON.stringify(payload)
-            }
-        )
+    const loadCategories = () => {
+        fetch(`${urlCategories}/${id}`)
             .then(response => response.json())
             .then(data => {
-                console.log(response);
-                setName("");
+                console.log(data);
+                setName(data.name);
             })
-            .catch((error) => {
+            .catch(error => {
+                console.error('Error loading category:', error);
             });
-    }
+    };
 
-    function alertSuccess() {
+    const renderHeader = () => {
+        return (
+            <h1>
+                {id ? `Editing Category ${id}` : "Add Category"}
+            </h1>
+        );
+    };
+
+    const handleSave = () => {
+        const payload = {
+            id: id,
+            name: name
+        };
+
+        fetch(urlCategories, {
+            method: id ? 'PUT' : 'POST', // Use PUT for update, POST for create
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data); // Log response data
+                setName(""); // Clear input after successful save
+                alertSuccess(); // Show success message and navigate
+            })
+            .catch(error => {
+                console.error('Error saving category:', error);
+                // Handle error, show user-friendly message if needed
+            });
+    };
+
+    const alertSuccess = () => {
         alert("Operation Successful!");
-
         navigate('/categories/');
-    }
+    };
 
     return (
-        <div class="form-group w-50 p-3">
+        <div className="form-group w-50 p-3">
             {renderHeader()}
 
-            <div class="form-group row py-2">
-                <label class="col-2 col-form-label">
+            <div className="form-group row py-2">
+                <label className="col-2 col-form-label">
                     Name:
                 </label>
-                <div class="col-10">
+                <div className="col-10">
                     <input
-                        class="form-control"
+                        className="form-control"
                         value={name}
-                        onChange= {(event)=>{setName(event.target.value)}}
+                        onChange={(event) => setName(event.target.value)}
                     />
                 </div>
-
             </div>
 
-            <div class="pt-4 d-flex gap-3">
+            <div className="pt-4 d-flex gap-3">
                 <button
-                    class="form-control btn-warning"
-                    onClick={()=>{handleSave(); alertSuccess() }}
+                    className="form-control btn-warning"
+                    onClick={() => {
+                        handleSave();
+                    }}
                 >
                     Save Category
                 </button>
 
                 <button
-                    class="form-control btn-danger"
-                    onClick={()=>{navigate('/categories/')}}
+                    className="form-control btn-danger"
+                    onClick={() => {
+                        navigate('/categories/');
+                    }}
                 >
                     Cancel
                 </button>
             </div>
         </div>
-    )
-}
+    );
+};
+
+export default CategorySave;

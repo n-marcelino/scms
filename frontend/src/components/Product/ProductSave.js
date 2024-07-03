@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-import {
-    useNavigate,
-    useParams
-} from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-export default function ProductAdd() {
-
+const ProductAdd = () => {
     const navigate = useNavigate();
+    const { id } = useParams();
 
     const [name, setName] = useState("");
     const [price, setPrice] = useState(0.00);
@@ -18,166 +15,162 @@ export default function ProductAdd() {
 
     useEffect(() => {
         loadCategories();
-        loadProduct();
-    }, []); //function called only once
-
-    var { id } = useParams();
-
-    function loadProduct() {
-        if(id) {
-            fetch(`${urlProducts}/${id}`)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    setName(data.name);
-                    setPrice(data.price);
-                    setCategoryId(data.categoryId);
-                })
-                .catch((error) => {
-                });
+        if (id) {
+            loadProduct();
         }
-    }
+    }, [id]); // Reload product data when ID changes
 
-    function loadCategories() {
+    const loadProduct = () => {
+        fetch(`${urlProducts}/${id}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch product');
+                }
+                return response.json();
+            })
+            .then(data => {
+                setName(data.name);
+                setPrice(data.price);
+                setCategoryId(data.categoryId);
+            })
+            .catch(error => {
+                console.error('Error loading product:', error);
+                // Handle error or show appropriate message to the user
+            });
+    };
+
+    const loadCategories = () => {
         fetch(urlCategories)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch categories');
+                }
+                return response.json();
+            })
             .then(data => {
                 if (data.categories.length > 0 && !categoryId) {
-                    setCategoryId(data.categories[0].id)
+                    setCategoryId(data.categories[0].id);
                 }
                 setCategories(data.categories);
             })
-            .catch((error) => {
+            .catch(error => {
+                console.error('Error loading categories:', error);
+                // Handle error or show appropriate message to the user
             });
-    }
+    };
 
-    function renderHeader() {
-        if(id) {
-            return(
-                <h1>
-                    Editing Product {id}
-                </h1>
-            )
-        } else {
-            return(
-                <h1>
-                    Add Products
-                </h1>
-            )
-        }
-    }
-
-    function handleSave() {
-        console.log("Id: " + id)
-        console.log("Name: " + name);
-        console.log("Price: " + price);
-        console.log("CategoryId: " + categoryId);
-
-        var payload = {
+    const handleSave = () => {
+        const payload = {
             id: id,
             name: name,
-            price: price,
+            price: parseFloat(price), // Ensure price is parsed as a float
             categoryId: categoryId
-        }
+        };
 
-        fetch(urlProducts,
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(payload)
-            }
-        )
-            .then(response => response.json())
+        const method = id ? 'PUT' : 'POST'; // Use PUT for update, POST for new product
+
+        fetch(urlProducts, {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to save product');
+                }
+                return response.json();
+            })
             .then(data => {
-                console.log(response);
+                console.log('Product saved successfully:', data);
+                alertSuccess();
                 setName("");
                 setPrice(0.00);
             })
-            .catch((error) => {
+            .catch(error => {
+                console.error('Error saving product:', error);
+                // Handle error or show appropriate message to the user
             });
-    }
+    };
 
-    function alertSuccess() {
+    const alertSuccess = () => {
         alert("Operation Successful!");
-
         navigate('/products');
-    }
+    };
+
+    const renderHeader = () => {
+        if (id) {
+            return <h1>Editing Product {id}</h1>;
+        } else {
+            return <h1>Add Product</h1>;
+        }
+    };
 
     return (
         <div>
-            <div class="form-group w-50 p-3">
+            <div className="form-group w-50 p-3">
                 {renderHeader()}
 
-                <div class="form-group row py-2">
-                    <label class="col-2 col-form-label">
-                        Name:
-                    </label>
-                    <div class="col-10">
+                <div className="form-group row py-2">
+                    <label className="col-2 col-form-label">Name:</label>
+                    <div className="col-10">
                         <input
-                            class="form-control"
+                            className="form-control"
                             value={name}
-                            onChange={(event) => { setName(event.target.value) }}
+                            onChange={(event) => setName(event.target.value)}
                         />
                     </div>
-
                 </div>
 
-                <div class="form-group row py-2">
-                    <label class="col-sm-2 col-form-label">
-                        Price:
-                    </label>
-                    <div class="col-sm-10">
+                <div className="form-group row py-2">
+                    <label className="col-sm-2 col-form-label">Price:</label>
+                    <div className="col-sm-10">
                         <input
-                            class="form-control"
+                            className="form-control"
+                            type="number"
+                            step="0.01"
                             value={price}
-                            onChange={(event) => { setPrice(event.target.value) }}
+                            onChange={(event) => setPrice(event.target.value)}
                         />
                     </div>
-
                 </div>
 
-                <div class="form-group row py-2">
-                    <label class="col-sm-2 col-form-label">
-                        Category:
-                    </label>
-                    <div class="col-sm-10">
+                <div className="form-group row py-2">
+                    <label className="col-sm-2 col-form-label">Category:</label>
+                    <div className="col-sm-10">
                         <select
-                            class="form-control"
+                            className="form-control"
                             value={categoryId}
-                            onChange={(event) => { setCategoryId(event.target.value) }}
+                            onChange={(event) => setCategoryId(event.target.value)}
                         >
-                            {
-                                categories.map((c) => {
-                                    return (
-                                        <option value={c.id}>
-                                            {c.name}
-                                        </option>
-                                    )
-                                })
-                            }
+                            {categories.map((c) => (
+                                <option key={c.id} value={c.id}>
+                                    {c.name}
+                                </option>
+                            ))}
                         </select>
                     </div>
-
                 </div>
 
-                <div class="pt-4 d-flex gap-3">
+                <div className="pt-4 d-flex gap-3">
                     <button
-                        class="form-control btn-warning"
-                        onClick={() => { handleSave(); alertSuccess() }}
+                        className="form-control btn btn-warning"
+                        onClick={() => { handleSave(); }}
                     >
                         Save Product
                     </button>
 
                     <button
-                        class="form-control btn-danger"
-                        onClick={() => { navigate('/products') }}
+                        className="form-control btn btn-danger"
+                        onClick={() => { navigate('/products'); }}
                     >
                         Cancel
                     </button>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
+
+export default ProductAdd;
