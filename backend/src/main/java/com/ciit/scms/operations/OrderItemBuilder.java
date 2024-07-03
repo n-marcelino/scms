@@ -1,6 +1,7 @@
 package com.ciit.scms.operations;
 
 import com.ciit.scms.models.OrderItem;
+import com.ciit.scms.models.Product;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -15,10 +16,24 @@ public class OrderItemBuilder {
     private final List<OrderItem> orderItems = new ArrayList<>();
     private final AtomicInteger counter = new AtomicInteger();
 
+    // Injecting ProductBuilder to fetch product details
+    private final ProductBuilder productBuilder;
+
+    public OrderItemBuilder(ProductBuilder productBuilder) {
+        this.productBuilder = productBuilder;
+    }
+
     public OrderItem createOrderItem(OrderItem orderItem) {
-        orderItem.setId(counter.incrementAndGet());
-        orderItems.add(orderItem);
-        return orderItem;
+        // Fetching the product price from ProductBuilder
+        Product product = productBuilder.getProductById(orderItem.getProductId());
+        if (product != null) {
+            BigDecimal totalPrice = product.getPrice().multiply(BigDecimal.valueOf(orderItem.getQuantity()));
+            orderItem.setPrice(totalPrice);
+            orderItem.setId(counter.incrementAndGet());
+            orderItems.add(orderItem);
+            return orderItem;
+        }
+        return null; // Return null or handle appropriately if product not found
     }
 
     public OrderItem getOrderItemById(int id) {
@@ -36,7 +51,12 @@ public class OrderItemBuilder {
             OrderItem orderItem = orderItemOptional.get();
             orderItem.setOrderId(updatedOrderItem.getOrderId());
             orderItem.setProductId(updatedOrderItem.getProductId());
-            orderItem.setPrice(updatedOrderItem.getPrice());
+            // Fetching the product price from ProductBuilder
+            Product product = productBuilder.getProductById(updatedOrderItem.getProductId());
+            if (product != null) {
+                BigDecimal totalPrice = product.getPrice().multiply(BigDecimal.valueOf(updatedOrderItem.getQuantity()));
+                orderItem.setPrice(totalPrice);
+            }
             orderItem.setQuantity(updatedOrderItem.getQuantity());
             return orderItem;
         }

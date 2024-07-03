@@ -9,6 +9,10 @@ public class OrderItem {
     private BigDecimal price;
     private int quantity;
 
+    public BigDecimal calculateTotalPrice(BigDecimal productPrice) {
+        return productPrice.multiply(BigDecimal.valueOf(quantity));
+    }
+
     public int getId() {
         return id;
     }
