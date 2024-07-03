@@ -23,10 +23,10 @@ const OrderSave = () => {
         fetch(urlCustomers)
             .then(response => response.json())
             .then(data => {
-                if (data.customers.length > 0) {
-                    setCustomerId(data.customers[0].id);
+                if (data.length > 0) {
+                    setCustomerId(data[0].id);
                 }
-                setCustomers(data.customers);
+                setCustomers(data);
             })
             .catch(error => {
                 console.error('Error loading customers:', error);
@@ -37,15 +37,7 @@ const OrderSave = () => {
         fetch(urlProducts)
             .then(response => response.json())
             .then(data => {
-                if (data.products.length > 0) {
-                    setOrderItems(prevItems => [...prevItems, {
-                        productId: data.products[0].id,
-                        price: 0.00,
-                        quantity: 0,
-                        index: prevItems.length
-                    }]);
-                }
-                setProducts(data.products);
+                setProducts(data);
             })
             .catch(error => {
                 console.error('Error loading products:', error);
@@ -76,21 +68,20 @@ const OrderSave = () => {
             });
     };
 
-    const handlePriceChanged = (index, value) => {
-        const updatedItems = [...orderItems];
-        updatedItems[index].price = value;
-        setOrderItems(updatedItems);
-    };
-
     const handleProductChanged = (index, value) => {
         const updatedItems = [...orderItems];
+        const selectedProduct = products.find(p => p.id === value);
         updatedItems[index].productId = value;
+        updatedItems[index].price = selectedProduct ? selectedProduct.price * updatedItems[index].quantity : 0.00; // Update price based on selected product and quantity
         setOrderItems(updatedItems);
     };
 
     const handleQuantityChange = (index, value) => {
         const updatedItems = [...orderItems];
-        updatedItems[index].quantity = value;
+        const newQuantity = Math.max(parseInt(value), 1); // Ensure quantity is at least 1
+        updatedItems[index].quantity = newQuantity;
+        const selectedProduct = products.find(p => p.id === updatedItems[index].productId);
+        updatedItems[index].price = selectedProduct ? selectedProduct.price * newQuantity : 0.00; // Calculate price based on quantity and selected product price
         setOrderItems(updatedItems);
     };
 
@@ -136,8 +127,8 @@ const OrderSave = () => {
                         <div className="col-sm-4">
                             <input
                                 className="form-control"
-                                value={o.price}
-                                onChange={(event) => handlePriceChanged(index, event.target.value)}
+                                value={o.price.toFixed(2)} // Display formatted price
+                                readOnly // Make the input read-only
                             />
                         </div>
                         <label className="col-sm-2 col-form-label">Quantity:</label>
@@ -146,6 +137,7 @@ const OrderSave = () => {
                                 type="number"
                                 className="form-control"
                                 value={o.quantity}
+                                min="1" // Set minimum quantity
                                 onChange={(event) => handleQuantityChange(index, event.target.value)}
                             />
                         </div>
@@ -157,14 +149,16 @@ const OrderSave = () => {
 
     const addOrderItem = () => {
         const index = orderItems.length;
+        const defaultProduct = products.length > 0 ? products[0] : { id: '', price: 0.00 };
         const orderItem = {
-            productId: products.length > 0 ? products[0].id : '',
-            price: 0.00,
-            quantity: 0,
+            productId: defaultProduct.id,
+            price: defaultProduct.price, // Initialize with product's default price
+            quantity: 1, // Default quantity to 1
             index: index
         };
         setOrderItems([...orderItems, orderItem]);
     };
+
 
     const alertSuccess = () => {
         alert("Operation Successful!");
@@ -183,7 +177,7 @@ const OrderSave = () => {
                         onChange={(event) => setCustomerId(event.target.value)}
                     >
                         {customers.map(c => (
-                            <option key={c.id} value={c.id}>{c.lastname}, {c.firstname}</option>
+                            <option key={c.id} value={c.id}>{c.lastName}, {c.firstName}</option>
                         ))}
                     </select>
                 </div>

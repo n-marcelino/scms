@@ -48,10 +48,10 @@ const ProductAdd = () => {
                 return response.json();
             })
             .then(data => {
-                if (data.categories.length > 0 && !categoryId) {
-                    setCategoryId(data.categories[0].id);
+                if (data.length > 0 && !categoryId) {
+                    setCategoryId(data[0].id);
                 }
-                setCategories(data.categories);
+                setCategories(data);
             })
             .catch(error => {
                 console.error('Error loading categories:', error);
