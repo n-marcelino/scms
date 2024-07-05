@@ -19,7 +19,7 @@ const ProductAdd = () => {
             loadProduct();
         }
     }, [id]); // Reload product data when ID changes
-
+    
     const loadProduct = () => {
         fetch(`${urlProducts}/${id}`)
             .then(response => {
@@ -29,6 +29,7 @@ const ProductAdd = () => {
                 return response.json();
             })
             .then(data => {
+                console.log('Product data:', data); // Log product data
                 setName(data.name);
                 setPrice(data.price);
                 setCategoryId(data.categoryId);
@@ -38,7 +39,7 @@ const ProductAdd = () => {
                 // Handle error or show appropriate message to the user
             });
     };
-
+    
     const loadCategories = () => {
         fetch(urlCategories)
             .then(response => {
@@ -48,6 +49,7 @@ const ProductAdd = () => {
                 return response.json();
             })
             .then(data => {
+                console.log('Categories data:', data); // Log categories data
                 if (data.length > 0 && !categoryId) {
                     setCategoryId(data[0].id);
                 }
@@ -58,7 +60,7 @@ const ProductAdd = () => {
                 // Handle error or show appropriate message to the user
             });
     };
-
+    
     const handleSave = () => {
         const payload = {
             id: id,

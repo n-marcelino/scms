@@ -21,7 +21,7 @@ export default function Home() {
                     <h3>Management System</h3>
                     <p>
                         A simple seller-focused platform that is made primarily with Java,
-                        Spring Framework, MySQL, and HTML/CSS/Javascript.
+                        Spring Framework, Rest API, and HTML/CSS/Javascript.
                     </p>
                 </div>
             </div>
