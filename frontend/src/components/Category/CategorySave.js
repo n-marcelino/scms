@@ -9,15 +9,19 @@ const CategorySave = () => {
 
     useEffect(() => {
         if (id) {
-            loadCategories();
+            loadCategory(); 
         }
     }, [id]);
 
-    const loadCategories = () => {
+    const loadCategory = () => {
         fetch(`${urlCategories}/${id}`)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch category');
+                }
+                return response.json();
+            })
             .then(data => {
-                console.log(data);
                 setName(data.name);
             })
             .catch(error => {
@@ -35,12 +39,14 @@ const CategorySave = () => {
 
     const handleSave = () => {
         const payload = {
-            id: id,
             name: name
         };
 
-        fetch(urlCategories, {
-            method: id ? 'PUT' : 'POST', // Use PUT for update, POST for create
+        const method = id ? 'PUT' : 'POST';
+        const saveUrl = id ? `${urlCategories}/${id}` : urlCategories;
+
+        fetch(saveUrl, {
+            method: method,
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -65,7 +71,7 @@ const CategorySave = () => {
 
     const alertSuccess = () => {
         alert("Operation Successful!");
-        navigate('/categories/');
+        navigate('/categories');
     };
 
     return (
@@ -88,18 +94,14 @@ const CategorySave = () => {
             <div className="pt-4 d-flex gap-3">
                 <button
                     className="form-control btn btn-warning"
-                    onClick={() => {
-                        handleSave();
-                    }}
+                    onClick={() => handleSave()}
                 >
                     Save Category
                 </button>
 
                 <button
                     className="form-control btn btn-danger"
-                    onClick={() => {
-                        navigate('/categories/');
-                    }}
+                    onClick={() => navigate('/categories')}
                 >
                     Cancel
                 </button>
