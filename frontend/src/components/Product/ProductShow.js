@@ -7,13 +7,13 @@ const ProductShow = () => {
     const navigate = useNavigate();
 
     const [products, setProducts] = useState([]);
-    const [categories, setCategories] = useState([]); // State to hold categories
+    const [categories, setCategories] = useState([]);
     const urlProducts = "http://localhost:8080/api/products";
-    const urlCategories = "http://localhost:8080/api/categories"; // Endpoint for fetching categories
+    const urlCategories = "http://localhost:8080/api/categories"; 
 
     useEffect(() => {
         loadProducts();
-        loadCategories(); // Load categories when component mounts
+        loadCategories(); 
     }, []);
 
     const loadProducts = () => {
@@ -29,7 +29,6 @@ const ProductShow = () => {
             })
             .catch(error => {
                 console.error('Error loading products:', error);
-                // Handle error or show appropriate message to the user
             });
     };
 
@@ -46,7 +45,6 @@ const ProductShow = () => {
             })
             .catch(error => {
                 console.error('Error loading categories:', error);
-                // Handle error or show appropriate message to the user
             });
     };
 
@@ -88,7 +86,7 @@ const ProductShow = () => {
                                 <h2>{p.name}</h2>
                                 <h5><b>ID: </b>{p.id}</h5>
                                 <h5><b>PRICE: </b>{p.price}</h5>
-                                <h5><b>CATEGORY: </b>{getCategoryName(p.categoryId)}</h5> {/* Display category name */}
+                                <h5><b>CATEGORY: </b>{getCategoryName(p.categoryId)}</h5> {}
                             </div>
                             <div className="mt-auto d-flex gap-2">
                                 <button
