@@ -1,40 +1,63 @@
 package com.ciit.scms.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
 import java.math.BigDecimal;
 
+@Entity
+@Table(name="order_items")
 public class OrderItem {
-    private int id;
-    private int orderId;
-    private int productId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name="order_id",nullable=false)
+    private Order order;
+
+    @ManyToOne
+    @JoinColumn(name="product_id",nullable=false)
+    private Product product;
+
+    @Column(name="price",nullable=false)
     private BigDecimal price;
+
+    @Column(name="quantity",nullable=false)
     private int quantity;
 
-    public BigDecimal calculateTotalPrice(BigDecimal productPrice) {
-        return productPrice.multiply(BigDecimal.valueOf(quantity));
-    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+
+
+
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getOrderId() {
-        return orderId;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
-    public int getProductId() {
-        return productId;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public BigDecimal getPrice() {
@@ -52,4 +75,5 @@ public class OrderItem {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
 }

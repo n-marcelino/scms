@@ -1,42 +1,75 @@
 package com.ciit.scms.models;
 
-import java.util.List;
+import java.sql.Date;
+import java.util.Set;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="orders")
 public class Order {
-    private int id;
-    private int customerId;
-    private int isOrderFulfilled;
-    private List<OrderItem> orderItems; 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    public int getId() {
-        return id;
-    }
+    @ManyToOne
+    @JoinColumn(name="customer_id", nullable=false)
+    private Customer customer;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    @OneToMany(fetch=FetchType.EAGER, mappedBy="order")//eager vs lazy; eager pulls out category from database and queries at the same  time
+    private Set<OrderItem> orderItems;
 
-    public int getCustomerId() {
-        return customerId;
-    }
+    //equivalent of foreign key
+    //mappedby must correspond to existing equal key in other table
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
+    @Column(name="is_order_fulfilled", nullable=false)
+    private Integer isOrderFulfilled;
 
-    public int getIsOrderFulfilled() {
-        return isOrderFulfilled;
-    }
 
-    public void setIsOrderFulfilled(int isOrderFulfilled) {
-        this.isOrderFulfilled = isOrderFulfilled;
-    }
 
-    public List<OrderItem> getOrderItems() {
+    //SETTERS AND GETTERS 
+
+    public Set<OrderItem> getOrderItems() {
         return orderItems;
     }
 
-    public void setOrderItems(List<OrderItem> orderItems) {
+    public void setOrderItems(Set<OrderItem> orderItems) {
         this.orderItems = orderItems;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Integer getIsOrderFulfilled() {
+        return isOrderFulfilled;
+    }
+
+    public void setIsOrderFulfilled(Integer isOrderFulfilled) {
+        this.isOrderFulfilled = isOrderFulfilled;
+    }
+
 }
