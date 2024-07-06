@@ -60,39 +60,42 @@ const ProductAdd = () => {
     };
 
     const handleSave = () => {
+        const saveUrl = id ? `${urlProducts}/${id}` : urlProducts;
+    
         const payload = {
             id: id,
             name: name,
-            price: parseFloat(price), // Ensure price is parsed as a float
+            price: parseFloat(price),
             categoryId: categoryId
         };
-
+    
         const method = id ? 'PUT' : 'POST'; // Use PUT for update, POST for new product
-
-        fetch(urlProducts, {
+    
+        fetch(saveUrl, {
             method: method,
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(payload)
         })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Failed to save product');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Product saved successfully:', data);
-                alertSuccess();
-                setName("");
-                setPrice(0.00);
-            })
-            .catch(error => {
-                console.error('Error saving product:', error);
-                // Handle error or show appropriate message to the user
-            });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to save product');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Product saved successfully:', data);
+            alertSuccess();
+            setName("");
+            setPrice(0.00);
+        })
+        .catch(error => {
+            console.error('Error saving product:', error);
+            // Handle error or show appropriate message to the user
+        });
     };
+    
 
     const alertSuccess = () => {
         alert("Operation Successful!");
@@ -156,14 +159,14 @@ const ProductAdd = () => {
                 <div className="pt-4 d-flex gap-3">
                     <button
                         className="form-control btn btn-warning"
-                        onClick={() => { handleSave(); }}
+                        onClick={() => handleSave()}
                     >
                         Save Product
                     </button>
 
                     <button
                         className="form-control btn btn-danger"
-                        onClick={() => { navigate('/products'); }}
+                        onClick={() => navigate('/products')}
                     >
                         Cancel
                     </button>

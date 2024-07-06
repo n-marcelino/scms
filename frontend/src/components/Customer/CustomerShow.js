@@ -30,7 +30,7 @@ const CustomerShow = () => {
     };
 
     const handleDeleteCustomer = (id) => {
-        const deleteUrl = `http://localhost:8080/api/customers/${id}/delete`;
+        const deleteUrl = `http://localhost:8080/api/customers/${id}`;
 
         // Example using a more styled confirmation dialog
         if (window.confirm("Danger Zone! Do you wish to delete this entry?\r\n\r\nNote: Deletion may fail if the customer has an existing order record.")) {

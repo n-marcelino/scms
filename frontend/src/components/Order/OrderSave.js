@@ -48,7 +48,7 @@ const OrderSave = () => {
         const payload = {
             customerId: customerId,
             orderItems: orderItems,
-            isOrderFulfilled: isOrderFulfilled
+            isOrderFulfilled: isOrderFulfilled ? 1 : 0  // Convert boolean to integer
         };
 
         fetch(urlOrders, {
@@ -58,7 +58,12 @@ const OrderSave = () => {
             },
             body: JSON.stringify(payload)
         })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 console.log('Order saved successfully:', data);
                 alertSuccess();
@@ -191,7 +196,7 @@ const OrderSave = () => {
                             className="form-check-input"
                             type="radio"
                             id="checkTrue"
-                            value={true}
+                            value="true"
                             checked={isOrderFulfilled === true}
                             onChange={(event) => setIsOrderFulfilled(event.target.value === 'true')}
                         />
@@ -202,9 +207,9 @@ const OrderSave = () => {
                             className="form-check-input"
                             type="radio"
                             id="checkFalse"
-                            value={false}
+                            value="false"
                             checked={isOrderFulfilled === false}
-                            onChange={(event) => setIsOrderFulfilled(event.target.value === 'true')}
+                            onChange={(event) => setIsOrderFulfilled(event.target.value === 'false')}
                         />
                         <label className="form-check-label" htmlFor="checkFalse">False</label>
                     </div>

@@ -7,10 +7,13 @@ const ProductShow = () => {
     const navigate = useNavigate();
 
     const [products, setProducts] = useState([]);
+    const [categories, setCategories] = useState([]);
     const urlProducts = "http://localhost:8080/api/products";
+    const urlCategories = "http://localhost:8080/api/categories"; 
 
     useEffect(() => {
         loadProducts();
+        loadCategories(); 
     }, []);
 
     const loadProducts = () => {
@@ -26,7 +29,22 @@ const ProductShow = () => {
             })
             .catch(error => {
                 console.error('Error loading products:', error);
-                // Handle error or show appropriate message to the user
+            });
+    };
+
+    const loadCategories = () => {
+        fetch(urlCategories)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch categories');
+                }
+                return response.json();
+            })
+            .then(data => {
+                setCategories(data || []);
+            })
+            .catch(error => {
+                console.error('Error loading categories:', error);
             });
     };
 
@@ -53,6 +71,11 @@ const ProductShow = () => {
         }
     };
 
+    const getCategoryName = (categoryId) => {
+        const category = categories.find(c => c.id === categoryId);
+        return category ? category.name : 'Unknown Category';
+    };
+
     const renderProducts = () => {
         if (products.length > 0) {
             return (
@@ -63,7 +86,7 @@ const ProductShow = () => {
                                 <h2>{p.name}</h2>
                                 <h5><b>ID: </b>{p.id}</h5>
                                 <h5><b>PRICE: </b>{p.price}</h5>
-                                <h5><b>CATEGORY: </b>{p.category}</h5>
+                                <h5><b>CATEGORY: </b>{getCategoryName(p.categoryId)}</h5> {}
                             </div>
                             <div className="mt-auto d-flex gap-2">
                                 <button

@@ -16,25 +16,33 @@ const CustomerSave = () => {
 
     useEffect(() => {
         if (id) {
-            fetch(`${urlCustomers}/${id}`)
-                .then(response => response.json())
-                .then(data => {
-                    setFirstName(data.firstName);
-                    setLastName(data.lastName);
-                    setStreet(data.street);
-                    setCity(data.city);
-                    setZip(data.zip);
-                    setPhone(data.phone);
-                })
-                .catch(error => {
-                    console.error('Error fetching customer:', error);
-                });
+            loadCustomer(); 
         }
     }, [id]);
 
+    const loadCustomer = () => {
+        fetch(`${urlCustomers}/${id}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch customer');
+                }
+                return response.json();
+            })
+            .then(data => {
+                setFirstName(data.firstName);
+                setLastName(data.lastName);
+                setStreet(data.street);
+                setCity(data.city);
+                setZip(data.zip);
+                setPhone(data.phone);
+            })
+            .catch(error => {
+                console.error('Error fetching customer:', error);
+            });
+    };
+
     const handleSave = () => {
         const payload = {
-            id: id,
             firstName: firstName,
             lastName: lastName,
             street: street,
@@ -43,14 +51,22 @@ const CustomerSave = () => {
             phone: phone
         };
 
-        fetch(urlCustomers, {
-            method: id ? 'PUT' : 'POST',
+        const method = id ? 'PUT' : 'POST';
+        const saveUrl = id ? `${urlCustomers}/${id}` : urlCustomers;
+
+        fetch(saveUrl, {
+            method: method,
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(payload)
         })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 console.log("Customer saved:", data);
                 alertSuccess();
@@ -68,7 +84,7 @@ const CustomerSave = () => {
 
     const alertSuccess = () => {
         alert("Operation Successful!");
-        navigate('/customers/');
+        navigate('/customers');
     };
 
     const renderHeader = () => {
@@ -152,18 +168,14 @@ const CustomerSave = () => {
             <div className="pt-4 d-flex gap-3">
                 <button
                     className="form-control btn btn-warning"
-                    onClick={() => {
-                        handleSave();
-                    }}
+                    onClick={() => handleSave()}
                 >
                     Save Customer
                 </button>
 
                 <button
                     className="form-control btn btn-danger"
-                    onClick={() => {
-                        navigate('/customers/');
-                    }}
+                    onClick={() => navigate('/customers')}
                 >
                     Cancel
                 </button>

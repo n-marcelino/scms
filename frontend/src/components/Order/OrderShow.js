@@ -41,7 +41,7 @@ const OrderShow = () => {
                 return response.json();
             })
             .then(data => {
-                setCustomers(data  || []);
+                setCustomers(data || []);
             })
             .catch(error => {
                 console.error('Error loading customers:', error);
@@ -77,6 +77,23 @@ const OrderShow = () => {
         return o.isOrderFulfilled ? "✅" : "❌";
     };
 
+    const renderOrderItems = (order) => {
+        if (!order.orderItems || order.orderItems.length === 0) {
+            return <p>No items in this order</p>;
+        }
+
+        return (
+            <ul>
+                {order.orderItems.map((item, index) => (
+                    <li key={index}>
+                        Product: {item.productName} - Quantity: {item.quantity} - Price: PHP {item.price.toFixed(2)}
+                    </li>
+                ))}
+            </ul>
+        );
+    };
+
+
     const renderOrders = () => {
         if (orders.length > 0) {
             return (
@@ -89,11 +106,7 @@ const OrderShow = () => {
                                 <h5><b>Order Status:</b> {getOrderStatus(o)}</h5>
                                 <h5>
                                     <b>Products:</b>
-                                    <ul>
-                                        {o.products.map((op, index) => (
-                                            <li key={index}>{" (" + op.quantity + "x) " + op.product}</li>
-                                        ))}
-                                    </ul>
+                                    {renderOrderItems(o)}
                                 </h5>
                             </div>
                             <div className="mt-auto d-flex gap-2">
